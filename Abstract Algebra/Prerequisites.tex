@@ -1,0 +1,93 @@
+\section{Prerequisites and Preliminaries}
+In this section, we summarize some basic material which is considered to be familiar to the readers. For further topics on set theory or the Axiom of choice, please refer to notes on Real Analysis.
+\subsection{Sets and Classes}
+We follow the Gobel-Bernay's form of axiomatic set theory, in which the primitive notions are  \textbf{class,membership} and \textbf{equality}. Intuitively, we consider a class to be a collection $A$ of objects such that given an object $x$ it is possible to determine whether it is in $A$ or not. We write $x\in A$, if $x$ is an element of $A$. Otherwise, we write $x\notin A$.
+\begin{definition}
+A class $A$ is called a defined to be a \textbf{set} if and only if there exists a class $B$ such that $A\in B$.
+\end{definition}
+By Definition of sets we know that a set is a class. We call classes that are not sets a \textbf{proper class}. Intuitively the distinction between a set and a class is not too clear. Roughly speaking, a set is a "small" class and a proper class is "large". We will give an example of a proper class, but before that let's see the axiom below:
+\begin{axiom}
+For any statement $P(y)$ in first-order predicate calculus involving a variable $y$, there exists a class $A$ such that $x\in A$ if and only if $P(x)$ is true.
+\end{axiom}
+The axiom above is called \textbf{axiom of class formation}, in which we denote the class $A=\{x:P(x)\}$.\par
+Now we give an example of a proper class.
+\begin{example}\em
+The class that contains all sets is a proper class.
+\end{example}
+\begin{proof}
+We denote the class $M=\{X:X is a set and X\notin X\}$, to proof $M$ is a proper class, we suppose $M$ were a set, hence either $M\in M$ or $M\notin M$. However, by the definition of $M$, if $M\in M$, then $M\notin M$, but if $M\notin M$, then $M\in M$, hence $M\in M$ and $M\notin M$ holds together, which is a contradiction!
+\end{proof}
+Now we introduce some more axioms in set theory.
+\begin{axiom}
+Two class with the same elements are equal (written:$A=B$).
+\end{axiom}
+The axiom above is called \textbf{axiom of extensionality}. Additionally, we assume the relation $"="$ satisfies the following properties: for all $A,B,C:A=A,A=B \Leftrightarrow B=A,A=B,B=C\Rightarrow A=C$.\par
+We shall now review a number of familiar topics.
+\begin{definition}
+A class $A$ is called a \textbf{subclass} of $B$ (written $A\subset B$) if for all $x\in A,x\in A$ implies $x\in B$.
+\end{definition}
+By the axioms of extensionality and the properties of equality we have $A=f$ if and only if $A\subset B$ and $B\subset A$.
+\begin{proof}
+If $A=B$, then for all $x\in A$, by the properties of equality, we have $x\in B$ and vice versa. Hence we have $A\subset B$ and $B\subset A$. On the other hand, if $A\subset B$ and $B\subset A$, then for all $x\in A$, we have $x\in B$, and for all $y\in B$, we have $x\in A$. Hence by the axiom of extensionality we get $A=B$.
+\end{proof}
+\begin{definition}
+The \textbf{empty set} (denoted $\emptyset$) is a set with no elements in it.
+\end{definition}
+Since the proposition $x\in\emptyset$ is always false, the implication $x\in A\Rightarrow x\in B$ is always true for $A=\emptyset$, hence $\emptyset$ is the subclass of any class $B$. We say $A$ is a proper subclass of $B$, if $A\ne\emptyset$.
+\begin{axiom}
+For every set $A$ the class $P(A)$ of all subsets of $A$ is a set.
+\end{axiom}
+The axiom above is called the \textbf{power axiom}. $P(A)$(sometimes also denote as $2^A$) is called the \textbf{power set} of $A$.\par
+For a family of sets indexed by $I$, we define its \textbf{union} and \textbf{intersection} as follow:
+\begin{definition}
+Let $\{A_i:i\in I\}$ be a family of sets, then the \textbf{union} of $A_i$ equals to $\{x:x\in A_i\  \text{for some}\  i\in I\}$ while the \textbf{intersection} of $A_i$ is equals to $\{x:x\in A_i\  \text{for all}\  i\in I$\}.
+\end{definition}
+We denote the union of $A_i$ as $\bigcup_{i\in I}A_i$ while the intersection of $A_i$ as $\bigcap_{i\in I}A_i$. We can also define the \textbf{relatively complement} of $A$ in $B$ as $B-A=\{x:x\in B,x\notin A\}$. If all sets discussed are subsets of a fixed set $U$, then the relatively complement of $A$ in $U$ is simply called the complement of $A$ and denote as $A^c$. The reader should verify the following statements:
+$$
+A\cap \left( \bigcup_{i\in I}{B_i} \right) =\bigcup_{i\in I}{\left( A\cap B_i \right)},A\cup \left( \bigcap_{i\in I}{B_i} \right) =\bigcap_{i\in I}{\left( A\cup B_i \right)};
+$$
+and
+$$
+\left( \bigcup_{i\in I}{A_i} \right) ^c=\bigcap_{i\in I}{A_{i}^{C}},\left( \bigcap_{i\in I}{A_i} \right) ^c=\bigcup_{i\in I}{A_{i}^{C}}.
+$$
+\subsection{Relations and Partitions}
+We first give the definition of a relation.
+\begin{definition}
+A subclass $R$ of $A\times B$ is called a \textbf{relation} on $A\times B$.
+\end{definition}
+Here is an example of a relation.
+\begin{example}
+Let $A$ and $B$ be two sets, the graph of a function $f:A\to B$ is a relation on $A\times B$. Here $R=\{(a,f(a):a\in A\}$.
+\end{example}
+\begin{definition}
+A relation $R$ on $A\times A$ is called a \textbf{equivalence relation} if:\par
+(i)reflexive:$(a,a)\in R$ for all $a\in A$;\par
+(ii)symmetric:$(a,b)\in R\Rightarrow (b,a)\in R$;\par
+(iii)transitive:$(a,b)\in R,(b,c)\in R\Rightarrow(a,c)\in R$.
+\end{definition}
+If $(a,b)\in R$, we write $a\sim b$, and the collection of all b satisfies $a\sim b$ is the \textbf{equivalence class} of $A$, which is denoted as $\overline{a}$. The class of all equivalence classes in $A$ is called the \textbf{quotient class} of $A$ by $R$, which is denoted as $A/R$. It is easy to see that let $A$ be a set and $R$ be a equivalence relation on $A$, then
+$$A=\bigcup_{a\in A}\overline{a}=\bigcup_{\overline{a}\in A/R}\overline{a}.$$
+What's more, we have the following statement:
+\begin{proposition}
+$\overline{a}=\overline{b}$ if and only if $a\sim b$.    
+\end{proposition}
+\begin{proof}
+If $\overline{a}=\overline{b}$, then $a\in\overline{a}\Rightarrow a\in\overline{b}$, and hence $a\sim b$. Conversely, let $a\sim b$, then for all $c\in\overline{a}$, we have $c\sim a\Rightarrow c\sim b$ by $a\sim b$ and transitivity. This shows $c\in\overline{b}$ and hence $\overline{a}\subset\overline{b}$, by symmetric we have $\overline{a}=\overline{b}$.
+\end{proof}
+It is easy to verify that for all $a,b\in A$, either $\overline{a}\cap\overline{b}$ or $\overline{a}=\overline{b}$ holds. We skip the proof of this statement.
+\begin{definition}
+Let $A$ be a nonempty class and $\{A_i:i\in I\}$ be a family of subsets of $A$ satisfies:\par
+(i)$A_i\ne\emptyset$ for each $i\in I$;\par
+(ii)$\bigcup_{i\in I}A_i=A$ and $A_i\cap A_j=\emptyset$ for all $i\ne j$,\par
+then $\{A_i:i\in I\}$ is called a \textbf{partition} of $A$.
+\end{definition}
+We have the following theorem:
+\begin{theorem}
+If $A$ is a nonempty set, then the assignment $R\mapsto A/R$ defines a bijection from the set $E(A)$ of all equivalence relations on $A$ onto the set $Q(A)$ of all partitions of $A$.
+\end{theorem}
+\begin{proof}
+We proof the theorem with 3 steps:\par
+(i)An equivalence class is a partition of $A$. From our discussion we have $A=\bigcup_{\overline{a}\in A/R}\overline{a}$ and $\overline{a}\cap\overline{b}=\emptyset$. It is trivial that $\overline{a}\ne\emptyset$ since $a\in\overline{a}$. Hence for all relations $R$ we may define $f:R\to A/R$.\par
+(ii)For a partition $\{A_i:i\in I\}$ of $A$, we define a relation $\sim$: $a\sim b$ if and only if there exists $i\in I$ satisfies $a\in A_i$ and $b\in A_i$. It is easy to verify that $\sim$ is an equivalence relation. Hence we may define $g:Q(A)\to E(A)$ as $A/\sim\mapsto\sim$.\par
+(iii)$fg=1_{Q(A)}$. For any partitions, we have $fg(A/\sim)=f(\sim)=A/\sim$, similarly we can verify that $gf=1_{E(A)}$, which finished our proof.
+\end{proof}
