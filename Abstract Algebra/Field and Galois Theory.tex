@@ -1940,3 +1940,92 @@ Suppose $K$ is finite, then by the characterization of finite fields we have (ii
     \textbf{Exercises for 6.6}
 \end{large}
 \end{center}
+Unless stated otherwise $F$ is always an extension field of a field $K$.
+\begin{problem}\em
+Let $\mathrm{char}K=p\neq 0$ and let $n\geq 1$ be an integer such that $\gcd{(p, n)}=1$. If $v\in F$ and $nv\in K$, then $v\in K$.
+\end{problem}
+\begin{proof}
+Since $\gcd{(p,n)}=1$, by Bezout's theorem we know that there exists some $k,l\in\mathbb{Z}$ such that $kp+ln=1$. Therefore $kpv+lnv=lnv=v\in K$. This finished the proof.
+\end{proof}
+\begin{problem}\em
+If $u\in F$ is purely inseparable over $K$, then $u$ is purely inseparable over any intermediate field $E$. Hence if $F$ is purely inseparable over $K$, then $F$ is purely inseparable over $E$.
+\end{problem}
+\begin{proof}
+Let $u\in F$ purely inseparable over $K$, then the irreducible polynomial of $u$ in $K[x]$ is $f=(x-u)^m$ for some $m\ge 1$. Since $E\supset K$, we have $f\in E[x]$. Hence $u$ is purely inseparable over $E$.
+\end{proof}
+\begin{problem}\em
+If $F$ is purely inseparable over an intermediate field $E$ and $E$ is purely inseparable over $K$, then $F$ is purely inseparable over $K$.
+\end{problem}
+\begin{proof}
+Since $F/E$ and $E/K$ are both purely inseparable, we have $[F:E]_i=[F:E]$ and $[E:K]_i=[E:K]$. Therefore 
+$$
+\left[ F:K \right] _i=\left[ F:E \right] _i\left[ E:K \right] _i=\left[ F:E \right] \left[ E:K \right] =\left[ F:K \right] ,
+$$
+hence $F/K$ is purely inseparable.
+\end{proof}
+\begin{problem}\em
+If $u\in F$ is separable over $K$ and $v\in F$ is purely inseparable over $K$,
+then $K(u, v)=K(u+v)$. If $u\neq 0, v\neq 0$, then $K(u, v)=K(uv)$.
+\end{problem}
+\begin{proof}
+If $\mathrm{char}K=0$, then every algebraic element over $K$ is separable. Therefore the statement is trivial. Now we suppose $\mathrm{char}K=p\ne 0$.\par
+Since $v\in F$ is purely inseparable over $K$, we have $v^{p^m}\in K$ for some $m\in\mathbb{Z}_+$. Therefore $u^{p^m}=[(u+v)-v]^{p^m}\in K(u+v)$ and hence $u$ is purely inseparable over $K(u+v)$. However note that $u$ is separable over $K$, we have $u$ is also separable over $K(u+v)$. This implies $u\in K(u+v)$. Therefore $v=(u+v)-u\in K(u+v)$ and hence $K(u,v)\subset K(u+v)$. The converse inclusion is trivial.\par
+Now if $u\ne 0$ and $v\ne 0$, substitute the addition into multiplication and substitute subtraction with multiplication of an inverse element, we may proof that $K(u,v)=K(uv)$ in an analogous way. 
+\end{proof}
+\begin{problem}\em
+If $\mathrm{char}K=p\neq 0$ and $a\in K$ but $a\notin K^p$, then $x^{p^n}-a\in K[x]$ is irreducible for every $n>1$.
+\end{problem}
+\begin{proof}
+Let $f=x^{p^n}-a\in K[x]$. Suppose there exists some $u\in\overline{K}$ such that $f(u)=0$, then $u^{p^n}=a\in K$ and hence $u$ is purely inseparable over $K$. Therefore $f=(x-u)^{p^k}$ for some $k$. This implies the only possible factors of $f$ are of the form $(x-u)^m$. We may select a smallest $n\in\mathbb{Z}_+$ such that such $u\in\overline{K}$ exists. Then the only possible factor of $f$ is $x-u$, however $u=a^{p^k}\in K^p$ while $a\notin K^p$, a contradiction!
+\end{proof}
+\begin{problem}\em
+If $f\in K[x]$ is monic irreducible, $\deg{f}\geq 2$, and $f$ has all its roots equal (in a splitting field), then $\mathrm{char}K=p\neq 0$ and $f=x^{p^n}-a$ for some $n\geq 1$ and $a\in K$.
+\end{problem}
+\begin{proof}
+Suppose $f=(x-u)^m$ for some $m\ge 2$. If $\mathrm{char}K=0$, then $m$ is separable over $K$ and hence $m=1$, a contradiction! Therefore $\mathrm{char}K=p\ne 0$. Now $f$ is the irreducible polynomial of a purely inseparable element $u\in\overline{K}$, therefore $f=x^{p^n}-a$ for some $a\in K$.
+\end{proof}
+\begin{problem}\em
+Let $F, K, S, P$ be as in Theorem 6.65 and suppose $E$ is an intermediate field.\par
+Then
+(i) $F$ is purely inseparable over $E$ if and only if $S\subseteq E$.\par
+(ii) If $F$ is separable over $E$, then $P\subseteq E$.\par
+(iii) If $E\cap S=K$, then $E\subseteq P$.
+\end{problem}
+\begin{proof}
+(i) Suppose $F$ is purely inseparable over $E$. If there exists some $u\in F$ such that $u\in S-E$, then $u$ is separable over $E$, a contradiction! Conversely, suppose $S\subset E$, then since $F$ is purely inseparable over $S$, we have $F$ is purely inseparable over $E$.\par
+(ii) follows with an analogous discussion as (i) and we omit the details.\par
+(iii) PENDING
+\end{proof}
+\begin{problem}\em
+If $\mathrm{char}K=p\neq 0$ and $[F:K]$ is finite and not divisible by $p$, then $F$ is separable over $K$.
+\end{problem}
+\begin{problem}\em
+Let $\mathrm{char}K=p\neq 0$. Then an algebraic element $u\in F$ is separable over $K$ if and only if $K(u)=K(u^{p^n})$ for all $n\geq 1$.
+\end{problem}
+\begin{problem}\em
+Let $\mathrm{char}K=p\neq 0$ and let $f\in K[x]$ be irreducible of degree $n$.
+Let $m$ be the largest nonnegative integer such that $f$ is a polynomial in $x^{p^m}$ but is not a polynomial in $x^{p^{m+1}}$. Then $n=n_0 p^m$. If $u$ is a root of $f$, then $[K(u):K]_s=n_0$ and $[K(u):K]_i=p^m$.
+\end{problem}
+\begin{problem}\em
+If $f\in K[x]$ is irreducible of degree $m>0$, and $\mathrm{char}K$ does not divide $m$, then $f$ is separable.
+\end{problem}
+\begin{problem}\em
+$F$ is purely inseparable over $K$ if and only if $F$ is algebraic over $K$ and for any extension field $E$ of $F$, the only $K$-monomorphism $F\to E$ is the inclusion map.
+\end{problem}
+\begin{problem}\em
+The following conditions on a field $K$ are equivalent:\par
+(i) every irreducible polynomial in $K[x]$ is separable;\par
+(ii) every algebraic closure $\overline{K}$ of $K$ is Galois over $K$;\par
+(iii) every algebraic extension field of $K$ is separable over $K$;\par
+(iv) either $\mathrm{char}K=0$ or $\text{char }K=p$ and $K=K^p$.\par
+A field $K$ that satisfies (i)-(iv) is said to be perfect. Show that every finite field is perfect.
+\end{problem}
+\begin{problem}\em
+If $F=K(u, v)$ with $u, v$ algebraic over $K$ and $u$ separable over $K$, then $F$ is a simple extension of $K$.
+\end{problem}
+\begin{problem}\em
+Let $\text{char }K=p\neq 0$ and assume $F=K(u, v)$ where $u^p\in K, v^p\in K$ and $[F:K]=p^2$. Then $F$ is not a simple extension of $K$. Exhibit an infinite number of intermediate fields.
+\end{problem}
+\begin{problem}\em
+Let $F$ be an algebraic extension of $K$ such that every polynomial in $K[x]$ has a root in $F$. Then $F$ is an algebraic closure of $K$.
+\end{problem}
