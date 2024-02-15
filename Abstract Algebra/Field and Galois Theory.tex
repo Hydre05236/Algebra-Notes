@@ -1994,24 +1994,44 @@ Then
 \begin{proof}
 (i) Suppose $F$ is purely inseparable over $E$. If there exists some $u\in F$ such that $u\in S-E$, then $u$ is separable over $E$, a contradiction! Conversely, suppose $S\subset E$, then since $F$ is purely inseparable over $S$, we have $F$ is purely inseparable over $E$.\par
 (ii) follows with an analogous discussion as (i) and we omit the details.\par
-(iii) PENDING
+(iii) Suppose $u\in E$. Then the irreducible polynomial of $u$ is $g(x^{p^r})$ with $g$ irreducible and separable, $r>0$ since $\mathrm{char}K=p\ne 0$. Therefore $u^{p^r}$ is a root of $g$ and hence $u^{p^r}$ is separable over $K$. This implies $u$ is purely inseparable over $K$ and hence $u\in P$. Therefore $E\subset P$.
 \end{proof}
 \begin{problem}\em
 If $\mathrm{char}K=p\neq 0$ and $[F:K]$ is finite and not divisible by $p$, then $F$ is separable over $K$.
 \end{problem}
+\begin{proof}
+Suppose there exists some $u\in K$ such that $K(u)$ is inseparable over $K$, then the irreducible polynomial $f$ of $u$ in $K[x]$ satisfies $f(u)=f^\prime(u)=0$. Therefore $\gcd(f,f^\prime)\ne 1$. Now $\gcd(f,f^\prime)=f$ since $f$ is irreducible and hence $f^\prime\equiv 0$. Therefore $f\in K[x^p]$, which is reducible, a contradiction!
+\end{proof}
 \begin{problem}\em
 Let $\mathrm{char}K=p\neq 0$. Then an algebraic element $u\in F$ is separable over $K$ if and only if $K(u)=K(u^{p^n})$ for all $n\geq 1$.
 \end{problem}
+\begin{proof}
+Suppose $u\in F$ is separable over $K$. Then $K(u)$ is separable over $K$ and hence $K(u)=K[K(u)]^{p^n}=K(u^{p^n})$ for all $n\ge 1$. Conversely, suppose $K(u)=K(u^p)$, then $K(u)=K[K(u)]^p$. Since $u$ is algebraic over $K$, we have $[K(u):K]<\infty$ and hence $K(u)$ is a separable extension over $K$.
+\end{proof}
 \begin{problem}\em
 Let $\mathrm{char}K=p\neq 0$ and let $f\in K[x]$ be irreducible of degree $n$.
 Let $m$ be the largest nonnegative integer such that $f$ is a polynomial in $x^{p^m}$ but is not a polynomial in $x^{p^{m+1}}$. Then $n=n_0 p^m$. If $u$ is a root of $f$, then $[K(u):K]_s=n_0$ and $[K(u):K]_i=p^m$.
 \end{problem}
+\begin{proof}
+We may suppose $f$ is monic. Then suppose $u$ is a root of $f$, say $u_1=u$, we have 
+$$
+f=\left( \prod_{i=1}^{\left[ K\left( u \right) :K \right] _s}{\left( x-u_i \right)} \right) ^{\left[ K\left( u \right) :K \right] _i}.
+$$
+Therefore by a comparison of degree, we have $n_0=[K(u):K]_s$ and $p^m=[K(u):K]_i$, which finished the proof.
+\end{proof}
 \begin{problem}\em
 If $f\in K[x]$ is irreducible of degree $m>0$, and $\mathrm{char}K$ does not divide $m$, then $f$ is separable.
 \end{problem}
+\begin{proof}
+If $\mathrm{char}K=0$, then the condition is trivial. If $\mathrm{char}K=p\ne 0$, then $p\nmid m$, therefore $f^\prime\ne 0$ and hence $\gcd(f,f^\prime)=1$. This implies $f$ is irreducible.
+\end{proof}
 \begin{problem}\em
 $F$ is purely inseparable over $K$ if and only if $F$ is algebraic over $K$ and for any extension field $E$ of $F$, the only $K$-monomorphism $F\to E$ is the inclusion map.
 \end{problem}
+\begin{proof}
+Suppose $F$ is purely inseparable over $K$. Then trivially $F$ is algebraic over $K$, and the number of $K$-monomorphisms $\sigma:N\to E$ is $[E:K]_s=1$, where $N$ is the normal closure of $K$. Therefore there are only one $\tau:\sigma\mid_F$ is a $K$-monomorphism $F\to E$.\par
+Conversely, by our hypothesis there are only one $K$-monomorphism $\sigma:F\to E$, whence $[F:k]_s=1$ and hence $F$ is purely inseparable over $K$.
+\end{proof}
 \begin{problem}\em
 The following conditions on a field $K$ are equivalent:\par
 (i) every irreducible polynomial in $K[x]$ is separable;\par
@@ -2020,12 +2040,110 @@ The following conditions on a field $K$ are equivalent:\par
 (iv) either $\mathrm{char}K=0$ or $\text{char }K=p$ and $K=K^p$.\par
 A field $K$ that satisfies (i)-(iv) is said to be perfect. Show that every finite field is perfect.
 \end{problem}
+\begin{proof}
+We shall first show that every finite field is a perfect field. Note that if $K$ is a finite field, then $K=\bigoplus\mathbb{Z}_p$. Therefore 
+$$
+K^p=\left( \bigoplus{\mathbb{Z} _p} \right) ^p\cong \bigoplus{\mathbb{Z} _{p}^{p}}\cong \bigoplus{\mathbb{Z} _p}=K,
+$$
+which is (iv).\par
+Now we show that the first four statements are equivalent.\par
+(i)$\Rightarrow$(ii): Let $u\in\overline{K}$, then the irreducible polynomial $f$ of $u$ in $K[x]$ is separable. Hence $\overline{K}$ is a normal separable extension field of $K$, hence Galois over $K$.\par
+(ii)$\Rightarrow$(iii): Suppose $u$ is algebraic over $K$. Then $u\in\overline{K}$. Therefore the irreducible polynomial $f\in K[x]$ of $u$ is separable over $K$. Hence $K(u)$ is separable over $K$.\par
+(iii)$\Rightarrow$(iv): Suppose $\mathrm{char}K\ne 0$. Then $\mathrm{char}K=p\ne 0$. Consider $\sigma:u\mapsto u^p$, which is a $\mathbb{Z}_p$-monomorphism. We claim that it is an epimorphism. To see this, suppose $v\in K$ such that for all $u\in K$, we have $u^p\ne v$. Then we claim that $f=x^p-v$ is irreducible and inseparable. If $\alpha$ is a root of $f$, then $f=(x-\alpha)^p$ and hence purely inseparable. Note that $\alpha^p\notin K$, or otherwise $\alpha^p=u$, a contradiction! Therefore the only possible irreducible factor of $f$ is $(x-\alpha)^k$, however 
+$$
+\left( x-\alpha \right) ^k=\sum_{i=0}^k{C_{k}^{i}x^i\left( -\alpha \right) ^{k-i}}=x^k+k\alpha \cdot x^{k-1}+\cdots +\alpha ^k\in K\left[ x \right] ,
+$$
+whence $k\alpha\in K$. This implies $k=p$, hence $f$ is irreducible, a contradiction!\par
+(iv)$\Rightarrow$(i): If $\mathrm{char}K=0$, trivial. Hence we may suppose $\mathrm{char}K=p\ne 0$. Then $K=K^p$. Suppose we now have an irreducible polynomial $g\in K[x]$. If $g$ is inseparable, then $g^\prime\equiv 0$, hence $g\in K[x^p]$. However 
+$$
+g=\sum_{i=1}^n{a_k\left( x^p \right) ^k}=\sum_{i=1}^n{a_k\left( x^k \right) ^p}=\sum_{i=1}^n{\left( b_kx^k \right) ^p}=\left( \sum_{i=1}^n{b_kx^k} \right) ^p,
+$$
+which contradict to the fact that $g$ is irreducible.
+\end{proof}
 \begin{problem}\em
 If $F=K(u, v)$ with $u, v$ algebraic over $K$ and $u$ separable over $K$, then $F$ is a simple extension of $K$.
 \end{problem}
-\begin{problem}\em
-Let $\text{char }K=p\neq 0$ and assume $F=K(u, v)$ where $u^p\in K, v^p\in K$ and $[F:K]=p^2$. Then $F$ is not a simple extension of $K$. Exhibit an infinite number of intermediate fields.
-\end{problem}
-\begin{problem}\em
-Let $F$ be an algebraic extension of $K$ such that every polynomial in $K[x]$ has a root in $F$. Then $F$ is an algebraic closure of $K$.
-\end{problem}
+\begin{proof}
+If $K$ is a finite field, then the statement is trivial. Now we shall suppose $K$ is an infinite field. Let $w=u+\lambda v$ for some $\lambda\in K$. We claim that for all but a finite number of $\lambda\in K$, we have $K(u,v)=K(w)$. To see this, it suffices to show that $u\in K(w)$ and $v\in K(w)$. In order to prove $v\in K(w)$, it suffices to show that the irreducible polynomial of $v$ in $K(w)$ is of degree one. Now suppose $f$ and $g$ are the irreducible polynomials of $u$ and $v$. Then $f(u)=f(w-\lambda v)=0$. Hence $v$ is a root of the polynomial $h(x)=f(w-\lambda x)\in K(w)[x]$. Therefore the irreducible polynomial of $v$ in $K(w)$ must divide both $g$ and $h$. We suppose now $\gcd(g,h)$ is a polynomial of order $\ge 2$. Take $L$ be a splitting field of $g$ and $h$ over $K$. Then there exists some $v^\prime\in L$ such that $f(w-\lambda v^\prime)=0$. Since $v$ is separable, we may suppose $v^\prime\ne v$. Therefore we have $u^\prime=w-\lambda v^\prime$ is also a root of $f$. Substitute $w=u+\lambda v$, we obtain $\lambda=(v^\prime-v)/(u-u^\prime)\in L$. Note that there are only finitely many such $\lambda$, therefore for all but a finite number of elements in $K$ we have the irreducible polynomial of $v$ in $K(w)$ is of degree one, hence $v\in K(w)$ for such $w=u+\lambda v$. Therefore $u=w-\lambda v\in K(w)$ and hence $K(w)=K(u,v)$ is a simple extension of $K$.
+\end{proof}
+\subsection{Cyclic Extensions}
+The basic idea of the following sections is to analyze Galois field extensions whose Galois group has a prescribed structure. In this section we shall characterize most finite dimensional Galois extensions with cyclic Galois groups. In order to do this we shall first need to introduce some concepts.
+\begin{definition}
+Let $F$ be a finite dimensional extension field of $K$ and $\overline{K}$ an algebraic closure of $K$ containing $F$. Let $\sigma_1,\cdots,\sigma_r$ be all the distinct $K$-monomorphisms $F\to\overline{K}$. If $u\in F$, the \textbf{norm} of $u$, denoted $N_K^F(u)$, is defined to be 
+$$
+N_{K}^{F}\left( u \right) =\left( \sigma _1\left( u \right) \sigma _2\left( u \right) \cdots \sigma _r\left( u \right) \right) ^{\left[ F:K \right] _i}=\left( \prod_{i=1}^r{\sigma _i\left( u \right)} \right) ^{\left[ F:K \right] _i}.
+$$
+We define the \textbf{trace} of $u$, denoted $T_K^F(u)$, to be the element 
+$$
+T_{K}^{F}\left( u \right) =\left[ F:K \right] _i\left( \sigma _1\left( u \right) +\sigma _2\left( u \right) +\cdots +\sigma _r\left( u \right) \right) =\left[ F:K \right] _i\cdot \sum_{i=1}^r{\sigma _i\left( u \right)}.
+$$
+\end{definition}
+Note that the trace is essentially the additive analogue of the norm. In many instances this means a proof involving the one will translate into a proof of the analogous fact for another. We shall write $N_K^F(u)=N(u)$ when no confusion will be made.
+\begin{example}\em
+Consider $F=\mathbb{C}$ and $K=\mathbb{R}$. Then the only $\mathbb{R}$-monomorphisms $\mathbb{C}\to\mathbb{C}$ are the identity and the complex conjugation. Consequently $N(a+b\mathrm{i})=a^2+b^2$ and $T(a+b\mathrm{i})=2a$.
+\end{example}
+The principal applications to be given here of the norm and trace occur when $F$ is Galois over $K$. In this case the Galois group is finite and there is a more convenient description of the norm and trace, which is sometimes taken as a definition.
+\begin{theorem}
+If $F$ is a finite dimensional Galois extension of $K$, then for any $u\in F$ we have 
+$$
+N_{K}^{F}\left( u \right) =\prod_{\sigma \in \mathrm{Gal}\left( F/K \right)}{\sigma \left( u \right)},\hspace{0.5cm}T_{K}^{F}\left( u \right) =\sum_{\sigma \in \mathrm{Gal}\left( F/K \right)}{\sigma \left( u \right)}.
+$$
+\end{theorem}
+\begin{proof}
+Let $\overline{K}$ be an algebraic closure of $K$. Then since $F$ is Galois over $K$, we have $F$ normal over $K$. Hence the $K$-monomorphisms $F\to\overline{K}$ are precisely the elements in $\mathrm{Gal}(F/K)$. Since $F$ is separable over $K$, we have $[F:K]_i=1$ and hence the proof is finished by definitions of norm and trace.
+\end{proof}
+Suppose $F$ is Galois over $K$ and $\mathrm{Gal}(F/K)=\{\sigma_1,\cdots,\sigma_n\}$. Then since $\mathrm{Gal}(F/K)$ is a group, the elements $\sigma_i\sigma_1,\sigma_i\sigma_2,\cdots,\sigma_i\sigma_n$ are simply a rearrangement of elements in $\mathrm{Gal}(F/K)$ for all $\sigma_i\in\mathrm{Gal}(F/K)$. Therefore $N_K^F(u)\in K$ and $T_K^F(u)\in K$. The following theorem asserts that this is also true even when $F/K$ is not Galois.
+\begin{theorem}
+Let $F$ be a finite dimensional extension field of $K$, then for all $u,v\in F$ we have \par
+(i) $N_K^F(u)N_K^F(v)=N_K^F(uv)$ and $T_K^F(u)+T_K^F(v)=T_K^F(u+v)$;\par
+(ii) If $u\in K$, then $N_K^F(u)=u^{[F:K]}$ and $T_K^F(u)=[F:K]u$;\par
+(iii) $N_K^F(u)$ and $T_K^F(u)$ are elements of $K$. More precisely we have 
+$$
+N_{K}^{F}\left( u \right) =\left[ \left( -1 \right) ^na_0 \right] ^{\left[ F:K\left( u \right) \right]}\in K,\hspace{0.5cm}T_{K}^{F}\left( u \right) =-\left[ F:K\left( u \right) \right] a_{n-1}\in K,
+$$
+where $f=x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0\in K[x]$ is the irreducible polynomial of $u\in F$.\par
+(iv) If $E$ is an intermediate field, then 
+$$
+N_{K}^{E}\left( N_{E}^{F}\left( u \right) \right) =N_{K}^{F}\left( u \right) ,\hspace{0.5cm}T_{K}^{E}\left( u \right) +T_{E}^{F}\left( u \right) =T_{K}^{F}\left( u \right) .
+$$
+\end{theorem}
+\begin{proof}
+(i) For the norm, we observe that 
+$$
+\begin{aligned}
+N_{K}^{F}\left( u \right) N_{K}^{F}\left( v \right) &=\left( \prod_{i=1}^n{\sigma _i\left( u \right)} \right) ^{\left[ F:K \right] _i}\cdot \left( \prod_{i=1}^n{\sigma _i\left( v \right)} \right) ^{\left[ F:K \right] _i}
+\\
+&=\left( \prod_{i=1}^n{\sigma _i\left( u \right) \sigma _i\left( v \right)} \right) ^{\left[ F:K \right] _i}=\left( \prod_{i=1}^n{\sigma _i\left( uv \right)} \right) ^{\left[ F:K \right] _i}=N_{K}^{F}\left( uv \right) .
+\end{aligned}
+$$
+Now for trace, we observe that 
+$$
+\begin{aligned}
+T_{K}^{F}\left( u \right) +T_{K}^{F}\left( v \right) &=\left[ F:K \right] _i\left( \sum_{i=1}^n{\sigma _i\left( u \right)} \right) +\left[ F:K \right] _i\left( \sum_{i=1}^n{\sigma _i\left( v \right)} \right) 
+\\
+&=\left[ F:K \right] _i\left( \sum_{i=1}^n{\left( \sigma _i\left( u \right) +\sigma _i\left( v \right) \right)} \right) =\left[ F:K \right] _i\left( \sum_{i=1}^n{\sigma _i\left( u+v \right)} \right) =T_{K}^{F}\left( u+v \right) .
+\end{aligned}
+$$\par
+(ii) If $u\in K$, then $u$ is fixed by all $\sigma_i$'s, and hence 
+$$
+N_{K}^{F}\left( u \right) =\left( \prod_{i=1}^n{\sigma _i\left( u \right)} \right) ^{\left[ F:K \right] _i}=u^{\left[ F:K \right] _s\left[ F:K \right] _i}=u^{\left[ F:K \right]}
+$$
+and 
+$$
+T_{K}^{F}\left( u \right) =\left[ F:K \right] _i\cdot \sum_{i=1}^n{\sigma _i\left( u \right)}=\left[ F:K \right] _i\left[ F:K \right] _s\cdot u=\left[ F:K \right] u.
+$$\par
+(iii) Let $E=K(u)$. An algebraic closure which contains $F$ is also an algebraic closure of $E$. Recall that the distinct $K$-monomorphisms $F\to\overline{K}$ is characterized in the form of $\sigma_k\tau_j$, where $1\le k\le t$ and $1\le j\le r$, $t=[E:K]_s$. Now we have 
+$$
+N_{K}^{F}\left( u \right) =N_{K}^{E}\left( N_{E}^{F}\left( u \right) \right) =N_{K}^{E}\left( u^{\left[ F:E \right]} \right) =\left( \prod_{k=1}^t{\sigma _k\left( u \right)} \right) ^{\left[ F:E \right] \left[ E:K \right] _i}
+$$
+and 
+$$
+T_{K}^{F}\left( u \right) =T_{K}^{E}\left( T_{E}^{F}\left( u \right) \right) =T_{K}^{E}\left( \left[ F:E \right] u \right) =\left[ F:E \right] \left[ E:K \right] _i\cdot \sum_{k=1}^t{\sigma _k\left( u \right)},
+$$
+where the result of (iv) is used here. Since $\sigma_i:K(u)\to K(\sigma_i(u))$ is an isomorphism, $\sigma_1(u)$, $\cdots$, $\sigma_t(u)$ are the distinct roots of $f$. Therefore 
+$$
+f=\left( \prod_{k=1}^t{\left( x-\sigma _i\left( u \right) \right)} \right) ^{\left[ E:K \right] _i}=\left[ x^t-\left( \sum_{k=1}^t{\sigma _k\left( u \right)} \right) x^{t-1}+\cdots +\left( \left( -1 \right) ^t\prod_{k=1}^t{\sigma _k\left( u \right)} \right) \right] ^{\left[ E:K \right] _i},
+$$
+now if $[E:K]_i=1$, the condition is trivial. If $[E:K]_i>1$, then $[E:K]_i$ is a positive power of $p=\mathrm{char}K$, and then the conclusion follows from a simple calculation.\par
+(iv) We adopt the notations in (iii), with $E$ any intermediate field. Then by an analogous argument toward Corollary 6.70 we finished the proof.
+\end{proof}
