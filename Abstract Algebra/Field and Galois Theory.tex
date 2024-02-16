@@ -2147,3 +2147,59 @@ $$
 now if $[E:K]_i=1$, the condition is trivial. If $[E:K]_i>1$, then $[E:K]_i$ is a positive power of $p=\mathrm{char}K$, and then the conclusion follows from a simple calculation.\par
 (iv) We adopt the notations in (iii), with $E$ any intermediate field. Then by an analogous argument toward Corollary 6.70 we finished the proof.
 \end{proof}
+In addition to the norm we shall also need the following definition.
+\begin{definition}
+Let $S$ be a nonempty set of automorphisms of a field $F$. $S$ is \textbf{linearly independent} provided that for any $a_1,\cdots,a_n\in F$ and $\sigma_1,\cdots,\sigma_n\in S$, $\sum a_i\sigma_i(u)=0$ for all $u\in F$ implies $a_i=0$ for every $i$.
+\end{definition}
+We have the following lemma: 
+\begin{lemma}\em
+If $S$ is a set of distinct automorphisms of a field $F$, then $S$ is linearly independent.
+\end{lemma}
+\begin{proof}
+If $S$ is not linearly independent, then there exist nonzero $a_i\in F$ and distinct $\sigma_i\in S$ such that for all $u\in F$, we have 
+$$
+a_1\sigma _1\left( u \right) +a_2\sigma _2\left( u \right) +\cdots +a_n\sigma _n\left( u \right) =0.
+$$
+Among all such relations we may choose a minimal $n$. Trivially $n>1$. Now since $\sigma_1$ and $\sigma_2$ are distinct, we may choose $v\in F$ such that $\sigma_1(v)\ne\sigma_2(v)$, and hence 
+$$
+\sum_{i=2}^n{a_i\left[ \sigma _i\left( v \right) -\sigma _1\left( v \right) \right]}=\sum_{i=1}^n{a_i\sigma _i\left( u \right) \sigma _i\left( v \right)}-\sum_{i=1}^n{a_i\sigma _i\left( u \right) \sigma _1\left( v \right)}=\sum_{i=1}^n{a_i\sigma _i\left( uv \right)}-\sigma \left( v \right) \sum_{i=1}^n{a_i\sigma _i\left( u \right)}=0.
+$$
+However this contradict to the minimality of $n$.
+\end{proof}
+An extension field $F$ of a field $K$ is said to be \textbf{cyclic} if $F$ is algebraic and Galois over $K$, and the Galois group $\mathrm{Gal}(F/K)$ is cyclic. If $|\mathrm{Gal}(F/K)|=n<\infty$, then $F$ is said to be a \textbf{cyclic extension of degree $n$} and $[F:K]=n$ by properties of Galois extension. The following theorem (often called \textbf{Hilbert 90} or \textbf{Satz 90}) is the crucial link between cyclic extensions and the norm and trace.
+\begin{theorem}
+Let $F$ be a cyclic extension field of $K$ of degree $n$, $\sigma$ a generator of $\mathrm{Gal}(F/K)$ and $u\in F$. Then \par
+(i) $T(u)=0$ if and only if $u=v-\sigma(v)$ for some $v\in F$;\par
+(ii) $N(u)=0$ if and only if $u=v\sigma(v)^{-1}$ for some nonzero $v\in F$.
+\end{theorem}
+\begin{proof}
+For convenience we shall sometimes denote $\sigma(u)=\sigma u$. Since $\sigma$ generated whole $\mathrm{Gal}(F/K)$, we have $\sigma^n=1_F$ and $\sigma,\sigma^2,\cdots,\sigma^{n-1}$ distinct automorphisms of $F$. Therefore we have $T(u)=\sum_{i=0}^{n-1}\sigma(u)$ and $N(u)=\prod_{i=0}^{n-1}\sigma(u)$.\par
+(i) If $u=v-\sigma v$, then 
+$$
+T\left( v-\sigma v \right) =T\left( v \right) -T\left( \sigma v \right) =\sum_{i=0}^{n-1}{\sigma v}-\sum_{i=1}^n{\sigma v}=0.
+$$
+Conversely, we assume $T(u)=0$. We shall first choose $w\in F$ such that $T(w)=1_K$ as follows. By Lemma 6.19 there exists some $z\in F$ such that $0\ne\sum_{i=0}^{n-1}\sigma^iz=T(z)$. Since $T(z)\in K$, we have $\sigma[T(z)^{-1}z]=T(z)^{-1}\sigma(z)$. Therefore if we take $w=T(z)^{-1}z$, we have 
+$$
+T\left( w \right) =T\left( T\left( z \right) ^{-1}z \right) =\sum_{i=0}^{n-1}{\sigma ^i\left( T\left( z \right) ^{-1}z \right)}=T\left( z \right) ^{-1}\sum_{i=0}^{n-1}{\sigma ^iz}=T\left( z \right) ^{-1}T\left( z \right) =1_K.
+$$
+Now define $v=\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^ju}\sigma ^iw}$, we therefore have 
+$$
+\begin{aligned}
+v-\sigma v&=\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^ju}\sigma ^iw}-\sigma \left( \sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^ju}\sigma ^iw} \right) 
+\\
+&=\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^ju}\sigma ^iw}-\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^{j+1}u}\sigma ^{i+1}w}
+\\
+&=u\sum_{i=0}^{n-1}{\sigma ^iw}=uT\left( w \right) =u,
+\end{aligned}
+$$
+which finished the proof.\par
+(ii) If $u=v\sigma(v)^{-1}$, then 
+$$
+N\left( u \right) =\prod_{i=0}^{n-1}{\sigma ^i\left( v\sigma \left( v \right) ^{-1} \right)}=\prod_{i=0}^{n-1}{\sigma ^i\left( v \right) \sigma ^{i+1}\left( v \right) ^{-1}}=v\sigma ^n\left( v \right) ^{-1}=1_K.
+$$
+Conversely suppose $N(u)=1_K$, we have $u\ne 0$. By Lemma 6.19 there exists some $y\in F$ such that the element $v=\sum_{i=0}^{n-1}{\prod_{j=0}^i{\sigma ^ju}\sigma ^iy}$ is nonzero. Therefore 
+$$
+u^{-1}v=u^{-1}\sum_{i=0}^{n-1}{\prod_{j=0}^i{\sigma ^ju}\sigma ^iy}=y+\sum_{i=1}^{n-1}{\prod_{j=1}^i{\sigma ^ju\sigma ^iy}}=\sum_{i=1}^n{\prod_{j=1}^n{\sigma ^ju\sigma ^iy}}=\sigma \left( \sum_{i=0}^{n-1}{\prod_{j=0}^i{\sigma ^ju}\sigma ^iy} \right) =\sigma \left( v \right) ,
+$$
+hence $u=v\sigma(v)^{-1}$ and the proof is finished.
+\end{proof}
