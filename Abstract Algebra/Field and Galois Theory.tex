@@ -2187,9 +2187,7 @@ $$
 \begin{aligned}
 v-\sigma v&=\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^ju}\sigma ^iw}-\sigma \left( \sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^ju}\sigma ^iw} \right) 
 \\
-&=\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^ju}\sigma ^iw}-\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^{j+1}u}\sigma ^{i+1}w}
-\\
-&=u\sum_{i=0}^{n-1}{\sigma ^iw}=uT\left( w \right) =u,
+&=\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^ju}\sigma ^iw}-\sum_{i=0}^{n-2}{\sum_{j=0}^i{\sigma ^{j+1}u}\sigma ^{i+1}w}=u\sum_{i=0}^{n-1}{\sigma ^iw}=uT\left( w \right) =u,
 \end{aligned}
 $$
 which finished the proof.\par
@@ -2203,3 +2201,58 @@ u^{-1}v=u^{-1}\sum_{i=0}^{n-1}{\prod_{j=0}^i{\sigma ^ju}\sigma ^iy}=y+\sum_{i=1}
 $$
 hence $u=v\sigma(v)^{-1}$ and the proof is finished.
 \end{proof}
+We now have in hand all the necessary equipment for an analysis of cyclic extensions. We begin by reducing the problem to simpler form.
+\begin{proposition}
+Let $F$ be a cyclic extension field of $K$ of degree $n$ and suppose $n=mp^t$ where $0\ne p=\mathrm{char}K$ and $(m,p)=1$. Then there exists a chain of intermediate fields 
+$$
+F\supset E_0\supset E_1\supset \cdots \supset E_{t-1}\supset E_t=K
+$$
+such that $F$ is a cyclic extension of $E_0$ of degree $m$ and $E_i$ is a cyclic extension of $E_{i-1}$ of degree $p$ for all $0\le i\le t$.
+\end{proposition}
+\begin{proof}
+Since $\mathrm{Gal}(F/K)$ is cyclic, every subgroup of $\mathrm{Gal}(F/K)$ is cyclic and normal, hence by the Fundamental theorem we know that for every intermediate field $E$ of $F/K$, $F$ is cyclic over $E$ and $E$ is cyclic over $K$. Now since $m\mid|\mathrm{Gal}(F/K)|$, there exists a unique subgroup $H$ of $\mathrm{Gal}(F/K)$ of order $m$. Let $E_0$ be the fixed field of $H$, then $F$ is cyclic over $E_0$ of degree $m$ and $E_0$ is cyclic over $K$ of degree $p^t$. Choose subgroups of $\mathrm{Gal}(F/K)$ of order $p^i$ inductively to obtain a chain of subgroups 
+$$
+1=G_0<G_1<G_2<\cdots <G_{t-1}<G_t=\mathrm{Gal}\left( F/E_0 \right) ,
+$$
+where $|G_i|=p^i$, $[G_i:G_{i-1}]=p$ and $G_i/G_{i-1}$ cyclic of order $p$. For each $G_i$ corresponds a fixed field $E_i$ satisfies 
+$$
+E_0\supset E_1\supset \cdots \supset E_{t-1}\supset E_t=K
+$$
+and $[E_i:E_{i-1}]=[G_i:G_{i-1}]=p$, $\mathrm{Gal}(E_i/E_{i-1})\cong G_i/G_{i-1}$. This finished the proof.
+\end{proof}
+By the result of Proposition 6.78 we may, in principle, restrict our attention on two cases: $n=\mathrm{char}K=p\ne 0$ and $\mathrm{char}K=0$ or $\mathrm{char}K=p$ which satisfies $(p,n)=1$. The first case is treated as follows: 
+\begin{proposition}
+Let $K$ be a field of characteristic $p\ne 0$. $F$ is a cyclic extension field of $K$ of degree $p$ if and only if $F$ is the splitting field over $K$ of the irreducible polynomial $x^p-x-a\in K[x]$. In this case $F=K(u)$ with $u$ a root of the polynomial $x^p-x-a$.
+\end{proposition}
+\begin{proof}
+Suppose first $F$ is a cyclic extension field of $K$ of degree $p$. Let $\sigma$ be the generating element of $\mathrm{Gal}(F/K)$. Then note that 
+$$
+T_{K}^{F}\left( 1_K \right) =\left[ F:K \right] \cdot 1_K=p\cdot 1_K=0,
+$$
+by Hilbert 90 there exists some $v\in F$ such that $1_K=v-\sigma(v)$. If $u=-v$, then $\sigma(u)=u+1_K\ne u$, therefore $u\notin K$. Since $[F:K]=p$ there are no intermediate fields, hence the only possible case is $F=K(u)$. Note that 
+$$
+\sigma \left( u^p-u \right) =\sigma \left( u^p \right) -\sigma \left( u \right) =\left( u+1_K \right) ^p-\left( u+1_K \right) =u^p-u,
+$$
+we therefore conclude that $u^p-u\in K$. Suppose $u^p-u=a$, therefore $u$ is a root of the polynomial $x^p-x-a\in K[x]$. Recall that the prime subfield of $K$ is $\mathbb{Z}_p$, therefore since $u$ is a root of $x^p-x-a$, for any $i\in\mathbb{Z}_p$ we have 
+$$
+\left( u+i \right) ^p-\left( u+i \right) -a=u^p+i^p-u-i-a=u^p-u-a=0,
+$$
+whence $u+i$ is also a root of $x^p-x-a$. There are $p$ distinct $u+i$'s in $F$, hence $F$ is a splitting field of $x^p-x-a$, which finished the proof.\par
+Conversely, suppose $F$ is a splitting field of $x^p-x-a$ and $x^p-x-a$ irreducible in $K[x]$. If $u$ is a root of $x^p-x-a$, then the preceding paragraph shows that $u+i$ also a root of $x^p-x-a$, where $i\in\mathbb{Z}_p$ and hence $K(u)$ is a spitting field of $x^p-x-a$. Since $x^p-x-a$ is of degree $p$, hence $F=K(u)$, $F$ is separable over $K$ and hence $F$ Galois over $K$. Suppose $\tau\in\mathrm{Gal}(F/K)$, then $\tau$ is completely determined by $\tau(u)$. The only possible choices are $\tau(u)=u+i$, where $i\in\mathbb{Z}_p$. Therefore it defines a homomorphism $\phi:\mathrm{Gal}(F/K)\to\mathbb{Z}_p$ given by $\tau\mapsto i$ if $\tau(u)=u+i$. Trivially $\mathrm{Ker}\phi=0$ and hence $\mathrm{Gal}(F/K)\cong\mathrm{Im}\phi$ is either $1$ or $\mathbb{Z}_p$. If $\mathrm{Gal}(F/K)=1$, then $F=K$ and hence $x^p-x-a$ is reducible over $K$, a contradiction! Therefore $\mathrm{Gal}(F/K)\cong\mathbb{Z}_p$ is cyclic.
+\end{proof}
+\begin{corollary}
+If $K$ is a field of characteristic $p\ne 0$ and $x^p-x-a\in K[x]$, then $x^p-x-a$ is either irreducible or splits in $K[x]$.
+\end{corollary}
+\begin{proof}
+Let $F$ be the splitting field of $x^p-x-a$ over $K$. Then by the proof of Proposition 6.79, we have either $\mathrm{Gal}(F/K)=1$ or $\mathrm{Gal}(F/K)=\mathbb{Z}_p$, which corresponds to the condition of $x^p-x-a$ being splits in $K$ and irreducible.
+\end{proof}
+Proposition 6.79 completely characterized the structure of a cyclic extension field of the first type. In order to determine the structure of a cyclic extension of degree $n$ we shall need to introduce an additional assumption on the ground field $K$.\par
+Let $K$ be a field and $n$ a positive integer. An element $\zeta\in K$ is said to be an \textbf{$n$-th root of unity} provided $\zeta^n=1_K$. It is easy to see that the set of all $n$-th roots of unity in $K$ forms a multiplicative subgroup of the multiplicative group of nonzero elements in $K$. This subgroup is trivially cyclic and has order at most $n$. An element $\zeta\in K$ is said to be a \textbf{primitive $n$-th root of unity} provided $\zeta$ is an $n$-th root of unity and $\zeta$ has order $n$ in the multiplicative group of $n$-th roots of unity. In particular, a primitive $n$-th root of unity generates the cyclic group of all $n$-th roots of unity.
+\begin{example}\em
+$1_K$ is an $n$-th root of unity in the field $K$ for all $n\ge 1$. If $\mathrm{char}K=p\ne 0$ and $n=p^k$, then $1_K$ is the only $n$-th root of unity in $K$. The subfield $\mathbb{Q}(\mathrm{i})$ of $\mathbb{C}$ contains both primitive forth roots of unity but no cubic roots of unity except $1$. For each $n>0$, $e^{2\pi\mathrm{i}/n}\in\mathbb{C}$ is a primitive $n$-th root of unity.
+\begin{figure}[htbp]
+    \center
+    \includegraphics[scale=0.19]{Images/1200px-One5Root.svg.png}
+    \caption{Fifth roots of unity}
+\end{figure}
+\end{example}

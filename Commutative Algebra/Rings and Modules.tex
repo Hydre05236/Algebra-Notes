@@ -1116,6 +1116,69 @@ hence $\mathrm{Ker}\psi\subset\mathrm{Im}\phi$ and the proof is finished.
 \end{proof}
 \begin{center}
 \begin{large}
+    \textbf{Direct Limits and Tensor Products}
+\end{large}
+\end{center}
+\begin{problem}\em
+Let $N$ be any $A$-module, keep the notation as the preceding exercises. Then $(M_i\otimes N,\mu_{ij}\otimes 1)$ is a direct system. Show that 
+$$
+\underrightarrow{\lim }\left( M_i\otimes N \right) \cong \left( \underrightarrow{\lim }M_i \right) \otimes N.
+$$
+\end{problem}
+\begin{proof}
+We first note that by the universal property of direct limits we may define a homomorphism $\psi$ as follows: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da49825932584931976] 
+\draw    (216,160) -- (216,246) ;
+\draw [shift={(216,248)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da2816905189828558] 
+\draw    (243,152) -- (345,152) ;
+\draw [shift={(347,152)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da10882821782446284] 
+\draw    (224,248) -- (366.27,165.01) ;
+\draw [shift={(368,164)}, rotate = 149.74] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (189,143.4) node [anchor=north west][inner sep=0.75pt]    {$M_{i} \otimes N$};
+% Text Node
+\draw (174,254.4) node [anchor=north west][inner sep=0.75pt]    {$\varinjlim ( M\otimes N)$};
+% Text Node
+\draw (348,144.4) node [anchor=north west][inner sep=0.75pt]    {$(\varinjlim M) \otimes N$};
+% Text Node
+\draw (265,132.4) node [anchor=north west][inner sep=0.75pt]    {$\mu _{i} \otimes 1_{N}$};
+% Text Node
+\draw (305,206.4) node [anchor=north west][inner sep=0.75pt]    {$\psi $};
+% Text Node
+\draw (161,194.4) node [anchor=north west][inner sep=0.75pt]    {$\mu \otimes 1_{N}$};
+
+
+\end{tikzpicture}
+\end{center}
+We now show $\psi$ is an isomorphism. To see this, we prove that there exists some $\phi$ such that $\psi\circ\phi$ and $\phi\circ\psi$ are both identities. To see this, define $g_i:M_i\times N\to M_i\otimes N$ be the canonical injection. Then by Exercise 7.23 there exists some $g=\varinjlim g_i:\left(\varinjlim M_i\right)\times N\to\varinjlim(M_i\otimes N)$. By the universal property and the fact that $g$ is a bilinear $A$-mapping, we obtain a homomorphism $\phi:\left(\varinjlim M_i\right)\otimes N\to\varinjlim(M_i\otimes N)$. Then it follows by definition that $\psi\circ\phi$ and $\phi\circ\psi$ are both identities, which finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $\{A_i\}_{i\in I}$ be a family of rings indexed by a direct set $I$, and for each pair $i\le j$ in $I$ let $\alpha_{ij}:A_i\to A_j$ be a ring homomorphism, satisfying conditions (i) and (ii) as in the preceding of Exercise 7.19. Regarding each $A_i$ as a $\mathbb{Z}$-module we can obtain the direct limit $\varinjlim A_i$. Show that $A$ inherits a ring structure from the $A_i$ so that the mappings $\alpha_i:A_i\to A$ are ring homomorphisms. Show also that if $A=0$ then $A_i=0$ for some $i\in I$.
+\end{problem}
+\begin{proof}
+It is routine to check that $A$ is a well-defined ring with multiplication defined as follows. Suppose $a,b\in A$, then there exists some $x_i$, $y_j$ such that $a=\alpha_i(x_i)$ and $b=\alpha_j(y_j)$. Choose $k\ge i$ and $k\ge j$. Then define $ab=\alpha _k\left( \alpha _{ik}\left( x_i \right) \alpha _{jk}\left( y_j \right) \right) $.\par
+Now if $A=0$, then the identity $1_A=0\in A$. Therefore $\alpha_i(1_i)=1_A=0$ for some $i\in I$ and hence for all $j\ge i$, we have $\alpha_{ij}(1)=0$, which implies $1_j=0$ and hence $A_j=0$.
+\end{proof}
+\begin{problem}\em
+Let $(A_i,\alpha_{ij})$ be a direct system of rings and let $\mathfrak{N}_i$ the nilradical of $A_i$. Show that $\varinjlim\mathfrak{N}_i$ is the nilradical of $\varinjlim A_i$. If each $A_i$ is an integral domain, show that $\varinjlim A_i$ is also an integral domain.
+\end{problem}
+\begin{proof}
+We shall only show that $\varinjlim\mathfrak{N}_i$ is the nilradical of $\varinjlim A_i$. Suppose $a\in\varinjlim\mathfrak{N}_i$, then $a=\alpha_i\mid_{\mathfrak{N}_i}(x_i)$ for some $i\in I$ and $x_i\in \mathfrak{N}_i$. Therefore $x_i^n=0$ for some $n\in\mathbb{Z}$, and hence $a^n=\alpha_i(x_i^n)=\alpha(0)=0$, which implies $a$ lies in the nilradical of $\varinjlim A_i$. Conversely, suppose $a$ lies in the nilradical of $\varinjlim A_i$, then $a^n=0$ for some $n\in\mathbb{Z}$. Suppose $a=\alpha_i(x_i)$ for some $x_i\in A_i$, then $a^n=\alpha_i(x_i^n)=0$ and hence $\alpha_i(x_i)\in\mathfrak{N}_i$. Also note that $\alpha_i(x_i^n)=0$ implies there exists some $j\ge i$ such that $\alpha_{ij}(x_i^n)=0$, therefore $\alpha_{ij}(x_i)\in\mathfrak{N}_j$ and hence $\alpha_j\mid_{\mathfrak{N}_j}(\alpha_{ij}(x_j))=\alpha_j(\alpha_{ij}(x_j))=\alpha_j(x_j)=a$, hence $a\in\varinjlim\mathfrak{N}_i$. This finished the proof of the first problem.\par
+Now suppose $\in\varinjlim A_i$ is not an integral domain. We show that there exists some $A_i$ that is also not an integral domain. Suppose $a,b\in\varinjlim A_i$ such that $a\ne 0$, $b\ne 0$ and $ab=0$. Let $\alpha_i(x_i)=a$ and $\alpha_j(y_j)=b$. We may choose $k\ge i,j$ such that $ab=\alpha_k(\alpha_{ik}(x_i)\alpha_{jk}(y_j))=0$. Therefore there exists $l\ge k$ such that $\alpha_{lk}(\alpha_{il}(x_i)\alpha_{jl}(y_j))=\alpha_{il}(x_i)\alpha_{jl}(y_j)=0$. But $a=\alpha_l(\alpha_{il}(x_i))$ and $b=\alpha_l(\alpha_{jl}(y_j))$ are both nonzero, therefore zero divisors in $A_l$.
+\end{proof}
+\begin{center}
+\begin{large}
     \textbf{Miscellaneous Problems}
 \end{large}
 \end{center}
