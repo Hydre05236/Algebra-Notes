@@ -2256,3 +2256,112 @@ $1_K$ is an $n$-th root of unity in the field $K$ for all $n\ge 1$. If $\mathrm{
     \caption{Fifth roots of unity}
 \end{figure}
 \end{example}
+In order to finish our characterization of cyclic extensions we need the following lemma.
+\begin{lemma}\em
+Let $n$ be a positive integer and $K$ a field which contains a primitive $n$-th root of unity $\zeta$.\par
+(i) If $d\mid n$, then $\zeta^{n/d}=\eta$ is a primitive $d$-th root of unity in $K$.\par
+(ii) If $d\mid n$ and $u$ is a nonzero root of $x^d-a\in K[x]$, then $x^d-a$ has $d$ distinct roots, namely $u$, $\eta u$, $\cdots$, $\eta^{d-1}u$, where $\eta\in K$ is a primitive $d$-th root of unity. Furthermore $K(u)$ is a splitting field of $x^d-a$ over $K$ and is Galois over $K$.
+\end{lemma}
+\begin{proof}
+(i) Suppose $d\mid n$, note that $\eta^d=(\zeta^{n/d})^d=\zeta^n=1_K$, therefore $\eta$ is the $d$-th primitive root of unity.\par
+(ii) We first show that $\eta^iu$ is a root of the polynomial $x^d-a\in K[x]$. Note that 
+$$
+\left( \eta ^iu \right) ^d=\eta ^{id}u^d=\left( \eta ^d \right) ^iu^d=1_{K}^{i}u^d=u^d=a,
+$$
+whence $u,\eta u,\cdots,\eta^{n-1}u$ are distinct roots of the polynomial $x^d-a$. Now suppose $F=K(u)$, trivially $K(\eta^iu)=K(u)$ since $\zeta\in K$, therefore $K(u)$ is a splitting field of $x^d-a$ over $K$. Note also $F/K$ is separable, we therefore conclude that $F/K$ is a Galois extension.
+\end{proof}
+\begin{theorem}
+Let $n$ be a positive integer and $K$ a field which contains a primitive $n$-th root of unity $\zeta$. Then the following statements are equivalent: \par
+(i) $F$ is cyclic over $K$ of degree $d\mid n$;\par
+(ii) $F$ is a splitting field over $K$ of a polynomial of the form $x^n-a\in K[x]$. Under which circumstances we have $F=K(u)$, where $u$ is a root of $x^n-a$;\par
+(iii) $F$ is a splitting field over $K$ of an irreducible polynomial $x^d-b\in K[x]$. Under which circumstances we have $F=K(v)$, where $v$ is a root of $x^d-b$.
+\end{theorem}
+\begin{proof}
+(ii)$\Rightarrow$(i): Suppose $F$ is a splitting field over $K$ of a polynomial of the form $x^n-a\in K[x]$. By Lemma 6.20 we have $F=K(u)$, where $u$ is a root of $x^n-a$, and $F/K$ is a Galois extension. Now suppose $\sigma\in\mathrm{Gal}(F/K)$, then $\sigma$ is completely determined by $\sigma(u)=\zeta^iu$, where $\zeta$ is the primitive $n$-th unit root. Therefore we may define a homomorphism $\theta:\mathrm{Gal}(F/K)\to\mathbb{Z}_n$ given by $\sigma\mapsto\zeta^i$ provided $\sigma(u)=\zeta^iu$. It is routine to verify $\theta$ is well-defined and a monomorphism. Therefore $\mathrm{Gal}(F/K)$ is a subgroup of $\mathbb{Z}_n$, whence a cyclic group of order $d\mid n$.\par
+(i)$\Rightarrow$(iii): Suppose $F$ is cyclic over $K$ of degree $d\mid n$. Then $\mathrm{Gal}(F/K)$ is cyclic. Suppose $\mathrm{Gal}(F/K)=\left<\sigma\right>$. Let $\eta=\zeta^{n/d}$ be the primitive $d$-th root of unity. Note that 
+$$
+N_{K}^{F}\left( \eta \right) =\eta ^{\left[ F:K \right]}=\left( \zeta ^{n/d} \right) ^d=\zeta ^n=1_K,
+$$
+we therefore by Hilbert 90 to conclude that there exists some $w\in F$ such that $\eta=w\sigma(w)^{-1}$. Suppose $v=w^{-1}$, we claim that $v^d\in K$. To see this, note that 
+$$
+\sigma \left( v^d \right) =\sigma \left( v \right) ^d=\left( \eta v \right) ^d=\eta ^dv^d=1_Kv^d=v^d,
+$$
+whence $v^d$ is fixed by $\sigma$ and hence in $K$. Now suppose $b=v^d$, we have $v$ a root of $x^d-b\in K[x]$, and $K(v)$ is a splitting field over $K$ of $x^d-b$. We further show that $x^d-b$ is irreducible. Consider $\sigma^i:K(u)\to K(\eta^iu)$. Since $\eta^i\in K$, we have $K(u)\cong K(\eta^iu)$ for all $i\in\mathbb{Z}_d$ and hence $x^d-b$ is irreducible. Now it suffices to show that $F=K(v)$. To see this, note that $[K(v):K]=[F:K]=d$, hence $K(v)=F$.\par
+(iii)$\Rightarrow$(ii): If $v\in F$ is a root of $x^d-b\in K[x]$, then $F=K(v)$ by Lemma 6.20. Now note that 
+$$
+\left( \zeta v \right) ^n=\zeta ^nv^n=1_Kv^{d\left( n/d \right)}=b^{n/d}\in K,
+$$
+therefore $\zeta v$ is a root of $x^n-a\in K[x]$, where $a=b^{n/d}$. By Lemma 6.20 we have $F=K(\zeta v)$ a splitting field of $x^n-a\in K[x]$. However $F=K(v)=K(\zeta v)$ since $\zeta\in K$, which finished the proof.
+\end{proof}
+It is clear that the primitive $n$-th root of unity plays an important role in the proof of the preceding results. Characterization of the splitting fields of polynomials of the form $x^n-a\in K[x]$ is considerably more difficult when $K$ does not contain a primitive $n$-th root of unity. The case when $a=1_K$ is considered in the next section.
+\begin{center}
+\begin{large}
+    \textbf{Exercises for 6.7}
+\end{large}
+\end{center}
+\begin{problem}\em
+If $\overline{K}$ is replaced by any normal extension $N$ of $K$ containing $F$, then this new definition of norm and trace is equivalent to the original one. In particular, the new definition does not depend on the choice of $N$.
+\end{problem}
+\begin{proof}
+Note that if $\overline{K}$ is substituted with $N$, a homomorphism $\sigma:K\to N$ must be a homomorphism $\sigma:K\to\overline{K}$. Therefore it suffices to show that the number of different homomorphisms of $K\to\overline{K}$ and $K\to N$ are the same. Since $\overline{K}$ is normal over $K$ and $\overline{K}\supset F$, then the number of different $\sigma:F\to\overline{K}$ equals to $[F:K]_s$. Similarly we have number of different $\sigma:F\to N$, where $N$ is a normal extension field over $K$ that contains $F$, equals to $[F:K]_s$. Therefore two definitions are equivalent.
+\end{proof}
+\begin{problem}\em
+Let $F$ be a finite dimensional extension of a finite field $K$. The norm ${N_K}^F$ and the trace ${T_K}^F$ (considered as maps $F\to K$) are surjective.
+\end{problem}
+\begin{proof}
+We shall first consider the trace condition. Note that $T_K^F$ is a linear functional, therefore it is either trivial or surjective. Note that if $F$ is a finite dimensional extension of a finite field $K$, then $F/K$ is separable and hence 
+$$
+T_{K}^{F}\left( u \right) =\left[ F:K \right] _i\cdot \sum_{i=1}^n{\sigma _i\left( u \right)},\hspace{0.5cm}u\in F
+$$
+is nontrivial, therefore $T_K^F$ is surjective. Note also $N_K^F$ is a linear functional with respect to multiplication, we finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $\overline{\mathbb{Q}}$ be a (fixed) algebraic closure of $\mathbb{Q}$ and $v\in \overline{\mathbb{Q}}, v\notin \mathbb{Q}$. Let $E$ be a subfield of $\overline{\mathbb{Q}}$ maximal with respect to the condition $v\notin E$. Prove that every finite dimensional extension of $E$ is cyclic.
+\end{problem}
+\begin{proof}
+Let $F$ be an extension field of $E$ of finite dimension. We may suppose $F$ is a normal extension field of $E$, or otherwise take the normal closure of $F$ in $E$. Now by definition of $E$ we have $F\supset E(v)$. If $\mathrm{Gal}(F/E)=G$, and the group fixing $E(v)$ is $H$, then $H\subset G$, and any proper subgroup of $G$ is contained in $H$, since for any $E\subset L\subset F$, $L\ne E$, we have $L\supset E(v)$. Therefore if $g\in G$, $g\notin H$, we have the cyclic group $\left<g\right>$ must equal to $G$, hence $G$ is cyclic. This finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $K$ be a field,
+$\overline{K}$ an algebraic closure of $K$ and $\sigma\in \mathrm{Gal}(\overline{K}/K)$. Let 
+$$F=\{u\in \overline{K}: \sigma(u)=u\}.$$
+Then $F$ is a field and every finite dimensional extension of $F$ is cyclic.
+\end{problem}
+\begin{proof}
+$F$ is trivially a field. We now show that if $E/F$ finite dimensional, then $E/F$ is cyclic. Suppose $N/F$ is a normal extension such that $[N:F]<\infty$. It suffices to show that $N/F$ is cyclic. Take $\sigma\in G=\mathrm{Gal}(N/F)$, and let $H=\left<\sigma\right>$ a subgroup of $G$. We now show that $H=G$. Let $N^H$ be the fixed field of $H$, therefore if $x\in H$, then $x$ is fixed by elements in $H$, whence fixed by $\sigma$, hence $x\in F$. Therefore $[N^H:F]=1$, which implies $[G:H]=1$ and hence $G=H$ is cyclic.
+\end{proof}
+\begin{problem}\em
+If $F$ is a cyclic extension of $K$ of degree $p^n$ ($p$ prime) and $L$ is an intermediate field such that $F=L(u)$ and $L$ is cyclic over $K$ of degree $p^{n-1}$, then $F=K(u)$.
+\end{problem}
+\begin{proof}
+Suppose $\mathrm{Gal}(F/K)=\left<\sigma\right>\cong\mathbb{Z}_{p^n}$. Therefore we have $\mathrm{Gal}(F/L)=\left<\sigma^{p^{n-1}}\right>$. Now suppose $\sigma^{p^i}\in\mathrm{Gal}(F/K(u))$, then $\sigma^{p^i}(u)=u$, and hence the only possibility would be $i=n$, which implies $\mathrm{Gal}(F/K(u))$ is trivial. Therefore $F=K(u)$.
+\end{proof}
+\begin{problem}\em
+If $\mathrm{char}F=p\neq 0$, let $K_p=\{u^p-u: u\in K\}$.\par
+(i) A cyclic extension field $F$ of $K$ of degree $p$ exists if and only if $K\neq K_p$.\par
+(ii) If there exists a cyclic extension of degree $p$ of $K$, then there exists a cyclic extension of degree $p^n$ for every $n\geq 1$.
+\end{problem}
+\begin{proof}
+(i) Suppose there exists an extension field $F$ of $K$ of degree $p$, we prove by contradiction. Suppose $K_p=K$, then $F$ is the splitting field over $K$ of the irreducible polynomial $x^p-x-a\in K[x]$. However since $a\in K$, there exists some $u\in K$ such that $u^p-u=a$, which implies $u$ is a root of $x^p-x-a\in K[x]$, whence the polynomial is not irreducible, a contradiction! Conversely, suppose $K=K_p$, then every polynomial of the form $x^p-x-a\in K[x]$ splits in $K$, whence the only splitting field of $x^p-x-a$ over $K$ are trivial. Hence there are no cyclic extensions of degree $p$ of $K$.\par
+(ii) We proof by induction. Suppose $n=1$, then the proposition is trivial. Now if $n>1$, suppose $E/K$ is a cyclic extension of degree $p^{n-1}$ with $\mathrm{Gal}(E/K)=\left<\sigma\right>\cong\mathbb{Z}_{p^{n-1}}$. Now take $z\in E$ such that $T_K^E(z)\ne 0$, define $v=T_K^E(z)^{-1}z$, we have $T_K^E(v)=1_K$ and $v\in E$. Therefore by Hilbert 90 there exists some $u\in E$ such that $\sigma(u)-u=v^p-v$. Now $x^p-x-u\in E[x]$ is irreducible and suppose $w$ is a root of $x^p-x-u$, we have $K(w)$ a desired extension field.
+\end{proof}
+\begin{problem}\em
+If $n$ is an odd integer such that $K$ contains a primitive $n$th root of unity and $\mathrm{char}K\neq 2$, then $K$ also contains a primitive $2n$th root of unity.
+\end{problem}
+\begin{proof}
+Let $\zeta$ be the primitive $n$-th root of unity in $K$. Then consider $-\zeta^2$, which generates a cyclic group of order $2n$ since 
+$$
+\left( -\zeta ^2 \right) ^{2n}=\left( -1 \right) ^{2n}\left( \zeta ^2 \right) ^{2n}=\zeta ^{4n}=\left( \zeta ^n \right) ^4=1_K,
+$$
+which finished the proof.
+\end{proof}
+\begin{problem}\em
+Which roots of unity are contained in the following fields: $\mathbb{Q}(\mathrm{i})$, $\mathbb{Q}(\sqrt{2})$, $\mathbb{Q}(\sqrt{3})$, $\mathbb{Q}(\sqrt{5})$, $\mathbb{Q}(\sqrt{-2})$, $\mathbb{Q}(\sqrt{-3})$?
+\end{problem}
+\begin{proof}
+We shall denote $\zeta_n$ the primitive $n$-th root of unity. Note first $\mathbb{Q}(\mathrm{i})$ contains $\zeta_2$ and $\zeta_4$, and $\mathbb{Q}(\sqrt{2})$, $\mathbb{Q}(\sqrt{3})$, $\mathbb{Q}(\sqrt{5})$, as subspaces of $\mathbb{R}$, contains $\zeta_2$. Now we analyze $\mathbb{Q}(\sqrt{-2})$ and $\mathbb{Q}(\sqrt{-3})$. Note first $\mathbb{Q}(\zeta_n)/\mathbb{Q}$ is a cyclic extension field of order $\varphi(n)$, where $\varphi(n)$ is the Euler totient function, and $[\mathbb{Q}(\sqrt{-3}):\mathbb{Q}]=[\mathbb{Q}(\sqrt{-2}):\mathbb{Q}]=2$, we have $\varphi(n)=2$ and hence $n=2,3,4,6$. Note 
+$$
+\zeta _2=-1,\hspace{0.5cm}\zeta _3=-\frac{1}{2}-\frac{\sqrt{3}}{2}\mathrm{i},\hspace{0.5cm}\zeta _4=\mathrm{i},\hspace{0.5cm}\zeta _6=\frac{1}{2}+\frac{\sqrt{3}}{2}\mathrm{i},
+$$
+we have $\mathbb{Q}(\sqrt{-2})$ contains $\zeta_2$ and $\mathbb{Q}(\sqrt{-3})$ contains $\zeta_2$, $\zeta_3$ and $\zeta_6$.
+\end{proof}
