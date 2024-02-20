@@ -96,3 +96,129 @@ S^{-1}M\otimes _{S^{-1}A}S^{-1}N&\cong \left( S^{-1}A\otimes _AM \right) \otimes
 $$
 which finished the proof.
 \end{proof}
+\subsection{Local Properties}
+A property $P$ of a ring $A$ is said to be a \textbf{local property} if $A$ (or $M$) has $P$ if and only if $A_\mathfrak{p}$ (or $M_\mathfrak{p}$) has $P$ for each prime ideal $\mathfrak{p}$ of $A$. In this section we shall introduce some local properties of a ring.
+\begin{proposition}
+Let $M$ be an $A$-module. Then the following are equivalent.\par
+(i) $M=0$;\par
+(ii) $M_\mathfrak{p}=0$ for all prime ideals $\mathfrak{p}$ of $A$;\par
+(iii) $M_\mathfrak{m}=0$ for all maximal ideals $\mathfrak{m}$ of $A$.
+\end{proposition}
+\begin{proof}
+The implication (i)$\Rightarrow$(ii)$\Rightarrow$(iii) are trivial. It suffices to show that (iii)$\Rightarrow$(i). To see this, note that if $M\ne 0$, there exists some $m\in M$ such that $m\ne 0$. Consider the ideal $\mathrm{Ann}(m)$, which is contained in some maximal ideal $\mathfrak{m}$. However $M_\mathfrak{m}=0$, h=therefore $m$ is killed by some elements $t\in A-\mathfrak{m}$, a contradiction!
+\end{proof}
+\begin{proposition}
+Let $\phi$ be an $A$-module homomorphism. Then the following are equivalent: \par
+(i) $\phi$ is injective;\par
+(ii) $\phi_\mathfrak{p}:M_\mathfrak{p}\to N_\mathfrak{p}$ is injective for every prime ideal $\mathfrak{p}$;\par
+(iii) $\phi_\mathfrak{m}:M_\mathfrak{m}\to N_\mathfrak{m}$ is injective for every maximal ideal $\mathfrak{m}$.\par
+The statement is true with \textit{injective} replaced by \textit{surjective} throughout.
+\end{proposition}
+\begin{proof}
+(i)$\Rightarrow$(ii): Suppose $0\longrightarrow M\longrightarrow N$ is exact, then $0\longrightarrow M_\mathfrak{p}\longrightarrow N_\mathfrak{p}$ is exact, whence $\phi_\mathfrak{p}$ is injective.\par
+(ii)$\Rightarrow$(iii): Note that every maximal ideal is a prime ideal.\par
+(iii)$\Rightarrow$(i): Consider the following exact sequence: 
+$$
+0\longrightarrow \mathrm{Ker}\phi \overset{\subset}{\longrightarrow}M\overset{\phi}{\longrightarrow}N.
+$$
+Now since $\mathfrak{m}$ is a maximal ideal, it is prime and hence 
+$$
+0\longrightarrow \mathrm{Ker}\phi _{\mathfrak{m}}\overset{\subset}{\longrightarrow}M_{\mathfrak{m}}\overset{\phi _{\mathfrak{m}}}{\longrightarrow}N_{\mathfrak{m}}
+$$
+is exact. Therefore $\mathrm{Ker}\phi_\mathfrak{m}=0$ since $\phi_\mathfrak{m}$ is injective by the hypothesis. This implies $\mathrm{Ker}\phi=0$ since $\mathrm{Ker}\phi_\mathfrak{m}=(\mathrm{Ker}\phi)_\mathfrak{m}$ and Proposition 8.7. Hence $\phi$ is injective.\par
+To prove the surjective case, just reverse all the arrows in the proof above.
+\end{proof}
+Flatness is a local property: 
+\begin{proposition}
+For any $A$-module $M$, the following statements are equivalent: \par
+(i) $M$ is a flat $A$-module;\par
+(ii) $M_\mathfrak{p}$ is a flat $M_\mathfrak{p}$-module for each prime ideal $\mathfrak{p}$;\par
+(iii) $M_\mathfrak{m}$ is a flat $M_\mathfrak{m}$-module for each maximal ideal $\mathfrak{m}$.
+\end{proposition}
+\begin{proof}
+(i)$\Rightarrow$(ii): Suppose 
+$$
+0\longrightarrow N^{\prime}\longrightarrow N\longrightarrow N^{\prime\prime}\longrightarrow 0
+$$
+is a short exact sequence. Then 
+$$
+0\longrightarrow N^{\prime}\otimes _AM\longrightarrow N\otimes _AM\longrightarrow N^{\prime\prime}\otimes _AM\longrightarrow 0
+$$
+is a short exact sequence since $M$ is flat. Now note that $\left( N^{\prime}\otimes _AM \right) _{\mathfrak{p}}\cong N_{\mathfrak{p}}^{\prime}\otimes _{A_{\mathfrak{p}}}M_{\mathfrak{p}}$, we therefore have 
+$$
+0\longrightarrow N_{\mathfrak{p}}^{\prime}\otimes _{A_{\mathfrak{p}}}M_{\mathfrak{p}}\longrightarrow N_{\mathfrak{p}}\otimes _{A_{\mathfrak{p}}}M_{\mathfrak{p}}\longrightarrow N_{\mathfrak{p}}^{\prime\prime}\otimes _{A_{\mathfrak{p}}}M_{\mathfrak{p}}\longrightarrow 0
+$$
+a short exact sequence. Therefore $M_\mathfrak{p}$ is a flat $A_\mathfrak{p}$ module.\par
+(ii)$\Rightarrow$(iii): Note that every maximal ideal is a prime ideal.\par
+(iii)$\Rightarrow$(i): Suppose $N\to P$ is injective. Then $N_\mathfrak{m}\to P_\mathfrak{m}$ is injective by Proposition 8.8. Since $M_\mathfrak{m}$ is a flat $A_\mathfrak{m}$-module, we have 
+$$
+N_{\mathfrak{m}}\otimes _{A_{\mathfrak{m}}}M_{\mathfrak{m}}\cong \left( N\otimes _AM \right) _{\mathfrak{m}}\rightarrow \left( P\otimes _AM \right) _{\mathfrak{m}}\cong P_{\mathfrak{m}}\otimes _{A_{\mathfrak{m}}}M_{\mathfrak{m}}
+$$
+is injective, whence $\otimes _AM\rightarrow P\otimes _AM$ is injective. Note that an analogous argument shows that this is also true if $N\to P$ is surjective. Therefore $M$ is a flat $A$-module.
+\end{proof}
+\subsection{Extended and Contracted Ideals in Rings of Fractions}
+Let $A$ be a ring, $S$ a multiplicatively closed subset of $A$ and $f:A\to S^{-1}A$ the natural homomorphism, defined by $f(a)=a/1$. Let $C$ be the set of concentrated ideals in $A$, and let $E$ be the set of extended ideals in $S^{-1}A$. If $\mathfrak{a}$ is an ideal in $A$, its extension $\mathfrak{a}^e$ is $S^{-1}\mathfrak{a}$, whose elements are of the form $\sum a_i/s_i$, where $a_i\in\mathfrak{a}$ and $s_i\in S$.
+\begin{proposition}
+(i) Every ideal in $S^{-1}A$ is an extended ideal.\par
+(ii) If $\mathfrak{a}$ is an ideal of $A$, then $\mathfrak{a}^{ec}=\bigcup_{s\in S}(\mathfrak{a}:s)$. Hence $\mathfrak{a}^e=(1)$ if and only if $\mathfrak{a}$ meets $S$.\par
+(iii) $\mathfrak{a}\in C$ if and only if $S$ is a zero-divisor in $A/\mathfrak{a}$.\par
+(iv) The prime ideals of $S^{-1}A$ are in one-to-one correspondence $\mathfrak{p}\to S^{-1}\mathfrak{p}$ with the prime ideals of $A$ which don't meet $S$.\par
+(v) The operation $S^{-1}$ commutes with formation of finite sums, products, intersections and radicals.
+\end{proposition}
+\begin{proof}
+(i) Let $\mathfrak{b}$ be an ideal in $S^{-1}A$. Suppose $x/s\in\mathfrak{b}$, then $x/1\in\mathfrak{b}$, and hence $x\in\mathfrak{b}^c$. Therefore $x/s\in\mathfrak{b}^{ce}$, which implies $\mathfrak{b}\subset\mathfrak{b}^{ce}$. However $\mathfrak{b}\supset\mathfrak{b}^{ce}$ by Proposition 7.6, which implies $\mathfrak{b}=\mathfrak{b}^{ce}$, hence $\mathfrak{b}$ is an extended ideal of $\mathfrak{b}^{c}$.\par
+(ii) Suppose $x\in\mathfrak{a}^{ec}$, then $x\in(S^{-1}\mathfrak{a})^c$ and hence $x/1=a/s$ for some $a\in\mathfrak{a}$ and $s\in S$. This implies $(sx-a)t=0$ for some $t\in S$, hence $xts=at\in\mathfrak{a}$ and $x\in\bigcup_{s\in S}(\mathfrak{a}:s)$. Note that each step in the preceding arguments are equivalent, therefore the proof is finished.\par
+(iii) Suppose $x\in\mathfrak{a}^{ec}$, then since $\mathfrak{a}$ is a contracted ideal, we have $\mathfrak{a}=\mathfrak{a}^{ec}$ and hence if $sx\in\mathfrak{a}$ for some $s\in S$, we therefore have $x/s^{-1}=x/t\in\mathfrak{a}^e$ and hence $x\in\mathfrak{a}$, which implies that no $s\in S$ is a zero divisor of $A/\mathfrak{a}$. Conversely, it suffices to show that $sx\in\mathfrak{a}$ for some $s\in S$ implies $x\in\mathfrak{a}$ implies $\mathfrak{a}^{ec}\subset\mathfrak{a}$, whence $\mathfrak{a}^{ec}=\mathfrak{a}$ and hence $\mathfrak{a}\in C$. To see this, note that suppose $x\in\mathfrak{a}^{ec}$, we have $y/s=x/1$ for some $y\in\mathfrak{a}$ and $s\in S$. Therefore $(y-sx)t=0$ for some $t\in S$ and hence $stx=ty\in\mathfrak{a}$, which implies, by our assumption, $x\in\mathfrak{a}$.\par
+(iv) If $\mathfrak{q}$ is prime ideal in $S^{-1}A$, then trivially $\mathfrak{q}^c$ is an ideal in $A$. Conversely, suppose $\mathfrak{p}$ is a prime ideal in $A$, then $A/\mathfrak{p}$ is an integral domain. Suppose the image of $S$ in $A/\mathfrak{p}$ is $\overline{S}$, then we have $(S^{-1}A)/(S^{-1}\mathfrak{p})\cong\overline{S}^{-1}(A/\mathfrak{p})$, which is a either zero or a subring of a field and hence an integral domain. Note by (i) that the first case follows if and only if $\mathfrak{p}$ meets $S$. This implies $S^{-1}\mathfrak{p}$ a prime ideal in $S^{-1}A$.\par
+(v) It suffices to show that $S^{-1}$ commutes with radicals. Suppose $\mathfrak{a}$ is an ideal. Then trivially we have $S^{-1}r(\mathfrak{a})\subset r(S^{-1}(\mathfrak{a}))$. The converse condition is a direct verification of definitions and we omit the details.
+\end{proof}
+\begin{note}\em
+Note that in the proof of the nilradical is the intersection of all prime ideals of the ring, we claimed that if $f$ is not nilpotent, then the set $\{f^n\}_{n\ge 0}$ contains no zero. Therefore the ring $A_f$ is nonzero and hence has a maximal ideal. The contraction $\mathfrak{p}$ of this maximal ideal does not meet $S=\{f^n\}_{n\ge 0}$, hence $f$ is not contained in this prime ideal $\mathfrak{p}$.
+\end{note}
+\begin{corollary}
+If $\mathfrak{N}$ is the nilradical of $A$, the nilradical of $S^{-1}A$ is $S^{-1}\mathfrak{N}$.
+\end{corollary}
+\begin{proof}
+Note that $\mathfrak{N}=r(\{0\})$, therefore $S^{-1}\mathfrak{N}=S^{-1}r(\{0\})=r(S^{-1}\{0\})$ and hence the nilradical of $S^{-1}A$.
+\end{proof}
+\begin{corollary}
+If $\mathfrak{p}$ is a prime ideal of $A$, the prime ideals of the local ring $A_\mathfrak{p}$ are in one-to-one correspondence with the prime ideals of $A$ contained in $\mathfrak{p}$.
+\end{corollary}
+\begin{proof}
+This follows by Proposition 8.10 with $S=A-\mathfrak{p}$.
+\end{proof}
+\begin{note}\em
+By Corollary 8.12 we know that the passage from $A$ to $A_\mathfrak{p}$ cuts out all prime ideals except those contained in $\mathfrak{p}$. Recall that the passage from $A$ to $A/\mathfrak{p}$ cuts out all prime ideals except those containing $\mathfrak{p}$. Therefore suppose $\mathfrak{p}$ and $\mathfrak{q}$ are two prime ideals with $\mathfrak{p}\subset\mathfrak{q}$, then we first localize the ring with respect to $\mathfrak{q}$ and take quotient mod $\mathfrak{p}$, we restrict our attention to those prime ideals lies between $\mathfrak{p}$ and $\mathfrak{q}$. In particular, if $\mathfrak{p}=\mathfrak{q}$, we therefore ended up with a field, which is called the \textbf{residue field at $\mathfrak{p}$}, and can be obtained either as the field of fractions of the integral domain $A/\mathfrak{p}$ or as the residue field of the local ring $A_\mathfrak{p}$.
+\end{note}
+\begin{proposition}
+Let $M$ be a finitely generated $A$-module, $S$ a multiplicatively closed subset of $A$. Then $S^{-1}(\mathrm{Ann}(M))=\mathrm{Ann}(S^{-1}M)$.
+\end{proposition}
+\begin{proof}
+Suppose this is true for two modules $M$ and $N$. Then note that 
+$$
+\begin{aligned}
+S^{-1}\left( \mathrm{Ann}\left( M+N \right) \right) &=S^{-1}\left( \mathrm{Ann}M\cap \mathrm{Ann}N \right) =S^{-1}\left( \mathrm{Ann}M \right) \cap S^{-1}\left( \mathrm{Ann}N \right) 
+\\
+&=\mathrm{Ann}\left( S^{-1}M \right) \cap \mathrm{Ann}\left( S^{-1}N \right) =\mathrm{Ann}\left( S^{-1}M+S^{-1}N \right) =\mathrm{Ann}\left( S^{-1}\left( M+N \right) \right) ,
+\end{aligned}
+$$
+the proof is finished. Therefore for finitely generated modules, we may suppose $M$ is generated by a single element $x$. Therefore $M\cong A/\mathrm{Ann}(x)$ and hence 
+$$
+\mathrm{Ann}\left( S^{-1}M \right) \cong \mathrm{Ann}\left( S^{-1}\left( A/\mathrm{Ann}M \right) \right) =\mathrm{Ann}\left( \left( S^{-1}A \right) /\left( S^{-1}\mathrm{Ann}M \right) \right) \cong S^{-1}\mathrm{Ann}M,
+$$
+which finished the proof.
+\end{proof}
+\begin{corollary}
+If $N$ and $P$ are submodules of an $A$-module $M$ and id $P$ is finitely generated, then $S^{-1}(N:P)=(S^{-1}N:S^{-1}P)$.
+\end{corollary}
+\begin{proof}
+Note that $(N:P)=\mathrm{Ann}(N+P/N)$. Now by Proposition 8.13 we have 
+$$
+\begin{aligned}
+S^{-1}\left( N:P \right) &=S^{-1}\left( \mathrm{Ann}\left( N+P \right) /N \right) =\mathrm{Ann}\left( S^{-1}\left( \left( N+P \right) /N \right) \right) 
+\\
+&=\mathrm{Ann}\left( \left( S^{-1}N+S^{-1}P \right) /S^{-1}N \right) =\left( S^{-1}N:S^{-1}P \right) ,
+\end{aligned}
+$$
+which finished the proof.
+\end{proof}
