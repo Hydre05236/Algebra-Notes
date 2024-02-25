@@ -2365,3 +2365,112 @@ $$
 $$
 we have $\mathbb{Q}(\sqrt{-2})$ contains $\zeta_2$ and $\mathbb{Q}(\sqrt{-3})$ contains $\zeta_2$, $\zeta_3$ and $\zeta_6$.
 \end{proof}
+\subsection{Cyclotomic Extensions}
+We shall examine splitting fields of the polynomial $x^n-1_K$ in this section, with special attention to the case $K=\mathbb{Q}$.\par
+A splitting field $F$ over a field $K$ of $x^n-1_K\in K[x]$ (where $n\ge 1$) is called a \textbf{cyclotomic extension} of order $n$. If $\mathrm{char}K=p\ne 0$ and $n=mp^t$ with $(p,m)=1$, then $x^n-1_K=(x^m-1_K)^{p^t}$ and hence the cyclotomic extension of order $n$ coincides with the one of order $m$. Thus we shall usually assume that $\mathrm{char}K$ does not divide $n$, i.e. $\mathrm{char}K=0$ or $\mathrm{char}K$ is relatively prime to $n$.\par
+The dimension of a cyclotomic extension field of order $n$ is related to the \textbf{Euler function} $\varphi(n)$ of elementary number theory, which assigns to each positive integer $n$ the number $\varphi(n)$ of integers $i$ such that $1\le i\le n$ and $(i,n)=1$. For example, $\varphi(6)=2$ and $\varphi(p)=p-1$ provided $p$ is a prime.
+\begin{theorem}
+Let $n$ be a positive integer, $K$ a field such that $\mathrm{char}K$ does not divide $n$ and $F$ a cyclotomic extension of $K$ of order $n$.\par
+(i) $F=K(\zeta)$, where $\zeta\in F$ is a primitive $n$-th root of unity;\par
+(ii) $F$ is an abelian extension of dimension $d$, i.e. the $F$ is an algebraic Galois extension of $K$ with $\mathrm{Gal}(F/K)$ abelian, and $d\mid \varphi(n)$, here $\varphi(n)$ is the Euler function. If $n$ is a prime then $F/K$ is a cyclic extension.\par
+(iii) $\mathrm{Gal}(F/K)$ is isomorphic to a subgroup of order $d$ of the multiplicative group of units $\mathbb{Z}_n$.
+\end{theorem}
+\begin{proof}
+(i) Note that $F$ contains a primitive $n$-th root of unity $\zeta$. By definition $1_K$, $\zeta$, $\cdots$, $\zeta^{n-1}\in K(\zeta)$ are the $n$ roots of the polynomial $x^n-1_K\in K[x]$, whence $F=K(\zeta)$.\par
+(ii) Trivially the polynomial $x^n-1_K$ is separable over $K$, hence $F/K$ is a Galois extension. Suppose $\sigma\in\mathrm{Gal}(F/K)$, then $\sigma$ is completely determined by $\sigma(\zeta)$. For some $i$, we have $\sigma(\zeta)=\zeta^i$ and for some $j$ we have $\sigma^{-1}(\zeta)=\zeta^j$, whence $\zeta=\sigma^{-1}\sigma(\zeta)=\zeta^{ij}$, hence $ij\equiv 1\pmod{n}$. Note that this implies $i$ a unit in $\mathbb{Z}_n$. Consider the homomorphism $\mathrm{Gal}(F/K)\to G$ given by $\sigma\mapsto\overline{\iota}$, where $\overline{\iota}$ is the image of $i$ such that $\sigma(\zeta)=\zeta^i$ in $G$ and $G$ is the multiplicative subgroup of $\mathbb{Z}_n$ consists of all units in $\mathbb{Z}_n$. It is routine to show that the homomorphism is well-defined and a monomorphism. Therefore $\mathrm{Gal}(F/K)\cong\mathrm{Im}f$ is abelian with order $d$ dividing $\varphi(n)$, since $|G|=\varphi(n)$.\par
+(iii) has already been proved in (ii). Note that if $n$ is a prime, then $\mathbb{Z}_n$ is a field, and hence $\mathrm{Gal}(F/K)$ is cyclic by Theorem 6.54.
+\end{proof}
+Let $n$ be a positive integer, $K$ a field such that $\mathrm{char}K$ does not divide $n$, and $F$ a cyclotomic extension of order $n$ of $K$. The \textbf{$n$-th cyclotomic polynomial} over $K$ is the monic polynomial $\Phi_n(x)=(x-\zeta_1)(x-\zeta_2)\cdots(x-\zeta_r)$, where $\zeta_r$ are distinct primitive $n$-th roots of unity in $F$.
+\begin{example}\em
+It is easily computed some cyclotomic polynomials when $n$ is small. For instance, we have $\Phi_1(x)=x-1_K$, $\Phi_2(x)=(x-(-1_K))=x+1_K$. If $K=\mathbb{Q}$, then we have 
+$$
+\Phi _3\left( x \right) =\left( x-\left( -\frac{1}{2}+\frac{\sqrt{3}}{2}\mathrm{i} \right) \right) \left( x-\left( -\frac{1}{2}-\frac{\sqrt{3}}{2}\mathrm{i} \right) \right) =x^2+x+1
+$$
+and 
+$$
+\Phi _4\left( x \right) =\left( x-\mathrm{i} \right) \left( x+\mathrm{i} \right) =x^2+1.
+$$
+\end{example}
+These examples suggests the following properties of cyclotomic polynomials.
+\begin{proposition}
+Let $n$ be a positive integer, $K$ a field such that $\mathrm{char}K$ does not divide $n$ and $\Phi_n(x)$ the $n$-th cyclotomic polynomial of $K$.\par
+(i) $x^n-1_K=\prod_{d\mid n}\Phi_d(x)$;\par
+(ii) The coefficients of $\Phi_n(x)$ lie in the prime subfield $P$ of $K$. If $\mathrm{char}K=0$ and $P$ is identified with the field $\mathbb{Q}$ of rationals, then the coefficients are actually integers.\par
+(iii) $\mathrm{deg}\Phi_n(x)=\varphi(n)$, where $\varphi$ is the Euler function.
+\end{proposition}
+\begin{proof}
+(i) Suppose $F/K$ is a cyclotomic extension of order $n$, then $\mathrm{Gal}(F/K)=\left<\zeta\right>$ and hence 
+$$
+x^n-1_K=\prod_{\eta \in \mathrm{Gal}\left( F/K \right)}{\left( x-\eta \right)}=\prod_{d\mid n}{\prod_{\substack{\eta \in \mathrm{Gal}\left( F/K \right) \\ \left| \eta \right|=d}}{\left( x-\eta \right)}}=\prod_{d\mid n}{\Phi _d\left( x \right)},
+$$
+which finished the proof.\par
+(ii) We proof by induction. For $n=1$, we have $\Phi_1(x)=x-1_K$ and the statement is trivial. Now suppose the statement is true for all $k<n$. Define $f(x)=\prod_{\substack{d\mid n \\ d<n}}\Phi_d(x)$, we therefore have $x^n-1_K=f(x)\Phi_n(x)$ by (i). On the other hand $f(x)$ is monic, and $f\in P[x]$. By the division algorithm over $P[x]$ we have $x^n-1_K=f(x)k(x)+r(x)$, where $k,r\in P[x]\subset F[x]$. However by the uniqueness of division algorithm (over $F[x]$) we must have $r=0$ and $k=\Phi_n$, whence $\Phi_n=k\in P[x]$, which finished the proof. For $K=\mathbb{Q}$, the proof is analogous with $P$ replaced by $\mathbb{Z}$.\par
+(iii) Trivially $\mathrm{deg}\Phi_n$ equals to the number of distinct primitive $n$-th roots of unity. Note that if $\zeta$ is a primitive $n$-th root of unity, then $\zeta^k$ is also a primitive $n$-th root of unity if and only if $(k,n)=1$, hence $\mathrm{deg}\Phi_n$ equals to the number of elements in $\{k\in\mathbb{Z}:(k,n)=1\}$, which is precisely $\varphi(n)$.
+\end{proof}
+\begin{note}\em
+Proposition 6.83 offered a recursive method to determine the cyclotomic polynomials. Suppose we would like to calculate $\Phi_6$ over $\mathbb{Q}$. Then since we have already known $\Phi_1$, $\Phi_2$ and $\Phi_3$, we have 
+$$
+\Phi _6\left( x \right) =\frac{x^n-1}{\prod_{\substack{d\mid n \\ d<n}}{\Phi _d\left( x \right)}}=\frac{x^6-1}{\left( x-1 \right) \left( x+1 \right) \left( x^2+x+1 \right)}=x^2-x+1.
+$$
+Furthermore, we have 
+$$
+\Phi _{12}\left( x \right) =\frac{x^{12}-1}{\Phi _1\left( x \right) \Phi _2\left( x \right) \Phi _3\left( x \right) \Phi _6\left( x \right)}=x^4-x^2+1.
+$$
+\end{note}
+We now investigate the cyclotomic polynomials over $\mathbb{Q}$.
+\begin{proposition}
+Suppose $F$ is a cyclotomic extension field of $\mathbb{Q}$ and $\Phi_n$ the $n$-th cyclotomic polynomial over $\mathbb{Q}$.\par
+(i) $\Phi_n(x)$ is irreducible over $\mathbb{Q}[x]$.\par
+(ii) $[F:\mathbb{Q}]=\varphi(n)$, where $\varphi$ is the Euler function.\par
+(iii) $\mathrm{Gal}(F/\mathbb{Q})$ is isomorphic to the multiplicative group of units in $\mathbb{Z}_n$.
+\end{proposition}
+\begin{proof}
+(i) It suffices to show that $\Phi_n(x)$ is an irreducible monic polynomial over $\mathbb{Z}[x]$. Suppose $h(x)$ is an irreducible factor of $\Phi_n(x)$ over $\mathbb{Z}$, then there exists some $f\in\mathbb{Z}[x]$ such that $\Phi_n(x)=f(x)h(x)$. Suppose $\mathrm{deg}f\ge 1$. Let $\zeta$ be a root of $h$ and $p$ a prime number such that $(p,n)=1$. Since $h$ is an irreducible factor of $\Phi_n$, we have $\zeta$ a primitive $n$-th root of unity. We now claim that $\zeta^p$ is also a root of $h$. Since $\zeta^p$ is also a primitive $n$-th root of unity by $(p,n)=1$, we have $\zeta^p$ either a root of $h$ or a root of $f$. Suppose $\zeta^p$ is a root of $f$, then $\zeta$ is a root of $f(x^p)$. Since $h(x)$ is irreducible over $\mathbb{Q}[x]$, we have $h(x)\mid f(x^p)$ and hence $f(x^p)=h(x)k(x)$ for some $k(x)\in\mathbb{Q}[x]$. Consider the division algorithm in $\mathbb{Z}[x]$ which states $f(x^p)=h(x)k_1(x)+r(x)$, we therefore have $k_1(x)=k(x)\in\mathbb{Z}[x]$. Now we $\bmod{p}$ on both side of $f(x^p)=h(x)k(x)$ and obtain $\overline{f}(x^p)=\overline{f}(x)^p=\overline{h}(x)\overline{k}(x)$, with $\overline{f}\equiv f\pmod{p}$. Now suppose $\overline{l}(x)$ is a irreducible factor of $\overline{h}(x)$, then $\mathrm{l}(x)\mid \overline{f}(x)^p$, whence $\mathrm{l}\mid\overline{f}$ by the unique factorization over $\mathbb{Z}_p[x]$. Now note that $x^n-1_K=\Phi_n(x)m(x)=f(x)h(x)m(x)$, we therefore by $\bmod{p}$ have 
+$$
+x^n-\overline{1_K}=\overline{x^n-1_K}=\overline{f}\left( x \right) \overline{h}\left( x \right) \overline{m}\left( x \right) .
+$$
+Note that $\overline{h}(x)$ and $\overline{f}(x)$ have a common divisor $\overline{l}(x)$, which states that $\overline{x^n-1_K}$ has a multiplicative root, a contradiction! Therefore $\zeta^p$ is a root of $h(x)$. Now suppose $r\in\mathbb{Z}$ with $(r,n)=1$, then suppose $r=p_1^{k_1}p_2^{k_2}\cdots p_s^{k_s}$ with $p_i$ prime and $k_i\in\mathbb{Z}_+$, then $(p_i,n)=1$ and hence, using the preceding result repeatedly, $\zeta^r$ is a root of $h$. However this implies $\prod_{\substack{1\le r\le n \\ r\mid n}}(x-\zeta^r)=\Phi_n(x)$ divides $h(x)$, which implies $\Phi_n(x)=h(x)$ and the proof is finished.\par
+(ii) Note that 
+$$
+\left[ F:\mathbb{Q} \right] =\left[ \mathbb{Q} \left( \zeta \right) :\mathbb{Q} \right] =\mathrm{deg}\Phi _n=\varphi \left( n \right) .
+$$\par
+(iii) Since the multiplicative group of units in $\mathbb{Z}_n$ is of order $\varphi(n)$, and $|\mathrm{Gal}(F/\mathbb{Q})|=\varphi(n)$, we therefore have $\mathrm{Gal}(F/\mathbb{Q})$ is isomorphic to the multiplicative group of units in $\mathbb{Z}_n$.
+\end{proof}
+A nontrivial theorem of Kronecker states that every abelian extension of $\mathbb{Q}$ is contained in a cyclotomic extension, which we only mention but not proof this result here.
+\begin{center}
+\begin{large}
+    \textbf{Exercises for 6.8}
+\end{large}
+\end{center}
+\begin{problem}\em
+If $i\in \mathbb{Z}$, let $\overline{i}$ denote the image of $i$ in $\mathbb{Z}_n$ under the canonical projection $\mathbb{Z}\to \mathbb{Z}_n$. Prove that $\overline{i}$ is a unit in the ring $\mathbb{Z}_n$ if and only if $\gcd{(i, n)}=1$. Therefore the multiplicative group of units in $\mathbb{Z}_n$ has order $\varphi(n)$.
+\end{problem}
+\begin{problem}\em
+Establish the following properties of the Euler function $\varphi$.\par
+(a) If $p$ is prime and $n>0$, then $\varphi(p^n)=p^n(1-1/p)=p^{n-1}(p-1)$.\par
+(b) If $\gcd{(m, n)}=1$, then $\varphi(mn)=\varphi(m)\varphi(n)$.\par
+(c) If $n=p_1^{k_1}\cdots p_r^{k_r}$ ($p_i$ distinct primes; $k_i>0$), then $\varphi(n)=n(1-1/p_1)(1-1/p_2)\cdots (1-1/p_r)$.\par
+(d) $\sum_{d\mid n}\varphi(d)=n$.\par
+(e) $\varphi(n)=\sum_{d\mid n}d\mu(n/d)$, where $\mu$ is the Moebius function defined by
+$$\mu(n)=
+\left\{\begin{array}{ll}
+1 & \text{if }n=1 \\
+(-1)^t & \text{if }n \text{ is a product of }t\text{ distinct primes}\\
+0 & \text{if }p^2\text{ divides }n\text{ for some prime }p.
+\end{array}\right.
+$$
+\end{problem}
+\begin{problem}\em
+Let $\varphi$ be the Euler function.\par
+(a) $\varphi(n)$ is even for $n>2$.\par
+(b) Find all $n>0$ such that $\varphi(n)=2$.\par
+(c) Find all pairs $(n, p)$ (where $n, p>0$, and $p$ is prime) such that $\varphi(n)=n/p$.
+\end{problem}
+\begin{problem}\em
+(a) If $p$ is an odd prime and $n>0$, then the multiplicative group of units in the ring $\mathbb{Z}_{p^n}$ is cyclic of order $p^{n-1}(p-1)$.\par
+(b) Part (a) is also true if $p=2$ and $1\leq n\leq 2$.\par
+(c) If $n\geq 3$, then the multiplicative group of units in $\mathbb{Z}_{2^n}$ is isomorphic to $\mathbb{Z}_2\oplus \mathbb{Z}_{2^{n-2}}$.
+\end{problem}
+\begin{problem}\em
+
+\end{problem}
