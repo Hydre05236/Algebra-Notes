@@ -2445,6 +2445,9 @@ A nontrivial theorem of Kronecker states that every abelian extension of $\mathb
 \begin{problem}\em
 If $i\in \mathbb{Z}$, let $\overline{i}$ denote the image of $i$ in $\mathbb{Z}_n$ under the canonical projection $\mathbb{Z}\to \mathbb{Z}_n$. Prove that $\overline{i}$ is a unit in the ring $\mathbb{Z}_n$ if and only if $\gcd{(i, n)}=1$. Therefore the multiplicative group of units in $\mathbb{Z}_n$ has order $\varphi(n)$.
 \end{problem}
+\begin{proof}
+It suffices to proof that $(i,n)=1$ if and only if there exists some $j\in\mathbb{Z}$ such that $ij\equiv 1\pmod{n}$. Suppose $(i,n)=1$, then there exists some integers $j,h\in\mathbb{Z}$ such that $ij+hn=1$, hence $ij=-hn+1\equiv 1\pmod{n}$. Conversely, suppose there exists some $j\in\mathbb{Z}$ such that $ij\equiv 1\pmod{n}$, then $ij-1=kn$ for some $k\in\mathbb{Z}$. Suppose $\gcd(i,n)=d$, then $d\mid i$ and $d\mid n$, whence $d\mid ij-kn=1$, hence $d=1$.
+\end{proof}
 \begin{problem}\em
 Establish the following properties of the Euler function $\varphi$.\par
 (a) If $p$ is prime and $n>0$, then $\varphi(p^n)=p^n(1-1/p)=p^{n-1}(p-1)$.\par
@@ -2452,7 +2455,8 @@ Establish the following properties of the Euler function $\varphi$.\par
 (c) If $n=p_1^{k_1}\cdots p_r^{k_r}$ ($p_i$ distinct primes; $k_i>0$), then $\varphi(n)=n(1-1/p_1)(1-1/p_2)\cdots (1-1/p_r)$.\par
 (d) $\sum_{d\mid n}\varphi(d)=n$.\par
 (e) $\varphi(n)=\sum_{d\mid n}d\mu(n/d)$, where $\mu$ is the Moebius function defined by
-$$\mu(n)=
+$$
+\mu(n)=
 \left\{\begin{array}{ll}
 1 & \text{if }n=1 \\
 (-1)^t & \text{if }n \text{ is a product of }t\text{ distinct primes}\\
@@ -2460,12 +2464,55 @@ $$\mu(n)=
 \end{array}\right.
 $$
 \end{problem}
+\begin{proof}
+Our proof is due to Apostol: \textit{Introduction to Analytic Number Theory}.\par
+(a) Trivially $\varphi(p)=p-1$. Now for $n>1$, the only possible divisor of $p^n$ are $p, 2p,\cdots, p^2, (p+1)p,\cdots, p^n$, whence $\varphi(p^n)=p^n-p^{n-1}=p^{n-1}(p-1)$.\par
+(e) We first show that $\sum_{d\mid n}\mu(d)=\lfloor 1/n \rfloor$. The condition $n=1$ is trivial. Now if $n>1$, suppose $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$. Then 
+$$
+\begin{aligned}
+\sum_{d\mid n}{\mu \left( d \right)}&=1+\mu \left( p_1 \right) +\cdots +\mu \left( p_n \right) -\mu \left( p_1p_2 \right) -\cdots -\mu \left( p_{k-1}p_k \right) +\cdots +\frac{\left( -1 \right) ^k}{p_1p_2\cdots p_k}
+\\
+&=1+C_{k}^{1}\left( -1 \right) +C_{k}^{2}\left( -1 \right) ^2+\cdots +C_{k}^{k}\left( -1 \right) ^k=\left( 1-1 \right) ^k=0,
+\end{aligned}
+$$
+which finished the proof. Now we show $\varphi(n)=\sum_{d\mid n}d\mu(n/d)$. Indeed we have 
+$$
+\varphi \left( n \right) =\sum_{k=1}^n{\left\lfloor \frac{1}{\left( n,k \right)} \right\rfloor}=\sum_{k=1}^n{\sum_{d\mid \left( n,k \right)}{\mu \left( d \right)}}=\sum_{k=1}^n\sum_{\substack{d\mid n \\ d\mid k}}\mu(d)=\sum_{d\mid n}{\sum_{q=1}^{n/d}{\mu \left( d \right)}}=\sum_{d\mid n}{\frac{n}{d}\mu \left( d \right)},
+$$
+which finished the proof.\par
+(d) Denote $S=\{1,2,\cdots,n\}$. Suppose $A(d)=\{k\in S:(k,n)=d\}$, then $\{A(d)\}_{d\mid n}$ forms a partition of $S$ and hence if we denote the number of elements in $A(d)$ as $f(d)$, we have $\sum_{d\mid n}f(d)=n$. However $(k,n)=d$ if and only if $(k/d,n/d)=1$, whence 
+$$
+\sum_{d\mid n}{\varphi \left( d \right)}=\sum_{d\mid n}{\varphi \left( \frac{n}{d} \right)}=\sum_{d\mid n}{f\left( d \right)}=n.
+$$\par
+(c) Note that if $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$, then 
+$$
+\prod_{p\mid n}{\left( 1-\frac{1}{p} \right)}=\prod_{i=1}^k{\left( 1-\frac{1}{p_i} \right)}=1-\sum_i{\frac{1}{p_i}}+\sum_{i,j}{\frac{1}{p_ip_j}}-\cdots +\frac{\left( -1 \right) ^k}{p_1p_2\cdots p_k}=\sum_{d\mid n}{\frac{\mu \left( d \right)}{d}},
+$$
+combined with (e) to finish the proof.\par
+(b) Note that by (c) we have 
+$$
+\frac{\varphi \left( mn \right)}{mn}=\frac{\prod_{p\mid m}{\left( 1-\frac{1}{p} \right)}\prod_{p\mid n}{\left( 1-\frac{1}{p} \right)}}{\prod_{p\mid \left( m,n \right)}{\left( 1-\frac{1}{p} \right)}}=\prod_{p\mid m}{\left( 1-\frac{1}{p} \right)}\prod_{p\mid n}{\left( 1-\frac{1}{p} \right)}=\frac{\varphi \left( m \right)}{m}\cdot \frac{\varphi \left( n \right)}{n},
+$$
+hence $\varphi(mn)=\varphi(m)\varphi(n)$.
+\end{proof}
 \begin{problem}\em
 Let $\varphi$ be the Euler function.\par
 (a) $\varphi(n)$ is even for $n>2$.\par
 (b) Find all $n>0$ such that $\varphi(n)=2$.\par
 (c) Find all pairs $(n, p)$ (where $n, p>0$, and $p$ is prime) such that $\varphi(n)=n/p$.
 \end{problem}
+\begin{proof}
+(a) Suppose $n>2$, then apart from numbers of the form $2^m$ there exists an odd prime $p$ divides $n$. Suppose $n=2^m$. Since $2$ is a prime, we have $\varphi(2^m)=2^m-2^{m-1}=2^{m-1}$, which is even since $m\ge 2$. Otherwise there exists a prime $p\mid n$ and hence 
+$$
+\varphi \left( n \right) =n\prod_{p\mid n}{\left( 1-\frac{1}{p} \right)}=\frac{n\left( p-1 \right)}{p}\prod_{\substack{q\mid n \\ q\ne p}}\left( 1-\frac{1}{q} \right),
+$$
+which is divisible by $p-1$, and hence by $2$. Therefore $\varphi(n)$ is even for $n>2$.\par
+(b) Note that 
+$$
+\varphi \left( n \right) =n\prod_{p\mid n}{\left( 1-\frac{1}{p} \right)}\ge \prod_{p\mid n}{p\left( 1-\frac{1}{p} \right)}=\prod_{p\mid n}{\left( p-1 \right)},
+$$
+therefore if $n>6$, we have $\varphi(n)>2$ and hence the only possible candidate for the solution are $n\le 6$. Verify one by one to obtain the solution of $\varphi(n)=2$ being $n=3,4$ and $6$.
+\end{proof}
 \begin{problem}\em
 (a) If $p$ is an odd prime and $n>0$, then the multiplicative group of units in the ring $\mathbb{Z}_{p^n}$ is cyclic of order $p^{n-1}(p-1)$.\par
 (b) Part (a) is also true if $p=2$ and $1\leq n\leq 2$.\par
