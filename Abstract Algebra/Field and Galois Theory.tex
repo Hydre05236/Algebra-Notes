@@ -2511,13 +2511,118 @@ which is divisible by $p-1$, and hence by $2$. Therefore $\varphi(n)$ is even fo
 $$
 \varphi \left( n \right) =n\prod_{p\mid n}{\left( 1-\frac{1}{p} \right)}\ge \prod_{p\mid n}{p\left( 1-\frac{1}{p} \right)}=\prod_{p\mid n}{\left( p-1 \right)},
 $$
-therefore if $n>6$, we have $\varphi(n)>2$ and hence the only possible candidate for the solution are $n\le 6$. Verify one by one to obtain the solution of $\varphi(n)=2$ being $n=3,4$ and $6$.
+therefore if $n>6$, we have $\varphi(n)>2$ and hence the only possible candidate for the solution are $n\le 6$. Verify one by one to obtain the solution of $\varphi(n)=2$ being $n=3,4$ and $6$.\par
+(c) Pending...
 \end{proof}
 \begin{problem}\em
 (a) If $p$ is an odd prime and $n>0$, then the multiplicative group of units in the ring $\mathbb{Z}_{p^n}$ is cyclic of order $p^{n-1}(p-1)$.\par
 (b) Part (a) is also true if $p=2$ and $1\leq n\leq 2$.\par
 (c) If $n\geq 3$, then the multiplicative group of units in $\mathbb{Z}_{2^n}$ is isomorphic to $\mathbb{Z}_2\oplus \mathbb{Z}_{2^{n-2}}$.
 \end{problem}
+\begin{proof}
+(a) Denote the multiplicative group of units in the ring $\mathbb{Z}_{p^n}$ as $\mathbb{Z}_{p^n}^\times$. Then by Exercise 6.90 we have $|\mathbb{Z}_{p^n}^\times|=\varphi(p^n)=p^{n-1}(p-1)$. Now it suffices to show that $\mathbb{Z}_{p^n}^\times$ is cyclic. We break the proof into several steps.\par
+We first show the following conclusion: Suppose $G$ is an abelian group, $a,b\in G$ with $|a|=m$, $|b|=n$, then there exists some elements $c\in G$ such that $|c|=[m,n]$ (the least common divisor of $m$ and $n$). To show this, note first if $k\mid n$ with $a$ of order $n$, then there exists some elements, for instance, $a^{n/d}$, has order $k$. Therefore we have elements of order $(m,n)$, $m/(m,n)$ and $n/(m,n)$, and note that if $a$ is of order $m$ and $b$ is of order $n$, then $ab$ is of order $mn$, we have shown that there exists some elements in $G$ of order $[m,n]$. Similarly we may extend this result to the condition of finding an element of order of the least common divisor of finitely many elements.\par
+We now show that if $d\mid p-1$, where $p$ is a prime, then the polynomial $x^d-1$ has exactly $d$ distinct roots in $\mathbb{Z}_p^\times$. To see this, note first if $d\mid p-1$, then there exists some $d^\prime\in\mathbb{Z}$ such that $dd^\prime=p-1$. Therefore we have 
+$$
+\frac{x^{p-1}-1}{x^d-1}=\frac{\left( x^d \right) ^{d^{\prime}}-1}{x^d-1}=\sum_{k=1}^{d^{\prime}}{\left( x^d \right) ^{k-1}}=g\left( x \right) ,
+$$
+and hence $x^{p-1}-1=(x^d-1)g(x)$. Now we $\bmod{p}$ on both side, suppose $x^d-\overline{1}$ has less than $d$ roots in $\mathbb{Z}_p^\times$, then since $\mathrm{deg}g=dd^\prime-d$, we have the number of roots in $x^{p-1}-\overline{1}$ is less than $p-1$, a contradiction! Therefore there are precisely $d$ roots of $x^d-1$ in $\mathbb{Z}_p^\times$.\par
+Now we show that $\mathbb{Z}_p^\times$ is cyclic. Suppose not. Then suppose $i\in\mathbb{Z}_p^\times$, we denote $|i|=m_i$. Let $d=[m_1,\cdots,m_{p-1}]$, by the preceding results we know that there exists some $g\in\mathbb{Z}_p^\times$ such that $|g|=d$. Now consider the polynomial $x^d-1$, it has only $d$ roots in $\mathbb{Z}_p^\times$. However if $i\in\mathbb{Z}_p^\times$, then $|i|=m_i\mid d$ and hence 
+$$
+i^d-1=\left( i^{m_i} \right) ^{d/m_i}-1=1^{d/m_i}-1=0,
+$$
+which implies every element in $\mathbb{Z}_p^\times$ is a root of $x^d-1$, which is a contradiction.\par
+Now we show that $\mathbb{Z}_{p^2}^\times$ is also a cyclic group. To see this, suppose $x$ is a generator of $\mathbb{Z}_p^\times$, we claim that either $x$ or $x+p$ is a generator of $\mathbb{Z}_{n^2}^\times$, which implies $\mathbb{Z}_{p^2}^\times$ is also a cyclic group. Suppose $x$ has order $a$ in $\mathbb{Z}_{p^2}^\times$, then $a$ divides $p(p-1)$. Moreover, since $x^a\equiv 1\pmod{p^2}$, we have $x^a\equiv 1\pmod{p}$ and hence $p-1\mid a$. Therefore $a=p-1$ or $a=p(p-1)$. If $a=p(p-1)$, then we are done. Otherwise we have $x+p$ has order $p-1$ or $p(p-1)$ by the same reason, but since $p^2$ does not divide $px^{p-2}$, we must have $x+p$ has order $p(p-1)$, which proved that $\mathbb{Z}_{p^2}^\times$ is cyclic with generator $x$ or $x+p$.\par
+To prove the circumstance of a the higher condition, we mention the following lifting lemma (without a proof): For any $y$ and $n\ge 1$, we have $y^p\equiv 1\pmod{p^{n+1}}$ if and only if $y\equiv 1\pmod{p^n}$. Now we return to the final result. We shall prove it via induction. The condition for $n=2$ has been proven in the preceding context. Now suppose $\mathbb{Z}_{p^n}^\times$ is cyclic, and now we consider the condition of $\mathbb{Z}_{p^{n+1}}^\times$. Let $z$ be the generator of the cyclic group $\mathbb{Z}_{p^n}^\times$, then we have $z$ has order either $p^n(p-1)$ or $p^{n-1}(p-1)$, where in the first case we have $z$ a generator of $\mathbb{Z}_{p^{n+1}}^\times$. For the second case, we apply the preceding lemma with $y=z^{p^{n-2}(n-1)}$ to see a contradiction. Until now, we eventually finished the proof of the problem.\par
+(b) There are only two different circumstances: $\mathbb{Z}_2^\times$ and $\mathbb{Z}_4^\times$, where it suffices to determine the structure of each group and we omit the details.\par
+(c) We shall show that every element in $\mathbb{Z}_{2^n}^\times$ is of the form $(-1)^a5^b$, where $a\in\{0,1\}$ and $0\le b\le 2^{n-2}$. To see this, we first show that $5$ is an element of order $2^{n-2}$ in $\mathbb{Z}_{2^n}^\times$. Trivially (by a conclusion that if $a\in\mathbb{Z}$ is odd, then $a^{2^{k-2}}\equiv 1\pmod{2^k}$) the order of $5$ divides $2^{n-2}$. To show that the order of $5$ is indeed $2^{n-2}$, we prove that $5^{2^{n-3}}\equiv 1+2^{n-1}\pmod{2^n}$. The proof of this result easily follows from an induction and we omit the details. Also note that $-1$ has order $2$ and $-1$ does not lie in the group generated by $5$, we finished the proof of this statement. To conclude the final result, consider the homomorphism $\phi:\mathbb{Z}_{2^n}^\times\to\mathbb{Z}_2\oplus\mathbb{Z}_{2^{n-2}}$ given by $(-1)^a5^b\mapsto (a,b)$. It is routine to verify the homomorphism $\phi$ is well-defined and an isomorphism, which finished the proof.
+\end{proof}
 \begin{problem}\em
-
+If $f(x)=\sum_{i=0}^{t}a_i x^i$, let $f(x^s)$ be the polynomial $\sum_{i=0}^{t}a_i x^{is}$. Establish the following properties of the cyclotomic polynomials $\Phi_n(x)$ over $\mathbb{Q}$.\par
+(a) If $p$ is prime and $k\geq 1$, then $\Phi_{p^k}(x)=\Phi_p(x^{p^k-1})$.\par
+(b) If $n=p_1^{r_1}\cdots p_k^{r_k}$ ($p_i$ distinct primes; $r_i>0$), then 
+$$\Phi_n(x)=\Phi_{p_1\cdots p_k}(x^{p_1^{r_1-1}\cdots p_k^{r_k-1}}).$$\par
+(c) If $n$ is odd, then $\Phi_{2n}(x)=\Phi_n(-x)$.\par
+(d) If $p$ is a prime and $p\nmid n$, then $\Phi_{pn}(x)=\Phi_n(x^p)/\Phi_n(x)$.\par
+(e) $\Phi_n(x)=\prod_{d\mid n}(x^{n/d}-1)^{\mu(d)}$, where $\mu$ is the Moebius function.\par
+(f) $\Phi_n(1)=p$ if $n=p^k$ ($k>0$), $0$ if $n=1$, and $1$ otherwise.
+\end{problem}
+\begin{proof}
+(a) We shall prove that if $p\mid m$, then $\Phi_{mp}(x)=\Phi_m(x^p)$. Note that 
+$$
+\Phi _{mp}\left( x \right) =\prod_{\substack{1\le i\le mp \\ \left( i,mp \right) =1}}=\left( x-\zeta ^i \right)=\prod_{\substack{1\le i\le m \\ \left( i,m \right) =1}}\prod_{1\le j\le p-1}{\left( x-\zeta ^{mj+i} \right)},
+$$
+where $\zeta$ is a primitive $mp$-th root of unity, and that 
+$$
+\Phi _m\left( x^p \right) =\prod_{\substack{\left( i,m \right) =1 \\ 1\le i\le m}}\left( x^p-\zeta ^{mi} \right)=\prod_{\substack{1\le i\le m \\ \left( i,m \right) =1}}\prod_{1\le j\le p-1}{\left( x-\zeta ^{mj+i} \right)}=\Phi _{mp}\left( x \right) ,
+$$
+we finished the proof. Apply the preceding result with $m=p^{k-1}$.\par
+(b) By the results in (a) we have 
+$$
+\Phi _n\left( x \right) =\Phi _{p_{1}^{r_1}p_{2}^{r_2}\cdots p_{k}^{r_k}}\left( x \right) =\Phi _{p_1p_2\cdots p_k}\left( x^{p_{1}^{r_1-1}p_{2}^{r_2-1}\cdots p_{k}^{r_k-1}} \right) .
+$$\par
+(e) We shall prove this result via the Moebius inversion formula: Suppose $f$ and $g$ are functions defined on $\mathbb{Z}$, then 
+$$
+f\left( n \right) =\sum_{d\mid n}{g\left( d \right)}\Longleftrightarrow g\left( n \right) =\sum_{d\mid n}{f\left( d \right) \mu \left( \frac{n}{d} \right)}.
+$$
+Note that $x^n-1=\prod_{d\mid n}{\Phi _d\left( x \right)}$, we have 
+$$
+\log \left( x^n-1 \right) =\sum_{d\mid n}{\log \Phi _d\left( x \right)}
+$$
+and hence by Moebius inversion formula we have 
+$$
+\log \Phi _n\left( x \right) =\sum_{d\mid n}{\log \left( x^d-1 \right) \cdot \mu \left( \frac{n}{d} \right)}=\log \left( \prod_{d\mid n}{\left( x^d-1 \right) ^{\mu \left( n/d \right)}} \right) ,
+$$
+whence 
+$$
+\Phi _n\left( x \right) =\prod_{d\mid n}{\left( x^d-1 \right) ^{\mu \left( n/d \right)}}=\prod_{d\mid n}{\left( x^{n/d}-1 \right) ^{\mu \left( d \right)}}.
+$$\par
+(c) We shall prove this result via (e). Note that 
+$$
+\begin{aligned}
+\Phi _{2n}\left( x \right) &=\prod_{d\mid 2n}{\left( x^d-1 \right) ^{\mu \left( 2n/d \right)}}=\prod_{d\mid n}{\left( x^d-1 \right) ^{\mu \left( 2n/d \right)}}\cdot \prod_{d\mid n}{\left( x^{2d}-1 \right) ^{\mu \left( n/d \right)}}=\prod_{d\mid n}{\left( x^d+1 \right) ^{\mu \left( n/d \right)}}
+\\
+&=\prod_{d\mid n}{\left( -x^d-1 \right) ^{\mu \left( n/d \right)}}\cdot \left( -1 \right) ^{\sum_{d\mid n}{\mu \left( \frac{n}{d} \right)}}=\prod_{d\mid n}{\left[ \left( -x \right) ^d-1 \right] ^{\mu \left( n/d \right)}}=\Phi _n\left( -x \right) ,
+\end{aligned}
+$$
+which finished the proof.\par
+(d) Note that $x^n-1=\prod_{d\mid n}{\Phi _d\left( x \right)}$, we have 
+$$
+x^{np}-1=\prod_{d\mid n}{\Phi _d\left( x^p \right)}=\prod_{d\mid np}{\Phi _d\left( x \right)}=\prod_{d\mid n}{\Phi _d\left( x \right) \Phi _{dp}\left( x \right)}.
+$$
+Now we prove by induction. If $n=1$, the statement is trivial. Now suppose the result is true for all $d\mid n$ and $d<n$, then we may cancel out in the preceding equality and hence obtain $\Phi_{pn}(x)=\Phi_n(x^p)/\Phi_n(x)$.\par
+(f) Since $x^n-1=\prod_{d\mid n}{\Phi _d\left( x \right)}$, we have 
+$$
+\frac{x^n-1}{x-1}=1+x+x^2+\cdots +x^{n-1}=\prod_{\substack{d\mid n,d>1}}\Phi _d\left( x \right)
+$$
+and hence 
+$$
+\prod_{\substack{d\mid n,d>1}}\Phi _d\left( x \right)=p.
+$$
+Now the conclusion if (f) follows from this result and Moebius inversion formula.
+\end{proof}
+\begin{problem}\em
+Calculate the $n$th cyclotomic polynomials over $\mathbb{Q}$ for all positive $n$ with $n\leq 20$.
+\end{problem}
+\begin{problem}\em
+Let $F_n$ be a cyclotomic extension of $\mathbb{Q}$ of order $n$. Determine the structure of $\mathrm{Aut}_{\mathbb{Q}}F_n$ for every $n$.
+\end{problem}
+\begin{problem}\em
+Let $F_n$ be a cyclotomic extension of $\mathbb{Q}$ of order $n$.\par
+(a) Determine $\mathrm{Aut}_{\mathbb{Q}}F_5$ and all intermediate fields.\par
+(b) Do the same for $F_8$.\par
+(c) Do the same for $F_7$; if $\zeta$ is a primitive $7$th root of unity what is the irreducible polynomial over $\mathbb{Q}$ of $\zeta+\zeta^{-1}$?
+\end{problem}
+\begin{problem}\em
+If $n>2$ and $\zeta$ is a primitive $n$th root of unity over $\mathbb{Q}$, then $[\mathbb{Q}(\zeta+\zeta^{-1}):\mathbb{Q}]=\varphi(n)/2$.
+\end{problem}
+\begin{problem}\em
+(Wedderburn) A finite division ring $D$ is a field.\par
+Here is an outline of the proof (in which $E^*$ denotes the multiplicative group of nonzero elements of a division ring $E$).\par
+(a) The center $K$ of $D$ is a field and $D$ is a vector space over $K$, whence $|D|=q^n$ where $q=|K|\geq 2$.\par
+(b) If $0\neq a\in D$, then $N(a)=\{d\in D\mid da=ad\}$ is a subdivision ring of $D$ containing $K$. Furthermore, $|N(a)|=q^r$ where $r\mid n$.\par
+(c) If $0\neq a\in D-K$, then $N(a)^*$ is the centralizer of $a$ in the group $D^*$ and $[D^*:N(a)^*]=(q^n-1)/(q^r-1)$ for some $r$ such that $1\leq r<n$ and $r\mid n$.\par
+(d) $q^n-1=q-1+\sum_{r}(q^n-1)/(q^r-1)$, where the last sum taken over a finite number of integers $r$ such that $1\leq r<n$ and $r\mid n$.\par
+(e) For each primitive $n$th root of unity $\zeta\in \mathbb{C}$, $|q-\zeta|>q-1$, where $|a+bi|=\sqrt{a^2+b^2}$ for $a+bi\in \mathbb{C}$. Consequently, $|g_n(q)|>q-1$, where $g_n$ is the $n$th cyclotomic polynomial over $\mathbb{Q}$.\par
+(f) The equation in (d) is impossible unless $n=1$, whence $K=D$.
 \end{problem}
