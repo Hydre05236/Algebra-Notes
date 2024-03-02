@@ -2602,27 +2602,159 @@ $$
 Now the conclusion if (f) follows from this result and Moebius inversion formula.
 \end{proof}
 \begin{problem}\em
-Calculate the $n$th cyclotomic polynomials over $\mathbb{Q}$ for all positive $n$ with $n\leq 20$.
+Let $F_n$ be a cyclotomic extension of $\mathbb{Q}$ of order $n$. Determine the structure of $\mathrm{Gal}(F_n/\mathbb{Q})$ for every $n$.
 \end{problem}
+\begin{proof}
+We first note that 
+$$
+\left( \mathbb{Z} /n\mathbb{Z} \right) ^{\times}=\left( \mathbb{Z} /\prod_{i=1}^m{p_{i}^{k_i}\mathbb{Z}} \right) ^{\times}\cong \left( \bigoplus_{i=1}^m{\mathbb{Z} /p_{i}^{k_i}\mathbb{Z}} \right) ^{\times}\cong \bigoplus_{i=1}^m{\left( \mathbb{Z} /p_{i}^{k_i}\mathbb{Z} \right) ^{\times}},
+$$
+where the equality follows from the structure theorem of abelian groups and the last isomorphism follows from a straight forward verification which we omit the details. Now apply Exercise 6.93, we have 
+$$
+\left( \mathbb{Z} /n\mathbb{Z} \right) ^{\times}\cong \bigoplus_{i=1}^m{\left( \mathbb{Z} /p_{i}^{k_i-1}\left( p_i-1 \right) \mathbb{Z} \right)}
+$$
+when $8\nmid n$ and 
+$$
+\left( \mathbb{Z} /n\mathbb{Z} \right) ^{\times}\cong \left( \mathbb{F} _2\oplus \left( \mathbb{Z} /2^{k_1-2}\mathbb{Z} \right) \right) \oplus \left( \bigoplus_{i=2}^m{\left( \mathbb{Z} /p_{i}^{k_i-1}\left( p_i-1 \right) \mathbb{Z} \right)} \right) 
+$$
+when $8\mid n$. This finished the classification of $\mathrm{Gal}(F_n/\mathbb{Q})$.
+\end{proof}
 \begin{problem}\em
-Let $F_n$ be a cyclotomic extension of $\mathbb{Q}$ of order $n$. Determine the structure of $\mathrm{Aut}_{\mathbb{Q}}F_n$ for every $n$.
+(Wedderburn) A finite division ring $D$ is a field.
 \end{problem}
-\begin{problem}\em
-Let $F_n$ be a cyclotomic extension of $\mathbb{Q}$ of order $n$.\par
-(a) Determine $\mathrm{Aut}_{\mathbb{Q}}F_5$ and all intermediate fields.\par
-(b) Do the same for $F_8$.\par
-(c) Do the same for $F_7$; if $\zeta$ is a primitive $7$th root of unity what is the irreducible polynomial over $\mathbb{Q}$ of $\zeta+\zeta^{-1}$?
-\end{problem}
-\begin{problem}\em
-If $n>2$ and $\zeta$ is a primitive $n$th root of unity over $\mathbb{Q}$, then $[\mathbb{Q}(\zeta+\zeta^{-1}):\mathbb{Q}]=\varphi(n)/2$.
-\end{problem}
-\begin{problem}\em
-(Wedderburn) A finite division ring $D$ is a field.\par
-Here is an outline of the proof (in which $E^*$ denotes the multiplicative group of nonzero elements of a division ring $E$).\par
-(a) The center $K$ of $D$ is a field and $D$ is a vector space over $K$, whence $|D|=q^n$ where $q=|K|\geq 2$.\par
-(b) If $0\neq a\in D$, then $N(a)=\{d\in D\mid da=ad\}$ is a subdivision ring of $D$ containing $K$. Furthermore, $|N(a)|=q^r$ where $r\mid n$.\par
-(c) If $0\neq a\in D-K$, then $N(a)^*$ is the centralizer of $a$ in the group $D^*$ and $[D^*:N(a)^*]=(q^n-1)/(q^r-1)$ for some $r$ such that $1\leq r<n$ and $r\mid n$.\par
-(d) $q^n-1=q-1+\sum_{r}(q^n-1)/(q^r-1)$, where the last sum taken over a finite number of integers $r$ such that $1\leq r<n$ and $r\mid n$.\par
-(e) For each primitive $n$th root of unity $\zeta\in \mathbb{C}$, $|q-\zeta|>q-1$, where $|a+bi|=\sqrt{a^2+b^2}$ for $a+bi\in \mathbb{C}$. Consequently, $|g_n(q)|>q-1$, where $g_n$ is the $n$th cyclotomic polynomial over $\mathbb{Q}$.\par
-(f) The equation in (d) is impossible unless $n=1$, whence $K=D$.
-\end{problem}
+\begin{note}\em
+This remarkable proof was due to Witt.
+\end{note}
+\begin{proof}
+We prove by contradiction. Denote $C(s)=\{x\in D:xs=sx\}$ the set of all elements in $D$ that commute with $s$, and $Z=\bigcap_{s\in D}C(s)$ the center of $D$. We may regard $D$ and $C(s)$ the vector space over $Z$, hence we have $|D|=|Z|^n$ for some $n\in\mathbb{N}$ and $|C(s)|=|Z|^{n_s}$ for some $n_s\in\mathbb{N}$. We shall now denote $|Z|=q$ for convenience.\par
+Suppose now $D$ is not a field. Then there exists some $s\in S$ such that $C(s)\ne D$, and hence $n_s<n$. Denote $N(s)=\{x^{-1}sx:x\in D^\times\}$ the normalizer of $D^\times$ at $s$, where $G^\times$ denote the multiplicative group of $G$. We claim that $|D^\times|=|C(s)^\times|\cdot|N(s)|$. Note that $|N(s)|=1$ if and only if $s\in Z$, hence there exists some $s\in D$ such that $|N(s)|\ge 2$. Note that $x^{-1}sx=y^{-1}sy$ if and only if $yx^{-1}\in C(s)^\times$, which is $y\in C(s)^\times x$, therefore $|D^\times|=|N(s)|\cdot|C(s)^\times|$. In particular we have 
+$$
+\frac{\left| D^{\times} \right|}{\left| C\left( s \right) ^{\times} \right|}=\frac{q^n-1}{q^{n_s}-1}=\left| N\left( s \right) \right|,
+$$
+and hence by the class equation 
+$$
+\left| D^{\times} \right|=\left| Z^{\times} \right|+\sum_{k=1}^t{\left| N\left( k \right) \right|}
+$$
+we have 
+$$
+q^n-1=q-1+\sum_{k=1}^t{\frac{q^n-1}{q^{n_k}-1}}.
+$$
+Now we claim that $(q^{n_k}-1)\mid(q^n-1)$ implies $n_k\mid n$. To see this, suppose $n=an_k+r$, where $0\le r<n_k$, then 
+$$
+\left( q^{n_k}-1 \right) \mid \left[ \left( q^{an_k+r}-1 \right) -\left( q^{n_k}-1 \right) \right] =q^{n_k}\left( q^{\left( a-1 \right) n_k+r}-1 \right) 
+$$
+and hence 
+$$
+\left( q^{n_k}-1 \right) \mid \left( q^{\left( a-1 \right) n_k+r}-1 \right) .
+$$
+We may repeat the preceding procedure to conclude that $n_k\mid n$. Now fix some $n_k\mid n$, we have 
+$$
+x^n-1=\prod_{d\mid n}{\Phi _d\left( x \right)}=\prod_{\substack{d\mid n \\ d\nmid n_k}}\Phi _d\left( x \right)\cdot \prod_{d\mid n_k}{\Phi _d\left( x \right)}=\left( x^{n_k}-1 \right) \cdot \Phi _n\left( x \right) \prod_{\substack{d\mid n \\ d\nmid n_k \\ d<n}}\Phi _d\left( x \right),
+$$
+therefore we have $\Phi_n(q)\mid (q^n-1)$ and $\Phi_n(q)\mid(q^n-1)/(q^{n_k}-1)$. Note that this is true for all $k$, we therefore conclude from the class equation that $\Phi_n(q)\mid q-1$. However, if we denote $\overline{\zeta}$ a primitive $n$-th root of unity, we have $|q-\overline{\zeta}|>q-1$, which implies 
+$$
+\left| \Phi _n\left( q \right) \right|=\prod{\left| q-\zeta \right|}>q-1,
+$$
+a contradiction!
+\end{proof}
+\subsection{Radical Extensions}
+In this section we shall study radical extensions. The Galois theory has its origin in solving the problem that whether the root of a polynomial equation $f(x)=0$ has a "formula". For instance, suppose we are given an equation (over $\mathbb{Q}$) $ax^2+bx+c=0$, then it is familiar to us that we may represent the root of such a polynomial as 
+$$
+x_{1,2}=\frac{-b\pm \sqrt{b^2-4ac}}{2a}.
+$$
+However, many attempt in finding a representation of roots of a polynomial of degree $5$. We shall introduce the concept of radical extensions in this section and eventually show that no such representations exist for a polynomial of degree $\ge 5$.\par
+Let's first state the problem precisely in the language of field theory. We introduce the following definition.
+\begin{definition}
+An extension field $F$ of $K$ is said to be a \textbf{radical extension} of $K$ if $F=K(u_1,\cdots,u_n)$ and some power of $u_1$ lies in $K$, some power of $u_i$ lies in $K(u_1,\cdots,u_{i-1})$.
+\end{definition}
+\begin{note}\em
+Note that if $u_i^m\in K(u_1,\cdots,u_{i-1})$ then $u_i$ is a root of $x^m-u_i^m\in K(u_1,\cdots,u_{i-1})[x]$. Hence $K(u_1,\cdots,u_i)$ is a finite dimensional algebraic over $K(u_1,\cdots,u_{i-1})$ and hence every radical extension $F$ of $K$ is finite dimensional algebraic over $K$.\par
+Let's introduce some motivation behind the definition. Suppose $f\in K[x]$ is a polynomial, $F$ the splitting field of $f$ over $K$. If there exists a "formula" for solving $f(x)=0$, there would exist a finite tower of fields 
+$$
+K=E_0\subset E_1\subset \cdots \subset E_n=F
+$$
+such that $E_i=E_{i-1}(u_i)$ with some positive power of $u_i$ lies in $E_{i-1}$. Conversely, if there exists such a tower of fields and that $E_n$ contains a splitting field of $f$, then $E_n=K(u_1,\cdots,u_n)$ and each solution is of the form $f(u_1,\cdots,u_n)/g(u_1,\cdots,u_n)$, where $f,g\in K[x_1,\cdots,x_n]$. Therefore each solution is expressible in terms of a finite number pf elements pf $K$, a finite number of field operations and $u_1,\cdots,u_n$. This is the motivation of the preceding definition. Moreover, this example only considered one given equation. In order to consider a class of equations, we introduce the following definition.
+\end{note}
+\begin{definition}
+Let $K$ be a field and $f\in K[x]$. The equation $f(x)=0$ is \textbf{solvable by radicals} if there exists a radical extension $F$ of $K$ and a splitting field of $f$ over $K$ such that $F\supset E\supset K$.
+\end{definition}
+Definition 6.86 is the first step in the formulation of the classical problem of finding a "formula" for the solutions of $f(x)=0$ that is valid for every polynomial of degree $r$. It is clear by Remark 6.16 that such a formula exists if and only if the polynomial is solvable by radicals. Therefore in order to demonstrate the nonexistence of such a formula, it suffices to show that a specific polynomial is not solvable by radicals.
+\begin{lemma}\em
+If $F$ is a radical extension field of $K$ and $N$ is a normal closure of $F$ over $K$, then $N$ is radical over $K$.
+\end{lemma}
+\begin{proof}
+We shall first prove that if $F$ is a finite dimensional extension field of $K$ and $N$ is the normal closure of $F$ over $K$, then $N=E_1E_2\cdots E_r$, where each $E_i$ is $K$-isomorphic to $F$. To see this, suppose $\{w_1,\cdots,w_n\}$ be a basis of $F$ over $K$ and let $f_i$ be the irreducible polynomial of $w_i$ over $K$. Therefore $N$ is a splitting field of $\{f_1,\cdots,f_r\}$ over $K$. Let $v$ be any root of $f_j$. Then there is a $K$-isomorphism $\sigma:K(w_j)\to K(v)$ with $\sigma(w_j)=v$. Since $N$ is a splitting field of $F$, we therefore may extend $\sigma$ to a $K$-automorphism $\tau$ of $N$ with its restriction on $F$ equal to $\sigma$. Consider $\tau(F)$, which is a subfield of $N$ and is isomorphic to $F$. Note also that $\tau(F)$ contains $\tau(w_j)=v$, therefore for each $j$ and root $v$ of $f_j$ we may find a field $E$ isomorphic to $F$ such that $v\in E$. Suppose the collection of such fields are $\{E_i\}_{i=1}^r$, clearly $r<\infty$. Then $E_1E_2\cdots E_r$ is a subfield of $N$ which contains all roots of $f_1,\cdots,f_n$, whence $E_1E_2\cdots E_r=N$.\par
+Now suppose $r=2$, the general case is similar. Suppose $E_1=K(u_1,\cdots,u_n)$ and $E_2=K(v_1,\cdots,v_m)$. Then $E_1E_2=K(u_1,\cdots,u_n,v_1,\cdots,v_m)$. We claim that if $E_1$ and $E_2$ are both radical over $K$, then so is $E_1E_2$. The only possible place where a problem may occur is $v_1$. However $v_1^m\in K$ for some $m$, hence $v_1\in K(u_1,\cdots,u_n)$. Now note that each $E_i$ is isomorphic to $F$, hence $E_i/K$ is a radical extension and hence $E_1E_2\cdots E_r/K$ is a radical extension. However $N=E_1E_2\cdots E_r$, hence $N/K$ is a radical extension.
+\end{proof}
+\begin{theorem}
+If $F$ is a radical extension field of $K$ and $E$ is an intermediate field, then $\mathrm{Aut}(E/K)$ is a solvable group.
+\end{theorem}
+\begin{proof}
+If $K_0$ is the fixed field of $E$ relative to the group $\mathrm{Aut}(E/K)$, then $E/K_0$ is a Galois extension and $\mathrm{Aut}(E/K)\cong\mathrm{Gal}(F/K_0)$. Now we show that $F$ is radical over $K_0$. Since $F$ is radical over $K$, we may suppose $F=K(u_1,\cdots,u_n)$. Since $K_0$ is an intermediate field of the extension $F/K$, we have $K_0=K(u_1,\cdots,u_i)$ for some $i$. Therefore $F/K_0=F/K(u_1,\cdots,u_i)$ is a radical extension. Hence we may suppose $E/K$ is a Galois extension. Let $N$ be a normal closure of $F$ over $K$, then $N/K$ is a radical extension by Lemma 6.21. Consequently we may define a homomorphism $\theta:\mathrm{Aut}(N/K)\to\mathrm{Gal}(E/K)$ given by $\sigma\mapsto\sigma\mid_E$. Since $N$ is a splitting field of $K$, for each $\sigma\in\mathrm{Gal}(E/K)$ we may extend it to $\tau\in\mathrm{Aut}(N/K)$, which implies $\mathrm{Im}\theta=\mathrm{Gal}(E/K)$. Recall that the homomorphism image of a solvable group is also a solvable group, it suffices to show that $\mathrm{Aut}(N/K)$ is a solvable group. If $K_1$ is the fixed group of $N$ relative to $\mathrm{Aut}(N/K)$, we have $N/K_1$ is also radical and Galois with $\mathrm{Gal}(N/K_1)\cong\mathrm{Aut}(N/K)$. Therefore we may suppose $F=E$ and $F/K$ is a Galois radical extension.\par
+Suppose $F=K(u_1,\cdots,u_n)$ with $u_1^{m_1}\in K$ and $u_i^{m_i}\in K(u_1,\cdots,u_{i-1}$. We further assume that $\mathrm{char}K$ does not divide $m_i$. This is trivial when $\mathrm{char}K=0$. If $\mathrm{char}K=p\ne 0$, suppose $m_i=rp^t$, then 
+$$
+u_{i}^{m_i}=u_{i}^{rp^t}=\left( u_{i}^{r} \right) ^{p^t}\in K\left( u_1,\cdots ,u_{i-1} \right) ,
+$$
+which implies $u_i^r$ is purely inseparable over $K(u_1,\cdots,u_{i-1})$. However $F$ is Galois over $K$, which implies $u_i^r$ is separable over $K(u_1,\cdots,u_{i-1})$ and hence $u_i^r\in K(u_1,\cdots,u_{i-1})$. Replace $m_i=rp^t$ with $m_i=r$.\par
+Define $m=m_1\cdots m_n$, then $\mathrm{char}K$ does not divide $m$. Consider the cyclotomic extension $F(\zeta)/F$, where $\zeta$ is a primitive $m$-th root of unity. The situation is as follows: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da8186319622374205] 
+\draw    (328,152) -- (296,176) ;
+%Straight Lines [id:da48721416745849866] 
+\draw    (336,152) -- (376,176) ;
+%Straight Lines [id:da5793426296009068] 
+\draw    (296,200) -- (328,224) ;
+%Straight Lines [id:da24811122800838858] 
+\draw    (376,200) -- (336,224) ;
+
+% Text Node
+\draw (320,130.4) node [anchor=north west][inner sep=0.75pt]    {$F( \zeta )$};
+% Text Node
+\draw (283,182.4) node [anchor=north west][inner sep=0.75pt]    {$F$};
+% Text Node
+\draw (329,230.4) node [anchor=north west][inner sep=0.75pt]    {$K$};
+% Text Node
+\draw (366,182.4) node [anchor=north west][inner sep=0.75pt]    {$K( \zeta )$};
+
+
+\end{tikzpicture}
+\end{center}
+where $F(\zeta)$ is Galois over $F$ and hence over $K$. The Fundamental theorem therefore asserts $\mathrm{Gal}(F/K)\cong\mathrm{Gal}(F(\zeta)/K)/\mathrm{Gal}(F(\zeta)/F)$. Suppose $\phi:\mathrm{Gal}(F(\zeta)/K)\to\mathrm{Gal}(F/K)$ is an epimorphism with $\mathrm{Ker}\phi=\mathrm{Gal}(F(\zeta)/F)$, then $\mathrm{Gal}(F/K)$ is the homomorphism image of $\mathrm{Gal}(F(\zeta)/K)$ with respect to $\phi$, whence it suffices to show that $\mathrm{Gal}(F(\zeta)/K)$ is solvable. On the other hand, note that $K(\zeta)/K$ is abelian Galois, hence again by the Fundamental theorem we have $\mathrm{Gal}(K(\zeta)/K)\cong\mathrm{Gal}(F(\zeta)/K)/\mathrm{Gal}(K(\zeta)/K)$. Since $\mathrm{Gal}(K(\zeta)/K)$ is abelian, we have $\mathrm{Gal}(K(\zeta)/K)$ is solvable. Therefore it suffices to show that $\mathrm{Gal}(F(\zeta)/K(\zeta))$ is solvable.\par
+By assumption, $F(\zeta)/K$ is Galois and hence $F(\zeta)$ is Galois over any intermediate field of $F(\zeta)/K$. Let $E_0=K(\zeta)$ and $E_i=K(\zeta,u_1,\cdots,u_i)$, where $i=1,2,\cdots,n$. Then $E_n=K(\zeta,u_1,\cdots,u_n)=F(\zeta)$. By the Fundamental theorem we have the following correspondence: 
+$$
+\begin{matrix}
+	F\left( \zeta \right)&		\mapsto&		\left< 1 \right>\\
+	\vdots&		&		\vdots\\
+	E_i&		\mapsto&		\mathrm{Gal}\left( F\left( \zeta \right) /E_i \right)\\
+	\cup&		&		\land\\
+	E_{i-1}&		\mapsto&		\mathrm{Gal}\left( F\left( \zeta \right) /E_{i-1} \right)\\
+	\vdots&		&		\vdots\\
+	K\left( \zeta \right)&		\mapsto&		\mathrm{Gal}\left( F\left( \zeta \right) /K\left( \zeta \right) \right)\\
+\end{matrix}
+$$
+Note that $K(\zeta)$ contains a primitive $m_i$-th root of unity for each $i$. Since $u_i^{m_i}\in E_{i-1}$ and $E_i=E_{i-1}(u_i)$, we have each $E_i$ a cyclic extension of $E_{i-1}$. In particular, $E_i$ is Galois over $E_{i-1}$. The Fundamental theorem implies $\mathrm{Gal}(F(\zeta)/E_{i-1})/\mathrm{Gal}(F(\zeta)/E_i)\cong\mathrm{Gal}(E_i/E_{i-1})$, which is a cyclic group, hence abelian. Consequently 
+$$
+\left< 1 \right> =\mathrm{Gal}\left( F\left( \zeta \right) /F\left( \zeta \right) \right) <\mathrm{Gal}\left( F\left( \zeta \right) /E_{n-1} \right) <\cdots <\mathrm{Gal}\left( F\left( \zeta \right) /E_1 \right) <\mathrm{Gal}\left( F\left( \zeta \right) /K\left( \zeta \right) \right) 
+$$
+is a solvable series. Therefore $\mathrm{Gal}(F(\zeta)/K(\zeta))$ is solvable. This finished the proof of the theorem.
+\end{proof}
+\begin{corollary}
+Let $K$ be a field and $f\in K[x]$. If the equation $f(x)=0$ is solvable by radicals, then the Galois group of $f$ is a solvable group.
+\end{corollary}
+\begin{proof}
+Suppose $f(x)=0$ is solvable by radicals, then there exists a group $F$ such that $F$ is a splitting field of $f$ over $K$ and $\mathrm{Gal}(F/K)$ is the Galois group of the polynomial $f$ over $K$. Therefore by Theorem 6.87 we have $\mathrm{Gal}(F/K)$ is solvable.
+\end{proof}
+\begin{example}\em
+The polynomial $f(x)=x^5-4x+2\in\mathbb{Q}[x]$ has Galois group $S_5$ by Theorem 6.51. Since $S_5$ is not solvable, we therefore obtain the result that there are no "formulas" to represent the solutions for the equation $f(x)=0$. Note however the base field plays an important role here. The polynomial $x^5-4x+2=0$ is not solvable by radicals over $\mathbb{Q}$, however it is solvable by radicals over $\mathbb{R}$, since $\mathbb{C}=\mathbb{R}(\mathrm{i})$ is a radical extension field of $\mathbb{R}$ such that all roots of $f$ lies in $\mathbb{C}$.
+\end{example}
+We now consider a partial converse of Theorem 6.87. There is no difficulty if $K$ is characteristic zero. However if $\mathrm{char}K$ is positive, it will be necessary to place some restrictions on it.
+\begin{proposition}
+Let $E$ be a finite dimensional Galois extension field of $K$ with solvable Galois group $\mathrm{Gal}(E/K)$. Assume that $\mathrm{char}K$ does not divide $[E:K]$. Then there exists a radical extension $F$ of $K$ such that $F\supset E\supset K$.
+\end{proposition}

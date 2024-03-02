@@ -284,3 +284,38 @@ A multiplicatively closed subset $S$ of a ring $A$ is said to be \textbf{saturat
 (ii) If $S$ is any multiplicatively closed subset of $A$, there is a unique smallest saturated multiplicatively closed subset $\overline{S}$ containing $S$, and that $\overline{S}$ is the complement in $A$ of the union of the prime ideals which do not meet $S$. We call $\overline{S}$ the \textbf{saturation} of $S$.\par
 (iii) If $S=1+\mathfrak{a}$, where $\mathfrak{a}$ is an ideal of $A$, find $\overline{S}$.
 \end{problem}
+\begin{proof}
+(i) Suppose $S$ is saturated, we claim that for all $a\in A$ there exists a prime ideal $\mathfrak{p}$ of $A$ containing $a$ disjoint from $S$. Note that $S$ is saturated, we have $ab\notin S$ for all $b\in S$. Therefore $a$ is contained in some ideals. We denote the set of the collection of such ideals $\Sigma$, and by Exercise 8.6 we know that $\Sigma$ has a maximal element $\mathfrak{p}$. Now it suffices to show that $\mathfrak{p}$ is prime. Suppose $x,y\notin\mathfrak{p}$, we claim that $xy\notin\mathfrak{p}$. To see this, we note that since $\mathfrak{p}$ is a maximal element of $\Sigma$, we have $(x)+\mathfrak{p}\cap S\ne\emptyset$, $(y)+\mathfrak{p}\cap S\ne\emptyset$. Suppose $s\in ((x)+\mathfrak{p})\cap S$, $t\in ((y)+\mathfrak{p})\cap S$, then $st\in ((x)+\mathfrak{p})((y)+\mathfrak{p})\subset(xy)+\mathfrak{p}$. However $st\notin\mathfrak{p}$ since $\mathfrak{p}$ is disjoint from $S$, we have $xy\notin\mathfrak{p}$ and hence $\mathfrak{p}$ a prime ideal. Conversely, let $A-S=\bigcup_{\alpha\in A}\mathfrak{p}_\alpha$, then $1\notin\mathfrak{p}_\alpha$ implies $1\in S$. Now suppose $x,y\in S$, then $x,y\notin\mathfrak{p}_\alpha$ for all $\alpha\in A$. Since each $\mathfrak{p}_\alpha$ is prime, we have $xy\notin\mathfrak{p}_\alpha$ for all $\alpha\in A$ and hence $xy\in S$. Therefore $S$ is a multiplicative subset of $A$. Now if $xy\in S$, then $xy\notin\mathfrak{p}_\alpha$ for all $\alpha\in A$ and hence $x\notin\mathfrak{p}_\alpha$, $y\notin\mathfrak{p}_\alpha$ since $\mathfrak{p}_\alpha$ is a prime ideal, which implies $x,y\in S$ and hence $S$ saturated.\par
+(ii) Define 
+$$
+\overline{S}=\bigcup{\left\{ \mathfrak{p} \in \mathrm{Spec}\left( A \right) :\mathfrak{p} \cap S=\emptyset \right\}},
+$$
+then trivially $\overline{S}$ is the smallest saturated multiplicatively closed subset which contains $S$. By definition of $\overline{S}$ we also have $\overline{S}$ is the complement in $A$ of the union of the prime ideals which do not meet $S$.\par
+(iii) Suppose $\mathfrak{p}$ is a prime ideal meets $S$, then $1+a=x$ for some $x\in\
+{p}$ and $a\in\mathfrak{a}$, therefore $1=x-a$ and hence $(1)=\mathfrak{a}+\mathfrak{p}$. This implies $\overline{S}$ the union of all prime ideals that does not coprime with $S$ and hence 
+$$
+\overline{S}=\bigcup{\left\{ \mathfrak{p} \in \mathrm{Spec}\left( A \right) :\left( 1 \right) \ne \mathfrak{p} +\mathfrak{a} \right\}}.
+$$
+This finished the analysis of the problem.
+\end{proof}
+\begin{problem}\em
+Let $S,T$ be multiplicatively closed subsets of $A$ such that $S\subset T$. Let $\phi:S^{-1}A\to T^{-1}A$ be the homomorphism which maps each $a/s\in S^{-1}A$ to $a/s$ considered as an element in $T^{-1}A$. Show that the following statements are equivalent:\par
+(i) $\phi$ is bijective;\par
+(ii) For each $t\in T$, $t/1$ is a unit in $S^{-1}A$;\par
+(iii) For each $t\in T$ there exists $x\in A$ such that $xt\in S$;\par
+(iv) $T$ is contained in the saturation of $S$;\par
+(v) Every prime ideal which meets $T$ also meets $S$.
+\end{problem}
+\begin{proof}
+(i)$\Rightarrow$(ii): Suppose $\phi$ is bijective, then $\phi$ is an isomorphism. Now for each $t/1$ we have $1/t\in T^{-1}A\cong S^{-1}A$ is an inverse of $t/1$, hence $t/1$ is a unit in $S^{-1}A$.\par
+(ii)$\Rightarrow$(iii): Since $t/1$ is a unit in $S^{-1}A$, there exists some $a/s\in S^{-1}A$ such that $at/s=1/s^\prime$, which implies $(ats^\prime-s)t^\prime=0$ for some $t^\prime\in S$ and hence, if we denote $as^\prime t^\prime=x$, we therefore have $xt=st^\prime\in S$.\par
+(iii)$\Rightarrow$(iv): Denote the saturation of $S$ as $\overline{S}$. Then there exists some $x\in A$ such that $xt\in S\subset\overline{S}$, whence $x\in\overline{S}$ and $t\in\overline{S}$. Note that this is true for all $t\in T$, we therefore conclude that $T\subset S$.\par
+(iv)$\Rightarrow$(v): Suppose $\mathfrak{p}$ is a prime ideal that does not meet $S$, then it does not meet $\overline{S}$ by definition of saturation. Since $T\subset\overline{S}$, we have $\mathfrak{p}$ does not meet $T$.\par
+(v)$\Rightarrow$(i): Suppose every prime ideal $\mathfrak{p}$ which meets $T$ also meets $S$, then by definition $T$ is contained in the saturation of $S$, denoted as $\overline{S}$. We now claim that (iv) implies (iii). Denote $S^\prime$ be the set of all $a\in A$ such that there exists some $x\in A$ such that $ax\in S$, we claim $S^\prime=\overline{S}$. Trivially $S^\prime\subset\overline{S}$. To prove the converse implication, we suppose $s_1s_2\in S^\prime$, then there exists some $a\in A$ such that $as_1s_2\in T$. Regard $as_1=a^\prime$, then $s_2\in S^\prime$. Similarly we have $s_1\in S$ and hence $S^\prime$ is saturated. However $\overline{S}$ is the smallest saturation of $S$, we have $S^\prime\supset\overline{S}$ and hence $S^\prime=\overline{S}$. Now for each $t\in T$, we have $t\in S^\prime$ by (iv) and hence $t\in S^\prime$, which is $T\subset\overline{S}$. To conclude the final result, we further show that (iii) implies (i). Suppose $a/t\in T^{-1}A$, we need to find an element in $S^{-1}A$ being the preimage of $a/t$. Consider $xa/xt\in S^{-1}A$, where $st\in S$ by (iii). We have $\phi(xa/xt)=xa/xt=a/t$ and hence $\phi$ is bijective. This finished the proof of the statement.
+\end{proof}
+\begin{problem}\em
+The set $S_0$ of all non-zero-divisors in $A$ is saturated multiplicatively closed subset of $A$. Hence the set $D$ of zero-divisors in $A$ is a union of prime ideals. Show that every minimal prime ideal of $A$ is contained in $D$. The ring $S_0^{-1}A$ is called the \textbf{total ring of fractions} of $A$. Prove further\par
+(i) $S_0$ is the largest multiplicatively closed subset of $A$ for which the homomorphism $A\to S_0^{-1}A$ is injective.\par
+(ii) Every element in $S_0^{-1}A$ is either a zero-divisor or a unit.\par
+(iii) Every ring in which every non-unit is a non-divisor is equal to its total ring of fractions, i.e. $A\to S_0^{-1}A$ is bijective.
+\end{problem}
