@@ -319,3 +319,10 @@ The set $S_0$ of all non-zero-divisors in $A$ is saturated multiplicatively clos
 (ii) Every element in $S_0^{-1}A$ is either a zero-divisor or a unit.\par
 (iii) Every ring in which every non-unit is a non-divisor is equal to its total ring of fractions, i.e. $A\to S_0^{-1}A$ is bijective.
 \end{problem}
+\begin{proof}
+We shall first show that the set $S_0$ of all non-zero-divisors in $A$ is saturated multiplicatively closed subset of $A$. To see this, suppose $x,y\in S_0$. If $xy\notin S_0$, then there exists some $a\in A$ such that $xya=0$. Therefore $x(ya)=0$ and hence $x$ is a zero-divisor, a contradiction! To show that $S_0$ is saturated, suppose $xy\in S_0$, then we claim that both $x$ and $y\in S_0$. Suppose not, then $x\notin S_0$ implies $xa=0$ for some $a\in A$, hence $xya=0$, again a contradiction. Therefore $A-S_0$, i.e $D$ is a union of prime ideals.\par
+Suppose $\Sigma$ is the set of multiplicative subsets of $A$ such that consists of only zero-divisors, partially ordered by inclusion. Then $S_0$ is a maximal elements in $\Sigma$ and hence by Exercise 8.6 we have every minimal prime ideal of $A$ is contained in $A-S_0=D$.\par
+(i) We first show that $\phi:A\to S_0^{-1}A$ is injective. Suppose $\phi(a)=0$, then $a/1=0/1$, which implies $as=0$ for some $s\in S_0$. However $S_0$ consists of only non-zero-divisors, hence $a=0$ and $\phi$ is injective. Now suppose $S\supset S_0$ is a larger multiplicative subset of $A$, then there exists some $s\in S$ such that is a zero-divisor, say $as=0$ for some $a\in A$. Now suppose $a^\prime-a^{\prime\prime}=a$, we therefore have $\phi(a^\prime)=\phi^{\prime\prime}$, whence $\phi$ is not an injection.\par
+(ii) Suppose $a/s\in S_0^{-1}A$ is not a zero-divisor. We claim that $a\in S_0$. If not, then there exists some $a^\prime\in A$ such that $aa^\prime=0$, hence $a^\prime/1\cdot a/s=0$, a contradiction. Therefore $s/a$ is an inverse element of $a/s$ and hence a unit.\par
+(iii) We have shown that $\phi$ is injective in (i). To see $\phi$ is surjective, note that $\phi(as^{-1})=a/s$. The operation is well-defined by the assumption made to $A$.
+\end{proof}

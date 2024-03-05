@@ -2758,3 +2758,94 @@ We now consider a partial converse of Theorem 6.87. There is no difficulty if $K
 \begin{proposition}
 Let $E$ be a finite dimensional Galois extension field of $K$ with solvable Galois group $\mathrm{Gal}(E/K)$. Assume that $\mathrm{char}K$ does not divide $[E:K]$. Then there exists a radical extension $F$ of $K$ such that $F\supset E\supset K$.
 \end{proposition}
+\begin{proof}
+We first state and proof that if $F/E$ and $E/K$ are radical extensions, then $F/K$ is also a radical extension. Suppose $E=K(u_1,\cdots,u_n)$ and $F=E(v_1,\cdots,v_m)$. Then $F=K(u_1,\cdots,u_n,v_1,\cdots,v_m)$. The only possible place that a mistake may occur is $u_n$ and $v_1$. However $v_1^r\in E$ for some $r\in\mathbb{Z}$, therefore $v_1^r\in K(u_1,\cdots,u_n)$. Therefore $F/K$ is a radical extension.\par
+Now note that $\mathrm{Gal}(E/K)$ is solvable, therefore there exists a normal subgroup $H$ of $\mathrm{Gal}(E/K)$ of order $p$, where $p$ prime. Since $\mathrm{char}K\nmid |\mathrm{Gal}(E/K)=[E:K]$, we have $\mathrm{char}K\nmid p$. Let $N=E(\zeta)$ be a cyclotomic extension field of $E$, where $\zeta$ is a primitive $p$-th root of unity. Let $M=K(\zeta)$, then we have 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da6520149291343156] 
+\draw    (280,160) -- (240,200) ;
+%Straight Lines [id:da8890663249823436] 
+\draw    (240,216) -- (280,256) ;
+%Straight Lines [id:da011923752332613224] 
+\draw    (296,160) -- (352,200) ;
+%Straight Lines [id:da06545134343159975] 
+\draw    (352,224) -- (296,256) ;
+
+% Text Node
+\draw (261,138.4) node [anchor=north west][inner sep=0.75pt]    {$N=E( \zeta )$};
+% Text Node
+\draw (225,202.4) node [anchor=north west][inner sep=0.75pt]    {$E$};
+% Text Node
+\draw (321,202.4) node [anchor=north west][inner sep=0.75pt]    {$M=K( \zeta )$};
+% Text Node
+\draw (281,258.4) node [anchor=north west][inner sep=0.75pt]    {$K$};
+
+
+\end{tikzpicture}
+\end{center}
+$N$ is a finite dimensional Galois extension field of $E$, hence over $K$ as well. Now $M$ is a radical extension of $K$. It suffices to show that there exists a radical extension field of $M$ that contains $N$.\par
+First observe that $E$ is a stable intermediate field of $N$ and $K$. Therefore the restriction $\sigma\mapsto\sigma\mid_E$ induces a homomorphism $\theta:\mathrm{Gal}(N/M)\to\mathrm{Gal}(E/K)$. We first show that $\theta$ is a monomorphism. Note that $\sigma(\zeta)=\zeta$, therefore $\mathrm{Ker}\theta=1_N$ and hence $\theta$ is a monomorphism. Now there are two cases left: \par
+(i) $\mathrm{Gal}(N/M)$ is isomorphic to a subfield of $\mathrm{Gal}(E/K)$;\par
+(ii) $\mathrm{Gal}(N/M)\cong\mathrm{Gal}(E/K)$.\par
+Note that in both case $\mathrm{Gal}(N/M)$ is a solvable group. We proof the statement by induction on $[E:K]=n$. When $n=1$, trivial. Now suppose the statement is true for all $k<n$, we consider $k=n$. If (i) is true, then $|\mathrm{Gal}(N/M)|=[N:M]<[E:K]=n$, hence by the induction hypothesis there exists some radical extension field over $M$ such that contain $N$, which finished the proof. Otherwise consider $J=\theta^{-1}(H)$. Since $\mathrm{Gal}(E/K)\cong\mathrm{Gal}(N/M)$, we have $J$ a normal subgroup of $\mathrm{Gal}(N/M)$ of order $p$. Suppose $P$ is the fixed field of $J$ with respect to $\mathrm{Gal}(N/M)$, then we have the following correspondence: 
+$$
+\begin{matrix}
+	N&		\leftrightarrow&		\left< 1 \right>\\
+	\cup&		&		\bigtriangleup\\
+	P&		\leftrightarrow&		J=\mathrm{Gal}\left( N/P \right)\\
+	\cup&		&		\bigtriangleup\\
+	M&		\leftrightarrow&		\mathrm{Gal}\left( N/M \right)\\
+\end{matrix}
+$$
+By the Fundamental theorem we have $\mathrm{Gal}(P/M)\cong\mathrm{Gal}(N/M)/J$. But $|\mathrm{Gal}(P/M)|=|\mathrm{Gal}(N/M)/J|=[\mathrm{Gal}(N/M):J]=p$ by construction, we therefore have $\mathrm{Gal}(P/M)\cong\mathbb{Z}_p$ is cyclic. Hence $P=M(u)$ for some $u$ a root of some irreducible polynomial $x^p-a\in M[x]$, hence $P/M$ is radical. Note that $[N:P]<[N:M]=[F:K]=n$, therefore by the induction hypothesis there exists a radical extension $F$ over $P$ that contains $N$. This finished the proof.
+\end{proof}
+\begin{corollary}
+Let $K$ be a field and $f\in K[x]$ a polynomial of degree $n>0$, where $\mathrm{char}K$ does not divide $n!$. Then the equation $f(x)=0$ is solvable by radicals if and only if the Galois group of $f$ is solvable.
+\end{corollary}
+\begin{proof}
+If $f(x)=0$ is solvable, then by Corollary 6.88 we have the Galois group of $f$ is solvable over $K$. Conversely, let $E$ be a splitting field of $f$ over $K$. In view of Proposition 6.89 we need only show that $E$ is Galois over $K$ and $\mathrm{char}K\nmid [E:K]$. Since $\mathrm{char}K\nmid n!$ the irreducible factors of $f$ are separable and hence $E/K$ is Galois. Since every prime that divides $[E:K]$ necessarily divides $n!$, we conclude that $K\nmid [E:K]$, and hence the proof is finished.
+\end{proof}
+We now turn to the problem of finding a "formula" for an equation of degree $n$. To make certain computation easier, we introduce the following concept.
+\begin{definition}
+Let $K$ be a field and $n$ a positive integer. Consider the field $K(t_1,\cdots,t_n)$ of rational functions over $K$ in the indeterminates $t_1,\cdots,t_n$. The polynomial 
+$$
+p_n\left( x \right) =x^n-t_1x^{n-1}+t_2x^{n-2}+\cdots +\left( -1 \right) ^{n-1}t_{n-1}x+\left( -1 \right) ^nt_n\in K\left( t_1,\cdots ,t_n \right) \left[ x \right] 
+$$
+is called the \textbf{general polynomial of degree $n$} over $K$ and the equation $p_n(x)=0$ is called the \textbf{general equation of degree $n$} over $K$.
+\end{definition}
+The preceding discussion makes the following definition quite natural. We say that there is a \textbf{formula} for the solutions of the general equation of degree $n$ provided that the equation is solvable by radicals over the field $K(t_1,\cdots,t_n)$. If $p_n(x)=0$ is solvable by radicals, then the solutions of any (monic) polynomial of degree $n$ over $K$ may be found by appropriate substitutions in the solutions of $p_n(x)=0$. Having precisely formulated it, we can now settle the classical problem with which this section was introduced.
+\begin{proposition}
+Let $K$ be a field and $n$ a positive integer. The general equation of degree $n$ is solvable by radicals only if $n\le 4$.
+\end{proposition}
+\begin{proof}
+Let the notation be as above and let $u_1,\cdots,u_n$ be the roots of the polynomial $p_n(x)$ in some splitting field $K(t_1,\cdots,t_n)(u_1,\cdots,u_n)$. Suppose $p_n(x)=(x-u_1)\cdots(x-u_n)$, then by a direct calculation we have 
+$$
+t_i=\sum_{1\le j_1<\cdots <j_i\le n}{u_{j_1}\cdots u_{j_i}},\hspace{0.5cm}1\le i\le n.
+$$
+Therefore $t_i=f_i(u_1,\cdots,u_n)$ where $f_i$ are the elementary symmetric functions in $n$ intermediates. It follows that $F=K(u_1,\cdots,u_n)$. Now consider a new set of intermediates $\{x_1,\cdots,x_n\}$ and the field $K(x_1,\cdots,x_n)$. Let $E$ be the subfield of all symmetric rational functions in $K(x_1,\cdots,x_n)$, we now construct an isomorphism of fields $F\cong K(x_1,\cdots,x_n)$ such that $K(t_1,\cdots,t_n)$ is mapped to $E$. Note that if such isomorphism exists, then we have $\mathrm{Gal}(F/K(t_1,\cdots,t_n))\cong\mathrm{Gal}(K(x_1,\cdots,x_n)/E)\cong S_n$, whence the Galois group of $p_n(x)$ is isomorphic to $S_n$ and hence solvable if and only if $n\le 4$.\par
+In order to construct such an isomorphism, we first observe that the subfield $E$ of $K(x_1,\cdots,x_n)$ is precisely $K(f_1,\cdots,f_n)$. Now we establish the following ring isomorphism. It is known that the assignment $g(t_1,\cdots,t_n)\mapsto g(f_1,\cdots,f_n)$ defines an epimorphism of rings $\theta:K[t_1,\cdots,t_n]\to K[f_1,\cdots,f_n]$. Suppose $g(t_1,\cdots,t_n)\mapsto 0$, so that $g(f_1,\cdots,f_n)=0$ in $K[f_1,\cdots,f_n]\subset K(x_1,\cdots,x_n)$. By definition 
+$$
+f_k=f_k\left( x_1,\cdots ,x_n \right) =\sum_{1\le i_1<\cdots <i_k\le n}{x_{i_1}\cdots x_{i_k}}
+$$
+and hence 
+$$
+0=g\left( f_1,\cdots ,f_n \right) =g\left( f_1\left( x_1,\cdots ,x_n \right) ,\cdots ,f_n\left( x_1,\cdots ,x_n \right) \right) .
+$$
+Since $g(f_1,\cdots,f_n)$ is a polynomial in the intermediates $x_1,\cdots,x_n$ over $K$ and $F=K(u_1,\cdots,u_n)$ is a field containing $K$, substitution of $u_i$ for $x_i$ yields
+$$
+0=g\left( f_1\left( u_1,\cdots ,u_n \right) ,\cdots ,f_n\left( u_1,\cdots ,u_n \right) \right) =g\left( t_1,\cdots ,t_n \right) .
+$$
+Thus $\theta$ is a monomorphism and hence an isomorphism. Furthermore $\theta$ extends to an isomorphism of quotient fields $\theta:K(t_1,\cdots,t_n)\cong K(f_1,\cdots,f_n)=E$. Now $F=K(u_1,\cdots,u_n)$ is a splitting field over $K(t_1,\cdots,t_n)$ of $p_n(x)$ and under the obvious map on polynomials induced by $\theta$: 
+$$
+p_n\left( x \right) \mapsto \overline{p_n}\left( x \right) =x^n-f_1x^{n-1}+f_nx^{n-2}-\cdots +\left( -1 \right) ^nf_n=\prod_{i=1}^n{\left( x-x_i \right)}.
+$$
+Clearly $K(x_1,\cdots,x_n)$ is a splitting field of $\overline{p_n}(x)$ over $K(f_1,\cdots,f_n)$. Therefore the isomorphism $\theta$ extends to an isomorphism $F\cong K(x_1,\cdots,x_n)$ which by construction maps $K(t_1,\cdots,t_n)$ onto $E$ as desired.
+\end{proof}
+\textbf{There are no exercises for this section.}
