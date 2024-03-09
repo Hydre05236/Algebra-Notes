@@ -326,3 +326,60 @@ Suppose $\Sigma$ is the set of multiplicative subsets of $A$ such that consists 
 (ii) Suppose $a/s\in S_0^{-1}A$ is not a zero-divisor. We claim that $a\in S_0$. If not, then there exists some $a^\prime\in A$ such that $aa^\prime=0$, hence $a^\prime/1\cdot a/s=0$, a contradiction. Therefore $s/a$ is an inverse element of $a/s$ and hence a unit.\par
 (iii) We have shown that $\phi$ is injective in (i). To see $\phi$ is surjective, note that $\phi(as^{-1})=a/s$. The operation is well-defined by the assumption made to $A$.
 \end{proof}
+\begin{problem}\em
+Let $A$ be a ring.\par
+(i) If $A$ is absolutely flat and $S$ is any multiplicatively closed subset of $A$, then $S^{-1}A$ is absolutely flat.\par
+(ii) $A$ is absolutely flat if and only if $A_\mathfrak{m}$ is a field for each maximal ideal $\mathfrak{m}$.
+\end{problem}
+\begin{problem}\em
+A ring $A$ is \textbf{absolutely flat} if every $A$-module is flat. Prove that the following are equivalent: \par
+(i) $A$ is absolutely flat;\par
+(ii) Every principal ideal is idempotent;\par
+(iii) Every finitely generated ideal is a direct summand of $A$.
+\end{problem}
+\begin{proof}
+Pigeon.
+\end{proof}
+\begin{proof}
+(i) Suppose $M$ is an $A$-module. Then since $A$ is absolutely flat, we have $M$ a flat module. Suppose 
+$$
+0\longrightarrow N^{\prime}\longrightarrow N\longrightarrow N^{\prime\prime}\longrightarrow 0
+$$
+is an exact sequence of $A$-modules, then we have 
+$$
+0\longrightarrow S^{-1}\left( N^{\prime}\otimes M \right) \longrightarrow S^{-1}\left( N\otimes M \right) \longrightarrow S^{-1}\left( N^{\prime\prime}\otimes M \right) \longrightarrow 0
+$$
+is an exact sequence of $S^{-1}A$-modules isomorphic to 
+$$
+0\longrightarrow S^{-1}N^{\prime}\otimes S^{-1}M\longrightarrow S^{-1}N\otimes S^{-1}M\longrightarrow S^{-1}N^{\prime\prime}\otimes S^{-1}M\longrightarrow 0.
+$$
+Since every $S^{-1}A$-module is of the form $S^{-1}M$, we have finished the proof.\par
+(ii) Suppose $A$ is absolutely flat. Note that the ideal contained in $A_\mathfrak{m}$ are those containing $\mathfrak{m}$. However since $\mathfrak{m}$ is maximal, so there are no nontrivial prime ideals in $A_\mathfrak{m}$, whence $A_\mathfrak{m}$ is a field. Conversely, suppose $M$ is an $A$-module, then $M_\mathfrak{m}$ is an $A_\mathfrak{m}$-module. Therefore $M_\mathfrak{m}$ is a module over a field, whence a vector space. Therefore $M_\mathfrak{m}$ is free and hence flat. By Proposition 8.9 we have $M$ a flat module. Note that this is true for all $A$-module $M$, hence $A$ is absolutely flat.
+\end{proof}
+\begin{problem}\em
+Let $A$ be a ring. Prove that the following are equivalent:\par
+(i) $A/\mathfrak{N}$ is absolutely flat;\par
+(ii) Every prime ideal of $A$ is maximal;\par
+(iii) $\mathrm{Spec}(A)$ is a $T_1$ space;\par
+(iv) $\mathrm{Spec}(A)$ is Hausdorff.\par
+If these conditions are satisfied, show that $\mathrm{Spec}(A)$ is compact and totally disconnected.
+\end{problem}
+\begin{proof}
+(i)$\iff$(ii): Note that 
+$$
+\begin{aligned}
+\text{Every prime ideal of }A\text{ is maximal}
+&\iff
+\text{No prime ideals of }A\text{ lie between }\mathfrak{N}\text{ and }\mathfrak{m}\\
+&\iff
+\text{The only prime ideal contained in }\mathfrak{m}/\mathfrak{N}\text{ is }(0)\\
+&\iff
+(A/\mathfrak{N})_\mathfrak{m}\text{ is a field}\\
+&\iff
+A/\mathfrak{N}\text{ is absolutely flat}.
+\end{aligned}
+$$\par
+(i)$\Rightarrow$(iv): Note that $\mathrm{Spec}(A)\simeq\mathrm{Spec}(A/\mathfrak{N})$. Therefore it suffices to show that $\mathrm{Spec}(A/\mathfrak{N})$ is Hausdorff. Suppose $x,y\in\mathrm{Spec}(A/\mathfrak{N})$ are distinct elements, we claim that there exists open sets $X_f$, $X_g$ such that are neighborhood of $x$, $y$ and $X_f\cap X_g=\emptyset$. To see this, note that every prime ideal in $A$ is maximal and hence $\mathfrak{p}_x+\mathfrak{p}_y=(1)$. Therefore there exists some $a\in\mathfrak{p}_x$ and $b\in\mathfrak{p}_y$ such that $(a)+(b)=(1)$. Since $A/\mathfrak{N}$ is absolutely flat, there exists some idempotent $e$ and $g$ such that $(e)=(a)$ and $(g)=(b)$. Define $f=g(1-e)$, then $x\in X_f$, $y\in X_g$ and $X_f\cap X_g=X_{fg}=\emptyset$.\par
+(iv)$\Rightarrow$(iii): Let $x,y\in\mathrm{Spec}(A)$. Since $\mathrm{Spec}(A)$ is Hausdorff, there exists some open sets $U_y$ that containing $y$ and does not contain $x$. Therefore we have $\{x\}=\mathrm{Spec}(A)-\bigcup_{y\ne x}U_y$, which is the complement of an open set, and hence closed. Therefore $\mathrm{Spec}(A)$ is a $T_1$-space.\par
+(iii)$\iff$(ii): Recall that $\{x\}$ is closed if and only if $\mathfrak{p}_x$ is maximal. Therefore $\mathrm{Spec}(A)$ is a $T_1$-space, i.e. every singletons in $\mathrm{Spec}(A)$ is closed if and only if every prime ideal $\mathfrak{p}_x$ is maximal.
+\end{proof}
