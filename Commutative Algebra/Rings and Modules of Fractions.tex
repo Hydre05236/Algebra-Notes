@@ -381,5 +381,31 @@ A/\mathfrak{N}\text{ is absolutely flat}.
 $$\par
 (i)$\Rightarrow$(iv): Note that $\mathrm{Spec}(A)\simeq\mathrm{Spec}(A/\mathfrak{N})$. Therefore it suffices to show that $\mathrm{Spec}(A/\mathfrak{N})$ is Hausdorff. Suppose $x,y\in\mathrm{Spec}(A/\mathfrak{N})$ are distinct elements, we claim that there exists open sets $X_f$, $X_g$ such that are neighborhood of $x$, $y$ and $X_f\cap X_g=\emptyset$. To see this, note that every prime ideal in $A$ is maximal and hence $\mathfrak{p}_x+\mathfrak{p}_y=(1)$. Therefore there exists some $a\in\mathfrak{p}_x$ and $b\in\mathfrak{p}_y$ such that $(a)+(b)=(1)$. Since $A/\mathfrak{N}$ is absolutely flat, there exists some idempotent $e$ and $g$ such that $(e)=(a)$ and $(g)=(b)$. Define $f=g(1-e)$, then $x\in X_f$, $y\in X_g$ and $X_f\cap X_g=X_{fg}=\emptyset$.\par
 (iv)$\Rightarrow$(iii): Let $x,y\in\mathrm{Spec}(A)$. Since $\mathrm{Spec}(A)$ is Hausdorff, there exists some open sets $U_y$ that containing $y$ and does not contain $x$. Therefore we have $\{x\}=\mathrm{Spec}(A)-\bigcup_{y\ne x}U_y$, which is the complement of an open set, and hence closed. Therefore $\mathrm{Spec}(A)$ is a $T_1$-space.\par
-(iii)$\iff$(ii): Recall that $\{x\}$ is closed if and only if $\mathfrak{p}_x$ is maximal. Therefore $\mathrm{Spec}(A)$ is a $T_1$-space, i.e. every singletons in $\mathrm{Spec}(A)$ is closed if and only if every prime ideal $\mathfrak{p}_x$ is maximal.
+(iii)$\iff$(ii): Recall that $\{x\}$ is closed if and only if $\mathfrak{p}_x$ is maximal. Therefore $\mathrm{Spec}(A)$ is a $T_1$-space, i.e. every singletons in $\mathrm{Spec}(A)$ is closed if and only if every prime ideal $\mathfrak{p}_x$ is maximal.\par
+Now we show that $\mathrm{Spec}(A)$ is compact and totally disconnected. Since $\mathrm{Spec}(A)$ is Hausdorff, trivially it is compact. Now suppose $x,y\in\mathrm{Spec}(A)$, then by the proof of (i)$\Rightarrow$(iv) there exists open sets $X_f$ and $X_g$ such that $x\in X_f$, $y\in X_g$ and $X_f\cup X_g=\mathrm{Spec}(A)$. Therefore suppose $S$ is a subspace of $\mathrm{Spec}(A)$ that contains $x$ and $y$, then $X_f\cap S$ and $X_g\cap S$ separate $x$ and $y$, hence $S$ is disconnected. This finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $A$ be an integral domain and $M$ an $A$-module. An element $x\in M$ is a \textbf{torsion element} of $M$ if $\mathrm{Ann}(x)\ne 0$. Show that the torsion elements of $M$ forms a submodule of $M$, denoted $T(M)$. If $T(M)=0$, then $M$ is said to be \textbf{torsion-free}. Show that \par
+(i) If $M$ is any $A$-module, then $M/T(M)$ is torsion-free.\par
+(ii) If $f:M\to N$ is a module homomorphism, then $f(T(M))\subset T(N)$.\par
+(iii) If $0\longrightarrow M^\prime\longrightarrow M\longrightarrow M^{\prime\prime}$ is exact, then the sequence $0\longrightarrow T(M^\prime)\longrightarrow T(M)\longrightarrow T(M^{\prime\prime})$ is also exact.\par
+(iv) If $M$ is an $A$-module, then $T(M)$ is the kernel of the mapping $x\mapsto 1\otimes x$ of $M$ into $K\otimes_AM$, where $K$ is the field of fractions of $A$.
+\end{problem}
+\begin{proof}
+We first show that $T(M)$ is a submodule of $M$. Trivially $T(M)$ is an abelian group. Suppose $m\in T(M)$, then there exists some $a\in A$ such that $am=0$. Therefore for all $a^\prime\in A$, we have $a^\prime am=0$ and hence $a^\prime m\in T(M)$. Therefore $T(M)$ is a submodule of $M$.\par
+(i) Suppose $m+T(M)$ is a torsion element in $M/T(M)$. Then there exists some $a\in A$ such that $am+T(M)=0$, whence $am\in T(M)$ and hence $m$ is a torsion element of $M$. Therefore $m+T(M)=0$ and hence $M/T(M)$ is torsion-free.\par
+(ii) Suppose $m\in T(M)$, it suffices to show that $f(m)\in T(N)$. To see this, suppose $f(m)$ is not a torsion element, then for all $a\in A$, we have $af(m)=f(am)\ne 0$. However $m$ is a torsion element in $M$ and hence there exists some $a\in A$ such that $f(am)=0$, a contradiction! Therefore $f(m)\in T(N)$. Note that this is true for all $m\in T(M)$, hence $f(T(M))\subset T(N)$.\par
+(iii) Write $f:M^\prime\to M$ and $g:M\to M^{\prime\prime}$, then $f:M^\prime\to M$ is injective. It suffices to show that the restriction $Tf=f\mid_{T(M)}$ is also injective. Suppose $m^\prime\in\mathrm{Ker}Tf$, then $Tf(m^\prime)=f(m^\prime)=0$. Since $\mathrm{Ker}f=\{0\}$, we have $m^\prime=0$ and hence $Tf$ is injective.\par
+Note that $Tg\circ Tf$ is the restriction of the zero map $g\circ f$, hence is also zero. Now it suffices to show that $\mathrm{Im}Tf=\mathrm{Ker}Tg$. To do this, suppose $x\in T(M)\cap\mathrm{ker}g$, then $x\in\mathrm{Im}f$, so there is $y\in M^\prime$ such that $x=f(y)$. If $0\ne a\in A$ is such that $ax=0$, then $f(ay)=0$; as $f$ is injective, $ay=0$, so $y\in T(M^\prime)$.\par
+(iv) Recall that $S^{-1}A\otimes_AM\cong S^{-1}M$ under the isomorphism $(a/x)\otimes m\mapsto am/x$. Therefore we have $1\otimes m\mapsto m/1=0$ in $S^{-1}M$ and hence there exists some $x\in S$ such that $xm=0$.
+\end{proof}
+\begin{problem}\em
+Let $S$ be a multiplicatively closed subset of an integral domain $A$. Show that $T(S^{-1}M)=S^{-1}(T(M))$. Deduce that the following are equivalent: \par
+(i) $M$ is torsion-free.\par
+(ii) $M_\mathfrak{p}$ is torsion-free for any prime ideal $\mathfrak{p}$ of $A$.\par
+(iii) $M_\mathfrak{m}$ is torsion-free for any maximal ideal $\mathfrak{m}$ of $A$.
+\end{problem}
+\begin{proof}
+We first show that $T(S^{-1}M)=S^{-1}(T(M))$. Suppose $m/s\in T(S^{-1}M)$, then there exists some $a\in A$ such that $am/s=0$, hence $am=0$ and therefore $m\in T(M)$. This implies $m/s\in S^{-1}(T(M))$. Conversely, suppose $m/s\in S^{-1}(T(M))$, then there exists some $a/1\in S^{-1}A$ such that $a/1\cdot m/s=am/s=0$, hence $m/s\in T(S^{-1}M)$. This finished the proof of $T(S^{-1}M)=S^{-1}(T(M))$.\par
+Now we show the equivalence. (i)$\Rightarrow$(ii)$\Rightarrow$(iii) is trivial. It suffices to show that (iii)$\Rightarrow$(i). Note that $T\left( M_{\mathfrak{m}} \right) =T\left( M \right) _{\mathfrak{m}}=0$, we therefore have $T(M)=0$ and hence $M$ is torsion-free.
 \end{proof}
