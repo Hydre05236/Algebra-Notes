@@ -409,3 +409,384 @@ Let $S$ be a multiplicatively closed subset of an integral domain $A$. Show that
 We first show that $T(S^{-1}M)=S^{-1}(T(M))$. Suppose $m/s\in T(S^{-1}M)$, then there exists some $a\in A$ such that $am/s=0$, hence $am=0$ and therefore $m\in T(M)$. This implies $m/s\in S^{-1}(T(M))$. Conversely, suppose $m/s\in S^{-1}(T(M))$, then there exists some $a/1\in S^{-1}A$ such that $a/1\cdot m/s=am/s=0$, hence $m/s\in T(S^{-1}M)$. This finished the proof of $T(S^{-1}M)=S^{-1}(T(M))$.\par
 Now we show the equivalence. (i)$\Rightarrow$(ii)$\Rightarrow$(iii) is trivial. It suffices to show that (iii)$\Rightarrow$(i). Note that $T\left( M_{\mathfrak{m}} \right) =T\left( M \right) _{\mathfrak{m}}=0$, we therefore have $T(M)=0$ and hence $M$ is torsion-free.
 \end{proof}
+\begin{problem}\em
+Let $M$ be an $A$-module and $\mathfrak{a}$ an ideal of $A$. Suppose that $M_\mathfrak{m}=0$ for all maximal ideals $\mathfrak{m}\supset\mathfrak{a}$. Prove that $M=\mathfrak{a}M$.
+\end{problem}
+\begin{proof}
+Consider the $A/\mathfrak{a}$-module $M/\mathfrak{a}M$. Since $M_\mathfrak{m}=0$ for all maximal ideal $\mathfrak{m}$ that contains $\mathfrak{a}$, we have 
+$$
+\left( M/\mathfrak{a} M \right) _{\mathfrak{m}}\cong M_{\mathfrak{m}}/\left( \mathfrak{a} M \right) _{\mathfrak{m}}=0
+$$
+for all maximal ideal of $M/\mathfrak{a}M$. Hence we have $M/\mathfrak{a}M=0$ and hence $M=\mathfrak{a}M$.
+\end{proof}
+\begin{problem}\em
+Let $A$ be a ring, and let $F$ be the $A$-module $A^n$. Show that every set of $n$ generators of $F$ is a basis of $F$. Deduce that every set of generators of $F$ has at least $n$ elements.
+\end{problem}
+\begin{proof}
+Let $x_1,\cdots,x_n$ be a set of generators of $F$ and $e_1,\cdots,e_n$ be the canonical basis of $F$. Define the natural homomorphism $\phi:x_i\mapsto e_i$, then trivially $\phi$ is an epimorphism. To show that $\phi$ is an isomorphism, it suffices to show injectivity. We may assume $A$ is a local ring, or otherwise consider the ring $A_\mathfrak{m}$ and $\phi_\mathfrak{m}$. Let $N=\mathrm{Ker}\phi$ and $\kappa=A/\mathfrak{m}$ the residue field of $A$. Now note that we have the following long exact sequence 
+$$
+\cdots \longrightarrow \mathrm{Tor}_{1}^{A}\left( \kappa ,F \right) \longrightarrow \kappa \otimes F\longrightarrow \kappa \otimes F\longrightarrow 0,
+$$
+and since $F$ is a flat module, we have $\mathrm{Tor}_1^A(\kappa,F)=0$, hence 
+$$
+0\longrightarrow \kappa \otimes N\longrightarrow \kappa \otimes F\longrightarrow \kappa \otimes F\longrightarrow 0
+$$
+is a short exact sequence. Note that 
+$$
+\kappa \otimes F=\kappa \otimes \left( \bigoplus_{k=1}^n{A} \right) \cong \bigoplus_{k=1}^n{\left( \kappa \otimes A \right)}\cong \kappa ^n
+$$
+is a $n$-dimensional vector space over $\kappa$, and the map $1\otimes\phi$ is surjective, we therefore have $1\otimes\phi$ bijective, which forces $\kappa\otimes N=0$. Since 
+$$
+0=\kappa \otimes N=A/\mathfrak{m} \otimes N\cong N/\mathfrak{m} N,
+$$
+recall that $N$ is finitely generated, therefore by Nakayama's lemma we have $N=0$, whence $\phi$ is injective. This finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $B$ be a flat $A$-algebra. Then the following conditions are equivalent: \par
+(i) $\mathfrak{a}^{ec}=\mathfrak{a}$ for all ideals of $A$;\par
+(ii) $\mathrm{Spec}(B)\to\mathrm{Spec}(A)$ is injective;\par
+(iii) For every maximal ideal $\mathfrak{m}$ of $A$ we have $\mathfrak{m}^e\ne (1)$;\par
+(iv) If $M$ is a nonzero $A$-module, then $M_B=B\otimes_AM\ne 0$;\par
+(v) For every $A$-module $M$, the mapping $x\mapsto 1\otimes x$ of $M$ into $M_B$ is injective.\par
+$B$ is said to be \textbf{faithfully flat} over $A$.
+\end{problem}
+\begin{proof}
+(i)$\Rightarrow$(ii): Recall that a prime ideal $\mathfrak{p}$ of $A$ is the contraction of a prime ideal $\mathfrak{q}$ of $B$ if and only if $\mathfrak{p}^{ec}=\mathfrak{p}$, hence for all $\mathfrak{p}\in\mathrm{Spec}(A)$, there exists some $\mathfrak{q}\in\mathrm{Spec}(B)$ such that $\mathfrak{q}^c=\mathfrak{p}$, whence $\mathrm{Spec}(B)\to\mathrm{Spec}(A)$ is injective.\par
+(ii)$\Rightarrow$(iii): Suppose there exists some $\mathfrak{m}\in\mathrm{Max}(A)$ such that $\mathfrak{m}^e=(1)$, then since the map $\mathrm{Spec}(B)\to\mathrm{Spec}(A)$ is injective there exists some $\mathfrak{q}\in\mathrm{Spec}(B)$ such that $\mathfrak{q}^c=\mathfrak{m}$. Therefore $\mathfrak{q}\supset\mathfrak{q}^{ce}=\mathfrak{m}^e=(1)$, a contradiction!\par
+(iii)$\Rightarrow$(iv): Suppose there exists some $M$ such that $M_B=0$. Then for each submodule $M^\prime$ of $M$, since $B$ is flat over $A$, we have the inclusion map $M_B^\prime\to M_B$ is also injective, whence $M_B^\prime=0$. In particular we have $(Ax)_B=0$ for some $x\in M$. However $Ax\cong A/\mathfrak{a}$ for some ideal $\mathfrak{a}$ of $A$, therefore 
+$$
+0\longrightarrow \left( Ax \right) _B\longrightarrow \left( A/\mathfrak{a} \right) _B=B\otimes A/\mathfrak{a} \cong B/\mathfrak{a} B\cong B/f\left( \mathfrak{a} \right) B,
+$$
+where $f:A\to B$ make $B$ into a flat $A$-module. Then we have $\mathfrak{a}^e=f(a)B=B$. Therefore if $\mathfrak{m}$ is a maximal ideal that contains $\mathfrak{a}$, we therefore have $\mathfrak{m}^e=B$, a contradiction!\par
+(iv)$\Rightarrow$(v): Denote $M^\prime$ be the kernel of the map $M\to M_B$, then since $B$ is flat over $A$, we have the following exact sequence 
+$$
+0\longrightarrow M_{B}^{\prime}\longrightarrow M_B\longrightarrow \left( M_B \right) _B\longrightarrow 0
+$$
+is exact. Recall that the map $M_B\to (M_B)_B$ is injective, which forces $M_B^\prime=0$, whence $M^\prime=0$ and hence the map $M\to M_B$ is injective.\par
+(iv)$\Rightarrow$(i): Take $M=A/\mathfrak{a}$, where $\mathfrak{a}^{ec}\subset\mathfrak{a}$ and $\mathfrak{a}^{ec}\ne\mathfrak{a}$, whence $\mathfrak{a}^{ec}/\mathfrak{a}$ is nonzero by the assumption. Note that 
+$$
+M_B=B\otimes M=B\otimes \left( A/\mathfrak{a} \right) \cong B/\mathfrak{a} B\cong B/\mathfrak{a} ^e,
+$$
+so $M\to M_B$ is the map induced by $f:A/\mathfrak{a}\to B/\mathfrak{a}^e$, therefore 
+$$
+\mathrm{Ker} f =f^{-1}\left( \mathfrak{a} ^e \right) /\mathfrak{a} =\mathfrak{a} ^{ec}/\mathfrak{a} \ne 0,
+$$
+a contradiction!
+\end{proof}
+\begin{problem}\em
+Let $A\overset{f}{\longrightarrow}B\overset{g}{\longrightarrow}C$ be ring homomorphisms. If $g\circ f$ is flat and $g$ is faithfully flat, then $f$ is flat.
+\end{problem}
+\begin{proof}
+It suffices to show that $B$ is flat over $A$. Let $j:N\to M$ be an inclusion of $A$ modules. Since $g\circ f$ is flat, we have $j_C:N_C\to M_C$ is also injective. Note that $M_C=C\otimes_AM\cong C\otimes_BB\otimes_AM=(M_B)_C$ and similarly $N_C=(N_B)_C$, we have injections $i_N:N_B\to(N_B)_C$ and $i_M:M_B\to(N_B)_C$ since $C$ is faithfully flat over $B$. Therefore we obtain the following commutative diagram: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da4966514445313652] 
+\draw    (216,160) -- (342,160) ;
+\draw [shift={(344,160)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9996774197216416] 
+\draw    (200,176) -- (200,246) ;
+\draw [shift={(200,248)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da49733541515705393] 
+\draw    (360,176) -- (360,246) ;
+\draw [shift={(360,248)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8610440093860443] 
+\draw    (224,256) -- (334,256) ;
+\draw [shift={(336,256)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (189,151.4) node [anchor=north west][inner sep=0.75pt]    {$N_{B}$};
+% Text Node
+\draw (348,151.4) node [anchor=north west][inner sep=0.75pt]    {$M_{B}$};
+% Text Node
+\draw (178,247.4) node [anchor=north west][inner sep=0.75pt]    {$( N_{B})_{C}$};
+% Text Node
+\draw (337,247.4) node [anchor=north west][inner sep=0.75pt]    {$( M_{B})_{C}$};
+% Text Node
+\draw (265,138.4) node [anchor=north west][inner sep=0.75pt]    {$f_{B}$};
+% Text Node
+\draw (206,202.4) node [anchor=north west][inner sep=0.75pt]    {$i_{N}$};
+% Text Node
+\draw (366,204.4) node [anchor=north west][inner sep=0.75pt]    {$i_{M}$};
+% Text Node
+\draw (265,260.4) node [anchor=north west][inner sep=0.75pt]    {$f_{C}$};
+
+
+\end{tikzpicture}
+\end{center}
+where the map $f_C$ is also injective since $g\circ f$ is flat. Therefore $f_B$ must be injective and hence $f$ is flat.
+\end{proof}
+\begin{problem}\em
+Let $f:A\to B$ be a flat homomorphism of rings, let $\mathfrak{q}$ be a prime ideal of $B$ and let $\mathfrak{p}=\mathfrak{q}^c$. Then $f^*:\mathrm{Spec}(B_\mathfrak{q})\to\mathrm{Spec}(A_\mathfrak{p})$ is surjective.
+\end{problem}
+\begin{proof}
+It suffices to show that $B_\mathfrak{q}$ is faithfully flat over $A_\mathfrak{p}$. First note that $B$ is a flat module over $A$, hence $B_\mathfrak{p}$ is a flat module over $A_\mathfrak{p}$. Since $\mathfrak{q}=\mathfrak{p}^c$, we have $\mathfrak{q}^e=\mathfrak{p}^{ce}\subset\mathfrak{p}$, hence $B_\mathfrak{q}$ is a localization of $A_\mathfrak{p}$ module $B_\mathfrak{p}$, and hence a flat $A_\mathfrak{p}$ module. Now we show the faithfulness. Suppose $\mathfrak{m}$ is a maximal ideal of $A_\mathfrak{p}$. Let $\overline{f}$ be the following composition: 
+$$
+A_{\mathfrak{p}}\longrightarrow B_{\mathfrak{p}}\longrightarrow B_{\mathfrak{q}},
+$$
+suppose $a/s\in\mathfrak{m}$, then $\overline{f}(a/s)=f(p)/f(s)\in f(\mathfrak{p})^{-1}B_\mathfrak{q}$, which implies $\mathfrak{m}^e\ne (1)$ and the proof is finished.
+\end{proof}
+\begin{problem}\em
+Let $A$ be a ring, $M$ an $A$-module. The \textbf{support} of $M$ is defined to be the set $\mathrm{Supp}(M)$ of prime ideals $\mathfrak{p}$ of $A$ such that $M_\mathfrak{p}\ne 0$. Prove the following results:\par
+(i) $M\ne 0$ if and only if $\mathrm{Supp}(M)\ne\emptyset$.\par
+(ii) $V(\mathfrak{a})=\mathrm{Supp}(A/\mathfrak{a})$.\par
+(iii) If $0\longrightarrow M^{\prime}\longrightarrow M\longrightarrow M^{\prime\prime}\longrightarrow 0$ is a short exact sequence, then $\mathrm{Supp}(M)=\mathrm{Supp}(M^\prime)\cup\mathrm{Supp}(M^{\prime\prime})$.\par
+(iv) If $M=\sum M_i$, then $\mathrm{Supp}(M)=\bigcup\mathrm{Supp}(M_i)$.\par
+(v) If $M$ is finitely generated, then $\mathrm{Supp}(M)=V(\mathrm{Ann}(M))$.\par
+(vi) If $M$ and $N$ are finitely generated, then $\mathrm{Supp}(M\otimes_AN)=\mathrm{Supp}(M)\cap\mathrm{Supp}(N)$.\par
+(vii) If $M$ is finitely generated and $\mathfrak{a}$ a prime ideal of $A$, then $\mathrm{Supp}(M/\mathfrak{a}M)=V(\mathfrak{a}+\mathrm{Ann}(M))$.\par
+(viii) If $f:A\to B$ is a ring homomorphism and $M$ is a finitely generated $A$-module, then $\mathrm{Supp}(B\otimes_AM)=f^{*-1}(\mathrm{Supp}(M))$.
+\end{problem}
+\begin{proof}
+(i) Suppose $M=0$. Then for all $\mathfrak{p}$ we have $M_\mathfrak{p}=0$. Note that these two statements are equivalent.\par
+(ii) Let $\mathfrak{p}$ be a prime ideal. Define $S=A-\mathfrak{p}$. Then 
+$$
+\begin{aligned}
+\mathfrak{p}\in V(\mathfrak{a}) & \iff \mathfrak{a}\cap S=0 \\
+& \iff \text{There is no such }t,s\in S\text{ such that }ts=ta\in\mathfrak{a}\cap S \\
+& \iff 1/1\ne a/s\in S^{-1}\mathfrak{a}\text{ for all }a/s\in S^{-1}\mathfrak{a} \\
+& \iff S^{-1}\mathfrak{a}\text{ has no identity} \\
+& \iff S^{-1}\mathfrak{a}\ne S^{-1}A \\
+& \iff S^{-1}A/S^{-1}\mathfrak{a}=(A/\mathfrak{a})_\mathfrak{p}\ne 0 \\
+& \iff \mathfrak{p}\in\mathrm{Supp}(A/\mathfrak{a}).
+\end{aligned}
+$$\par
+(iii) Suppose $\mathfrak{p}\in\mathrm{Supp}(M)$. Then $M_\mathfrak{p}\ne 0$ and hence the exact sequence 
+$$
+0\longrightarrow M_{\mathfrak{p}}^{\prime}\longrightarrow M_{\mathfrak{p}}\longrightarrow M_{\mathfrak{p}}^{\prime\prime}\longrightarrow 0
+$$
+is also an exact sequence with $M_\mathfrak{p}\ne 0$. Therefore $M_\mathfrak{p}^\prime$ and $M_\mathfrak{p}^{\prime\prime}$ are both nonzero and hence $\mathfrak{p}\in\mathrm{Supp}(M^\prime)\cup\mathrm{Supp}(M^{\prime\prime})$. The converse follows analogously.\par
+(iv) We first show that $S^{-1}-$ is commutative with the direct sum. It suffices to note that 
+$$
+S^{-1}\left( \bigoplus_{i=1}^n{M_i} \right) \cong S^{-1}A\otimes _A\left( \bigoplus_{i=1}^n{M_i} \right) \cong \bigoplus_{i=1}^n{\left( S^{-1}A\otimes _AM_i \right)}\cong \bigoplus_{i=1}^n{S^{-1}M_i}.
+$$
+Now we have  
+$$
+\begin{aligned}
+\mathfrak{p} & \iff M_\mathfrak{p}\ne 0 \\
+& \iff \left(\sum M_i\right)_\mathfrak{p}\ne 0 \\
+& \iff (M_i)_\mathfrak{p}\ne 0\text{ for some index }i \\
+& \iff \mathfrak{p}\in\bigcup\mathrm{Supp}(M_i).
+\end{aligned}
+$$\par
+(v) Suppose $M\cong\bigoplus_{i=1}^nAx_i\cong\bigoplus_{i=1}^nA/\mathfrak{a}_i$. Then 
+$$
+\mathrm{Supp}\left( M \right) =\mathrm{Supp}\left( \bigoplus_{i=1}^n{A/\mathfrak{a} _i} \right) =\bigcup_{i=1}^n{\mathrm{Supp}\left( A/\mathfrak{a} _i \right)}=\bigcup_{i=1}^n{V\left( \mathfrak{a} _i \right)}=V\left( \bigcap_{i=1}^n{\mathfrak{a} _i} \right) .
+$$
+Now if $a\in\mathrm{Ann}(M)$, then the map $A\to Ax_i$ gives $a\mapsto 0$. Therefore $a\in\bigcap_{i=1}^n\mathfrak{a}_i$. Conversely, suppose $a\in\bigcap_{i=1}^n\mathfrak{a}_i$, then $ax_i=0$ for every generator $x_i$, hence $a\in\mathrm{Ann}(M)$. Therefore $\bigcap_{i=1}^n\mathfrak{a}_i=\mathrm{Ann}(M)$ and hence $\mathrm{Supp}(M)=V(\mathrm{Ann}(M))$.\par
+(vi) Suppose $\mathfrak{p}\in\mathrm{Supp}(M\otimes_AN)$, then we have $(M\otimes_AN)_\mathfrak{p}\ne 0$. Note that 
+$\left( M\otimes _AN \right) _{\mathfrak{p}}=M_{\mathfrak{p}}\otimes _AN_{\mathfrak{p}}$ and both $N$ and $M$ are finitely generated, we have both $M_\mathfrak{p}$ and $N_\mathfrak{p}\ne 0$, whence $\mathfrak{p}\in\mathrm{Supp}(M)\cap\mathrm{Supp}(N)$. The converse follows analogously.\par
+(vii) Note that 
+$$
+\begin{aligned}
+\mathrm{Supp}\left( M/\mathfrak{a} M \right) &=\mathrm{Supp}\left( A/\mathfrak{a} \otimes _AM \right) =\mathrm{Supp}\left( A/\mathfrak{a} \right) \cap \mathrm{Supp}\left( M \right) 
+\\
+&=V\left( \mathfrak{a} \right) \cap V\left( \mathrm{Ann}\left( M \right) \right) =V\left( \mathfrak{a} \cup \mathrm{Ann}\left( M \right) \right) =V\left( \mathfrak{a} +\mathrm{Ann}\left( M \right) \right) ,
+\end{aligned}
+$$
+which finished the proof.\par
+(viii) Suppose $\mathfrak{q}\in\mathrm{Spec}(B)$ and $\mathfrak{p}=\mathfrak{q}^c$. It suffices to show that $\mathfrak{q}\in\mathrm{Supp}(B\otimes_AM)$ if and only if $\mathfrak{p}\in\mathrm{Supp}(M)$. Suppose $\mathfrak{q}\in\mathrm{Supp}(B\otimes_AM)$. Then since 
+$$
+\left( B\otimes _AM \right) _{\mathfrak{q}}\cong B_{\mathfrak{q}}\otimes _BB\otimes _AM\cong B_{\mathfrak{q}}\otimes _AM\cong B_{\mathfrak{q}}\otimes _{A_{\mathfrak{p}}}A_{\mathfrak{p}}\otimes _AM\cong B_{\mathfrak{q}}\otimes _{A_{\mathfrak{p}}}M_{\mathfrak{p}},
+$$
+we have $B_{\mathfrak{q}}\otimes _{A_{\mathfrak{p}}}M_{\mathfrak{p}}\ne 0$, hence $\mathfrak{p}\in\mathrm{Supp}(M)$. Conversely, suppose $(B\otimes_AM)_\mathfrak{q}=0$, it suffices to show that $M_\mathfrak{p}=0$. Since 
+$$
+0=\left( B\otimes _AM \right) _{\mathfrak{q}}=B_{\mathfrak{q}}\otimes _{A_{\mathfrak{p}}}M_{\mathfrak{p}},
+$$
+suppose $x_1,\cdots,x_n$ be a set of generators of $M$, then we have $(1/1)\otimes(x_i/1)=0$. Therefore there exists some $N_i\subset B$ such that $1/1\in N_i$, $(1/1)\otimes(x_i/1)=0$ in $N_i\otimes_AM$. Define $N=\bigoplus_{i=1}^nN_i$, then $(N\otimes_AM)_\mathfrak{q}=0$. Since both $N$ and $M$ are finitely generated and $1/1\in N$, we must have $M_\mathfrak{q}=0$, which finished the proof. 
+\end{proof}
+\begin{problem}\em
+Let $f:A\to B$ be a ring homomorphism, $f^*:\mathrm{Spec}(B)\to\mathrm{Spec}(A)$ the associated mapping. Show that \par
+(i) Every prime ideal of $A$ is a contracted ideal if and only if $f^*$ is surjective.\par
+(ii) Every prime ideal of $B$ is an extended ideal implies $f^*$ is injective. Is the converse true?
+\end{problem}
+\begin{proof}
+(i) Suppose every prime ideal of $A$ is a contracted ideal of $B$. Then for all $\mathfrak{p}\in\mathrm{Spec}(A)$, there exists some $\mathfrak{q}\in\mathrm{Spec}(B)$ such that $f^*(\mathfrak{q})=\mathfrak{p}$, whence $f^*$ is surjective. Conversely, suppose $f^*$ is surjective, then for all $\mathfrak{p}\in\mathrm{Spec}(A)$, there exists some $\mathfrak{q}\in\mathrm{Spec}(B)$ such that $f^*(\mathfrak{q})=\mathfrak{p}$, i.e. $\mathfrak{q}^c=\mathfrak{p}$.\par
+(ii) Suppose every prime ideal of $B$ is an extended ideal of $B$. Then let $\mathfrak{p}\in\mathrm{Ker}f^*$, there exists some $\mathfrak{q}\in\mathrm{Spec}(B)$ such that $\mathfrak{q}=\mathfrak{p}^e$. Therefore $f^*(\mathfrak{q})=\mathfrak{q}^c=\mathfrak{p}^{ec}\supset\mathfrak{p}$. However $0=f^*(\mathfrak{q})$, whence $\mathfrak{p}=0$ and hence $\mathfrak{q}=0^e=0$.\par
+However, the converse is false. For a counterexample, consider the ring $B=A[x]/(x^2)$, where $A$ is another ring. We claim that every prime ideal $\mathfrak{p}$ in $A$ has its extension $\mathfrak{p}^e$ not a prime, and hence every prime $\mathfrak{q}$ of $A[x]/(x^2)$ is not an extension of some prime ideals $\mathfrak{p}$ of $A$. Suppose $\mathfrak{p}\in\mathrm{Spec}(A)$. Then 
+$$
+\mathfrak{p} ^e=\left< \mathfrak{p} \right> =\mathfrak{p} A\left[ x \right] /\left( x^2 \right) =\left\{ a+bx:a,b\in \mathfrak{p} \right\} ,
+$$
+which is not a prime ideal. However, on the other hand, we show that there is a one-to-one correspondence between prime ideals of $A$ and $B$. Indeed, suppose $\mathfrak{p}$ is a prime ideal of $A$. Then its inverse is a prime ideal contained in $(x^2)$. Conversely, suppose $\mathfrak{q}$ is a prime ideal of $B$, then it contains $0=x^2$, thus $x$ is in the prime ideal. Therefore every prime ideal in $B$ is some contraction of $A$. Hence if we consider the map $\phi:A\to B$, we have $\phi^*$ is injective (actually an isomorphism), however no prime ideal of $B$ is an extended ideal of $A$.
+\end{proof}
+\begin{problem}\em
+(i) Let $A$ be a ring, $S$ a multiplicative subset of $A$, and $\phi:A\to S^{-1}A$ the canonical homomorphism. Show that $\phi^*:\mathrm{Spec}(S^{-1}A)\to\mathrm{Spec}(A)$ is a homeomorphism of $\mathrm{Spec}(S^{-1}A)$ onto its image in $X=\mathrm{Spec}(A)$. Let this image denoted by $S^{-1}X$. In particular, if $f\in A$, the image of $\mathrm{Spec}(A_f)$ in $X$ is the basic open set $X_f$.\par
+(ii) Let $f:A\to B$ be a ring homomorphism. Let $X=\mathrm{Spec}(A)$ and $Y=\mathrm{Spec}(B)$, and let $f^*:Y\to X$ be the mapping associated with $f$. Identifying $\mathrm{Spec}(S^{-1}A)$ with its canonical image $S^{-1}X$ in $X$, and $\mathrm{Spec}(S^{-1}B)$ with its canonical image $S^{-1}Y$ in $Y$. Show that $S^{-1}f^*:\mathrm{Spec}(S^{-1}B)\to\mathrm{Spec}(S^{-1}A)$ is the restriction of $f^*$ to $S^{-1}Y$, and that $S^{-1}Y=f^{*-1}(S^{-1}X)$.\par
+(iii) Let $\mathfrak{a}$ be an ideal of $A$ and let $\mathfrak{b}=\mathfrak{a}^e$ be its extension in $B$. Let $\overline{f}:A/\mathfrak{a}\to B/\mathfrak{b}$ be the homomorphism induced by $f$. If $\mathrm{Spec}(A/\mathfrak{a})$ is identified with its canonical image $V(\mathfrak{a})$ in $X$, and $\mathrm{Spec}(B/\mathfrak{b})$ with its image $V(\mathfrak{b})$ in $Y$, show that $\overline{f}^*$ is the restriction of $f^*$ to $V(\mathfrak{b})$.\par
+(iv) Let $\mathfrak{p}$ be a prime ideal of $A$. Take $S=A-\mathfrak{p}$ in (ii) and then reduce mod $S^{-1}\mathfrak{p}$ as in (iii). Deduce that the subspace $f^{*-1}(\mathfrak{p})$ of $Y$ naturally homeomorphic to $\mathrm{Spec}(B_\mathfrak{p}/\mathfrak{p}B_\mathfrak{p})=\mathrm{Spec}(\kappa(\mathfrak{p})\otimes_AB)$, where $\kappa(\mathfrak{p})$ is the residue field of the local ring $A_\mathfrak{p}$.\par
+$\mathrm{Spec}(\kappa(\mathfrak{p})\otimes_AB)$ is called the \textbf{fiber} of $f^*$ over $\mathfrak{p}$.
+\end{problem}
+\begin{proof}
+(i) We first mention a result: If $\mathfrak{p}$ is a prime ideal such that $\mathfrak{p}\cap S=\emptyset$, then $\mathfrak{p}^{ec}=\mathfrak{p}$. To see this, since there is a one-to-one correspondence between the prime ideals of $A$ that does not meet $S$ and the ideals of $S^{-1}A$, we may suppose $\mathfrak{p}=\mathfrak{q}^c$ for some $\mathfrak{q}\in\mathrm{Spec}(S^{-1}A)$. Therefore $\mathfrak{p}^{ec}=\mathfrak{q}^{cec}=\mathfrak{q}^c=\mathfrak{p}$, which finished the proof. We now show that $\phi^*$ is a homeomorphism. We have shown in Exercise 7.7 that $\phi^*$ is continuous. It is also clear that the prime ideals of $A$ that does not meet $S$ is one-to-one correspondent with the ideals of $S^{-1}A$. Now it remains to show that the inverse of $\phi^*$ is continuous. We show the image of every closed subset of $\mathrm{Spec}(S^{-1}A)$ is also closed in $\mathrm{Spec}(A)$. Suppose $V(\mathfrak{a}^e)$ is a closed subset in $\mathrm{Spec}(S^{-1}A)$, we are going to proof that $\phi^*:V(\mathfrak{a}^e)\mapsto V(\mathfrak{a})\cap S^{-1}X$. To do this, suppose first $\mathfrak{a}^e\subset\mathfrak{p}^e$, then $\mathfrak{a}\subset\mathfrak{a}^{ec}\subset\mathfrak{p}^{ec}=\mathfrak{p}$, where the last equality follows from the preceding fact. Conversely, suppose $\mathfrak{a}\subset\mathfrak{p}$ for some $\mathfrak{p}\cap S=\emptyset$. Then $\mathfrak{a}^e\subset\mathfrak{p}^e\ne (1)$, which finished the proof.\par
+(ii) It suffices to show that the following diagram is commute: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da4088698840446132] 
+\draw    (256,144) -- (342,144) ;
+\draw [shift={(344,144)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da07164472267101019] 
+\draw    (392,232) -- (392,162) ;
+\draw [shift={(392,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4491814482984402] 
+\draw    (208,232) -- (208,162) ;
+\draw [shift={(208,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8080773307890523] 
+\draw    (232,248) -- (374,248) ;
+\draw [shift={(376,248)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (169,134.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}\left( S^{-1} B\right)$};
+% Text Node
+\draw (345,134.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}\left( S^{-1} A\right)$};
+% Text Node
+\draw (377,237.4) node [anchor=north west][inner sep=0.75pt]    {$S^{-1} X$};
+% Text Node
+\draw (193,237.4) node [anchor=north west][inner sep=0.75pt]    {$S^{-1} Y$};
+% Text Node
+\draw (281,122.4) node [anchor=north west][inner sep=0.75pt]    {$S^{-1} f^{*}$};
+% Text Node
+\draw (257,218.4) node [anchor=north west][inner sep=0.75pt]    {$f^{*} \mid _{S^{-1}Y}$};
+% Text Node
+\draw (393,189.4) node [anchor=north west][inner sep=0.75pt]    {$\phi ^{*-1}$};
+% Text Node
+\draw (209,189.4) node [anchor=north west][inner sep=0.75pt]    {$\psi ^{*-1}$};
+
+
+\end{tikzpicture}
+\end{center}
+Suppose $\mathfrak{q}\in S^{-1}Y$, then we have $f^*(\mathfrak{q})=f^{-1}(\mathfrak{q})$, which is an ideal in $S^{-1}X$. Therefore 
+$$
+\phi ^{*-1}\circ f^*\mid _{S^{-1}Y}\left( \mathfrak{q} \right) =\phi ^{*-1}\left( f^{-1}\left( \mathfrak{q} \right) \right) =\left( \left\{ a/1:f\left( a \right) \in \mathfrak{q} \right\} \right) .
+$$
+Now for another route, we have $\psi^{*-1}(\mathfrak{q})$ is the ideal generated by $\{a/1:a\in\mathfrak{q}\}$, whence 
+$$
+S^{-1}f^*\circ \psi ^{*-1}\left( \mathfrak{q} \right) =\left( \left\{ a/1:f\left( a \right) \in \mathfrak{q} \right\} \right) ,
+$$
+hence we have the diagram commutative and the proof is finished.\par
+(iii) It suffices to show that the following diagram is commutative: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da9694501417798485] 
+\draw    (224,216) -- (326,216) ;
+\draw [shift={(328,216)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da1752610206989369] 
+\draw    (208,208) -- (208,154) ;
+\draw [shift={(208,152)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da08695868041479371] 
+\draw    (344,208) -- (344,154) ;
+\draw [shift={(344,152)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4442804456162608] 
+\draw    (248,139) -- (302,139) ;
+\draw [shift={(304,139)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (190,210.4) node [anchor=north west][inner sep=0.75pt]    {$V(\mathfrak{a})$};
+% Text Node
+\draw (329,210.4) node [anchor=north west][inner sep=0.75pt]    {$V(\mathfrak{b})$};
+% Text Node
+\draw (170,130.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A/\mathfrak{a})$};
+% Text Node
+\draw (305,130.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( B/\mathfrak{b})$};
+% Text Node
+\draw (265,218.4) node [anchor=north west][inner sep=0.75pt]    {$f^{*}$};
+% Text Node
+\draw (268,114.4) node [anchor=north west][inner sep=0.75pt]    {$\overline{f}^{*}$};
+
+
+\end{tikzpicture}
+\end{center}
+The proof of which is similar to (ii) and we skip the details.\par
+(iv) Note that 
+$$
+S^{-1}A/S^{-1}\mathfrak{p} \cong S^{-1}\left( A/\mathfrak{p} \right) =\left( A/\mathfrak{p} \right) _{\mathfrak{p}}=A_{\mathfrak{p}}/\mathfrak{p} A_{\mathfrak{p}},
+$$
+which is the same for $B$, we have the following diagram: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da7331249318884367] 
+\draw    (208,128) -- (208,190) ;
+\draw [shift={(208,192)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5180820866302538] 
+\draw    (352,128) -- (352,190) ;
+\draw [shift={(352,192)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da07133466719075199] 
+\draw    (208,208) -- (208,270) ;
+\draw [shift={(208,272)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4322175332278939] 
+\draw    (352,208) -- (352,270) ;
+\draw [shift={(352,272)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da2533120990555766] 
+\draw    (232,120) -- (318,120) ;
+\draw [shift={(320,120)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da20741230504364472] 
+\draw    (240,200) -- (318,200) ;
+\draw [shift={(320,200)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da10419584755332689] 
+\draw    (250,284) -- (297,284) ;
+\draw [shift={(299,284)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (179,110.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A)$};
+% Text Node
+\draw (321,110.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( B)$};
+% Text Node
+\draw (179,190.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A_{\mathfrak{p}})$};
+% Text Node
+\draw (321,190.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( B_{\mathfrak{p}})$};
+% Text Node
+\draw (154,274.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A_{\mathfrak{p}} /\mathfrak{p} A_{\mathfrak{p}})$};
+% Text Node
+\draw (303.03,274.25) node [anchor=north west][inner sep=0.75pt]  [rotate=-0.17]  {$\mathrm{Spec}( B_{\mathfrak{p}} /\mathfrak{p} B_{\mathfrak{p}})$};
+% Text Node
+\draw (208,150.4) node [anchor=north west][inner sep=0.75pt]    {$\subset $};
+% Text Node
+\draw (209,234.4) node [anchor=north west][inner sep=0.75pt]    {$\subset $};
+% Text Node
+\draw (352,150.4) node [anchor=north west][inner sep=0.75pt]    {$\subset $};
+% Text Node
+\draw (352,234.4) node [anchor=north west][inner sep=0.75pt]    {$\subset $};
+% Text Node
+\draw (270,98.4) node [anchor=north west][inner sep=0.75pt]    {$f^{*}$};
+% Text Node
+\draw (273,178.4) node [anchor=north west][inner sep=0.75pt]    {$g^{*}$};
+% Text Node
+\draw (271,266.4) node [anchor=north west][inner sep=0.75pt]    {$h^{*}$};
+
+
+\end{tikzpicture}
+\end{center}
+where $g^*$ and $h^*$ are the restrictions of $f^*$ by the preceding discussion. By the commutative diagram above we have $\mathrm{Spec}(A_\mathfrak{p}/\mathfrak{p}A_\mathfrak{p})$ corresponds to the prime ideal in $\mathrm{Spec}(A_\mathfrak{p})$ that contain $\mathfrak{p}A_\mathfrak{p}$, and again corresponds to the prime ideal in $\mathrm{Spec}(A)$ that contains $\mathfrak{p}$, hence $\mathrm{Spec}(A_\mathfrak{p}/\mathfrak{p}A_\mathfrak{p})$ corresponds to the primes in $\mathrm{Spec}(A)$ that contained $\mathfrak{p}$ and contains in $\mathfrak{p}$, which is the singleton $\{\mathfrak{p}\}$. Thus the space $\mathrm{Spec}(B_\mathfrak{p}/\mathfrak{p}B_\mathfrak{p})$ is identified with the preimage $f^{*-1}(\mathfrak{p})$ . Now note that 
+$$
+\begin{aligned}
+\mathrm{Spec}\left( \kappa \left( \mathfrak{p} \right) \otimes _AB \right) &=\mathrm{Spec}\left( A_{\mathfrak{p}}/\mathfrak{p} A_{\mathfrak{p}}\otimes _AB \right) \cong \mathrm{Spec}\left( S^{-1}\left( A/\mathfrak{p} \right) \otimes _AB \right) 
+\\
+&\cong \mathrm{Spec}\left( S^{-1}\left( A/\mathfrak{p} \right) \otimes _{A/\mathfrak{p}}A/\mathfrak{p} \otimes _AB \right) \cong \mathrm{Spec}\left( S^{-1}\left( A/\mathfrak{p} \right) \otimes _{A/\mathfrak{p}}B/\mathfrak{p} B \right) 
+\\
+&\cong \mathrm{Spec}\left( S^{-1}\left( B/\mathfrak{p} B \right) \right) \cong \mathrm{Spec}\left( B_{\mathfrak{p}}/\mathfrak{p} B_{\mathfrak{p}} \right) ,
+\end{aligned}
+$$
+which finished the proof.
+\end{proof}
