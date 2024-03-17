@@ -327,19 +327,11 @@ Suppose $\Sigma$ is the set of multiplicative subsets of $A$ such that consists 
 (iii) We have shown that $\phi$ is injective in (i). To see $\phi$ is surjective, note that $\phi(as^{-1})=a/s$. The operation is well-defined by the assumption made to $A$.
 \end{proof}
 \begin{problem}\em
-Let $A$ be a ring.\par
-(i) If $A$ is absolutely flat and $S$ is any multiplicatively closed subset of $A$, then $S^{-1}A$ is absolutely flat.\par
-(ii) $A$ is absolutely flat if and only if $A_\mathfrak{m}$ is a field for each maximal ideal $\mathfrak{m}$.
-\end{problem}
-\begin{problem}\em
 A ring $A$ is \textbf{absolutely flat} if every $A$-module is flat. Prove that the following are equivalent: \par
 (i) $A$ is absolutely flat;\par
 (ii) Every principal ideal is idempotent;\par
 (iii) Every finitely generated ideal is a direct summand of $A$.
 \end{problem}
-\begin{proof}
-Pigeon.
-\end{proof}
 \begin{proof}
 (i) Suppose $M$ is an $A$-module. Then since $A$ is absolutely flat, we have $M$ a flat module. Suppose 
 $$
@@ -749,17 +741,17 @@ which is the same for $B$, we have the following diagram:
 \draw [shift={(299,284)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 
 % Text Node
-\draw (179,110.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A)$};
+\draw (179,110.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( B)$};
 % Text Node
-\draw (321,110.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( B)$};
+\draw (321,110.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A)$};
 % Text Node
-\draw (179,190.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A_{\mathfrak{p}})$};
+\draw (179,190.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( B_{\mathfrak{p}})$};
 % Text Node
-\draw (321,190.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( B_{\mathfrak{p}})$};
+\draw (321,190.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A_{\mathfrak{p}})$};
 % Text Node
-\draw (154,274.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( A_{\mathfrak{p}} /\mathfrak{p} A_{\mathfrak{p}})$};
+\draw (154,274.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{Spec}( B_{\mathfrak{p}} /\mathfrak{p} B_{\mathfrak{p}})$};
 % Text Node
-\draw (303.03,274.25) node [anchor=north west][inner sep=0.75pt]  [rotate=-0.17]  {$\mathrm{Spec}( B_{\mathfrak{p}} /\mathfrak{p} B_{\mathfrak{p}})$};
+\draw (303.03,274.25) node [anchor=north west][inner sep=0.75pt]  [rotate=-0.17]  {$\mathrm{Spec}( A_{\mathfrak{p}} /\mathfrak{p} A_{\mathfrak{p}})$};
 % Text Node
 \draw (208,150.4) node [anchor=north west][inner sep=0.75pt]    {$\subset $};
 % Text Node
@@ -790,3 +782,397 @@ $$
 $$
 which finished the proof.
 \end{proof}
+\begin{problem}\em
+Let $A$ be a ring and $\mathfrak{p}$ a prime ideal of $A$. Then the canonical image of $\mathrm{Spec}(A_\mathfrak{p})$ in $\mathrm{Spec}(A)$ is equal to the intersection of all the open neighborhoods of $\mathfrak{p}$ in $\mathrm{Spec}(A)$.
+\end{problem}
+\begin{proof}
+Note that 
+$$
+\begin{aligned}
+\mathfrak{q}\in\mathrm{Spec}(A_\mathfrak{p}) & \iff \mathfrak{q}\in\mathrm{Spec}(A)\text{ and }\mathfrak{q}\supset\mathfrak{p} \\
+& \iff \mathfrak{q}\in X_f\text{ for all }f\text{ such that }\mathfrak{p}\in X_f \\
+& \iff \mathfrak{q}\in\bigcap_{\mathfrak{p}\in X_f}X_f,
+\end{aligned}
+$$
+which implies $\mathfrak{q}\in\bigcap_{\mathfrak{p}\in X_f}X_f$.
+\end{proof}
+\begin{note}\em
+Note that this exercise gives an illustration of the geometric interpretation of localization.
+\end{note}
+\begin{problem}\em
+Let $A$ be a ring, let $X=\mathrm{Spec}(A)$ and let $U$ be a basic open set in $X$ (i.e. $U=X_f$ for some $f\in A$).\par
+(i) If $U=X_f$, show that the ring $A(U)=A_f$ depends only on $U$ and not on $f$.\par
+(ii) Let $U^\prime=X_g$ be another basic open set such that $U^\prime\subset U$. Show that there is an equation of the form $g^n=uf$ for some integer $n>0$ and some $u\in A$, and use this to define a homomorphism $\rho:A(U)\to A(U^\prime)$ by mapping $a/f^m$ to $au^m/ag^m$. Show that $\rho$ depends only on $U$ and $U^\prime$. This homomorphism is called the \textbf{restriction homomorphism}.\par
+(iii) If $U=U^\prime$, then $\rho$ is the identity map.\par
+(iv) If $U\supset U^\prime\supset U^{\prime\prime}$ are basic open sets in $X$, show that the diagram 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da5484788379249899] 
+\draw    (176,144) -- (326,144) ;
+\draw [shift={(328,144)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da46315363251696984] 
+\draw    (176,152) -- (246.59,222.59) ;
+\draw [shift={(248,224)}, rotate = 225] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6329823739341296] 
+\draw    (256,224) -- (326.59,153.41) ;
+\draw [shift={(328,152)}, rotate = 135] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (137,134.4) node [anchor=north west][inner sep=0.75pt]    {$A( U)$};
+% Text Node
+\draw (230,226.4) node [anchor=north west][inner sep=0.75pt]    {$A\left( U^{\prime }\right)$};
+% Text Node
+\draw (331,134.4) node [anchor=north west][inner sep=0.75pt]    {$A\left( U^{\prime \prime }\right)$};
+
+
+\end{tikzpicture}
+\end{center}
+is commutative, where the arrows are restriction homomorphisms.\par
+(v) Let $x(=\mathfrak{p})$ be a point in $X$. Show that 
+$$
+\varinjlim_{U\ni x}A(U)\cong A_\mathfrak{p}.
+$$
+The assignment of the ring $A(U)$ to each basic open set $U$ in $X$, and the restriction homomorphisms $\rho$, satisfying the conditions (iii) and (iv) above, constitutes a \textbf{presheaf of rings} on the basis of open sets $(X_f)_{f\in A}$. (v) says the \textbf{stalk} of this presheaf at $x\in X$ is the corresponding local ring $A_\mathfrak{p}$.
+\end{problem}
+\begin{proof}
+(i) Suppose $X_g$ is another open set in $\mathrm{Spec}(A)$ such that $X_f=X_g$. Then we have $r(f)=r(g)$ and hence there exists $m,n\in\mathbb{Z}$ and $h,h^\prime\in A$ such that $f^n=hg$ and $g^m=h^\prime f$. Therefore consider the map $\phi_f:A\to A_f$ given by $a\mapsto a/1$, we have $\phi_f(g)=g/1$ is a unit in $A_f$. Therefore by the universal property of the ring of fractions we have $\psi_{gf}:A_g\to A_f$ such that $\phi_f=\psi_{gf}\circ\phi_f$. Similarly we may obtain $\psi_{fg}$ as shown in the following diagram: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da5476358885072219] 
+\draw    (184,144) -- (294,144) ;
+\draw [shift={(296,144)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6784403518520925] 
+\draw    (176,152) -- (176,222) ;
+\draw [shift={(176,224)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da09322133204309413] 
+\draw    (184,224) -- (294.32,153.08) ;
+\draw [shift={(296,152)}, rotate = 147.26] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9376471110100983] 
+\draw    (296,160) -- (185.68,230.92) ;
+\draw [shift={(184,232)}, rotate = 327.26] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (169,136.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (165,226.4) node [anchor=north west][inner sep=0.75pt]    {$A_{f}$};
+% Text Node
+\draw (297,136.4) node [anchor=north west][inner sep=0.75pt]    {$A_{g}$};
+% Text Node
+\draw (225,122.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{g}$};
+% Text Node
+\draw (155,178.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{f}$};
+% Text Node
+\draw (212,170.4) node [anchor=north west][inner sep=0.75pt]    {$\psi _{fg}$};
+% Text Node
+\draw (249,188.4) node [anchor=north west][inner sep=0.75pt]    {$\psi _{gf}$};
+
+
+\end{tikzpicture}
+\end{center}
+Now it suffices to show $\psi_{fg}$ and $\psi_{gf}$ are identity maps. By the preceding discussion we have $\phi_f=\psi_{fg}\circ\psi_{gf}\circ\phi_f$. Then for any $s\in S_f$, we have $\psi_{fg}\circ\psi_{gf}\circ\phi_f(s)$ is a unit. Again by the universal property there exists a unique ring homomorphism $\varphi_f:A_f\to A_f$ such that $\psi_{fg}\circ\psi_{gf}\circ\phi_f=\varphi_f\circ\phi_f$.
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da5476358885072219] 
+\draw    (184,144) -- (294,144) ;
+\draw [shift={(296,144)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6784403518520925] 
+\draw    (176,152) -- (176,222) ;
+\draw [shift={(176,224)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da09322133204309413] 
+\draw    (184,224) -- (294.32,153.08) ;
+\draw [shift={(296,152)}, rotate = 147.26] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (169,136.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (165,226.4) node [anchor=north west][inner sep=0.75pt]    {$A_{f}$};
+% Text Node
+\draw (297,136.4) node [anchor=north west][inner sep=0.75pt]    {$A_{f}$};
+% Text Node
+\draw (185,122.4) node [anchor=north west][inner sep=0.75pt]    {$\psi _{fg} \circ \psi _{gf} \circ \phi _{f}$};
+% Text Node
+\draw (155,178.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{f}$};
+% Text Node
+\draw (241,186.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi _{f}$};
+
+
+\end{tikzpicture}
+\end{center}
+Therefore by the unique property we have $\varphi_f=\psi_{fg}\circ\psi_{gf}$. Note $\varphi_f\circ\phi_f=\phi_f=1_f\circ\phi_f$, hence $\varphi_f=1_f$. Similarly we have $\varphi_g=1_g$, hence $\psi_{fg}\circ\psi_{gf}=1_f$, $\psi_{gf}\circ\psi_{fg}=1_g$, whence $A_f\cong A_g$.\par
+(ii) We first show that there exists such $u$. Note that $X_g\subset X_f$, therefore 
+$$
+r\left( g \right) =\bigcap{\left\{ \mathfrak{p} \in \mathrm{Spec}\left( A \right) :g\subset \mathfrak{p} \right\}}\subset \bigcap{\left\{ \mathfrak{p} \in \mathrm{Spec}\left( A \right) :f\subset \mathfrak{p} \right\}}=r\left( f \right) ,
+$$
+hence there exists some $u$ such that $g^n=uf$. We use the universal property to define $\rho$. Consider the map $\phi_g:A\to A_g$. Note that $\phi_g(f)=f/1$ is a unit in $A_g$, hence by the universal property of the ring of fractions, there exists a unique $\rho:A_f\to A_g$ such that $\phi_g=\rho\circ\phi_f$.
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da5476358885072219] 
+\draw    (184,144) -- (294,144) ;
+\draw [shift={(296,144)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6784403518520925] 
+\draw    (176,152) -- (176,222) ;
+\draw [shift={(176,224)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da09322133204309413] 
+\draw    (184,224) -- (294.32,153.08) ;
+\draw [shift={(296,152)}, rotate = 147.26] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (169,136.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (165,226.4) node [anchor=north west][inner sep=0.75pt]    {$A_{f}$};
+% Text Node
+\draw (297,136.4) node [anchor=north west][inner sep=0.75pt]    {$A_{g}$};
+% Text Node
+\draw (154,178.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{f}$};
+% Text Node
+\draw (241,186.4) node [anchor=north west][inner sep=0.75pt]    {$\rho $};
+% Text Node
+\draw (227,122.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{g}$};
+
+
+\end{tikzpicture}
+\end{center}
+To show that $\rho$ is invariant of $f$ and $g$, it suffices to show the following diagram is commutative: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da8717349823458596] 
+\draw    (208,128) -- (350,128) ;
+\draw [shift={(352,128)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8101407119517832] 
+\draw    (192,144) -- (192,246) ;
+\draw [shift={(192,248)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da09196826456503504] 
+\draw    (360,144) -- (360,246) ;
+\draw [shift={(360,248)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da057945691531280374] 
+\draw    (208,256) -- (350,256) ;
+\draw [shift={(352,256)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9625395466917612] 
+\draw    (264,184) -- (209.63,145.16) ;
+\draw [shift={(208,144)}, rotate = 35.54] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5510521034677156] 
+\draw    (288,184) -- (350.3,145.06) ;
+\draw [shift={(352,144)}, rotate = 147.99] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da37678733813370746] 
+\draw    (288,200) -- (350.4,246.8) ;
+\draw [shift={(352,248)}, rotate = 216.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da24163284759778492] 
+\draw    (264,200) -- (201.6,246.8) ;
+\draw [shift={(200,248)}, rotate = 323.13] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (185,119.4) node [anchor=north west][inner sep=0.75pt]    {$A_{f}$};
+% Text Node
+\draw (353,119.4) node [anchor=north west][inner sep=0.75pt]    {$A_{g}$};
+% Text Node
+\draw (181,250.4) node [anchor=north west][inner sep=0.75pt]    {$A_{f^{\prime }}$};
+% Text Node
+\draw (350,250.4) node [anchor=north west][inner sep=0.75pt]    {$A_{g^{\prime }}$};
+% Text Node
+\draw (269,183.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (273,106.4) node [anchor=north west][inner sep=0.75pt]    {$\rho $};
+% Text Node
+\draw (267,258.4) node [anchor=north west][inner sep=0.75pt]    {$\rho ^{\prime }$};
+% Text Node
+\draw (241,148.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{f}$};
+% Text Node
+\draw (241,211.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{f^{\prime }}$};
+% Text Node
+\draw (288,211.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{g^{\prime }}$};
+% Text Node
+\draw (295,147.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{g}$};
+% Text Node
+\draw (192,182.4) node [anchor=north west][inner sep=0.75pt]    {$\cong $};
+% Text Node
+\draw (336,182.4) node [anchor=north west][inner sep=0.75pt]    {$\cong $};
+
+
+\end{tikzpicture}
+\end{center}
+which is a direct verification and we omit the details.\par
+(iii) By the universal property we have $\rho_1:A(U)\to A(U^\prime)$ such that $\phi_g=\rho_1\circ\phi_f$ and $\rho_2:A(U^\prime)\to A(U)$ such that $\phi_f=\rho_2\circ\phi_g$. Since $U$ and $U^\prime$ are identical, we have $\phi_g=\phi_f$ are epimorphisms. Therefore by the right cancellation we have $\rho_1$ and $\rho_2$ are both identity maps.\par
+(iv) It is a straight-forward verification that the following diagram is commutative.
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da0007906455837118909] 
+\draw    (168,152) -- (286,152) ;
+\draw [shift={(288,152)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da03230323110404765] 
+\draw    (152,160) -- (214.95,262.3) ;
+\draw [shift={(216,264)}, rotate = 238.39] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da15004016285227206] 
+\draw    (296,160) -- (233.05,262.3) ;
+\draw [shift={(232,264)}, rotate = 301.61] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8641523929893957] 
+\draw    (216,192) -- (169.66,161.11) ;
+\draw [shift={(168,160)}, rotate = 33.69] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9891349937389746] 
+\draw    (232,192) -- (286.26,160.99) ;
+\draw [shift={(288,160)}, rotate = 150.26] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7868530248532117] 
+\draw    (224,216) -- (224,262) ;
+\draw [shift={(224,264)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (129,142.4) node [anchor=north west][inner sep=0.75pt]    {$A( U)$};
+% Text Node
+\draw (288,142.4) node [anchor=north west][inner sep=0.75pt]    {$A\left( U^{\prime \prime }\right)$};
+% Text Node
+\draw (200,265.4) node [anchor=north west][inner sep=0.75pt]    {$A\left( U^{\prime }\right)$};
+% Text Node
+\draw (217,194.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (201,162.4) node [anchor=north west][inner sep=0.75pt]    {$\phi $};
+% Text Node
+\draw (205,221.4) node [anchor=north west][inner sep=0.75pt]    {$\phi ^{\prime }$};
+% Text Node
+\draw (245,181.4) node [anchor=north west][inner sep=0.75pt]    {$\phi ^{\prime \prime }$};
+% Text Node
+\draw (169,210.4) node [anchor=north west][inner sep=0.75pt]    {$\rho $};
+% Text Node
+\draw (265,210.4) node [anchor=north west][inner sep=0.75pt]    {$\rho ^{\prime }$};
+% Text Node
+\draw (217,130.4) node [anchor=north west][inner sep=0.75pt]    {$\rho ^{\prime \prime }$};
+
+
+\end{tikzpicture}
+\end{center}
+which is routine by definition and we omit the details.\par
+(v) We first show that the collection of all such $\{A(U_i)\}_{i\in I}$ is a direct system. To see this, partially order $\{A(U_i)\}_{i\in I}$ with inclusion, and consider the restriction homomorphism $\rho_{ij}:A(U_i)\to A(U_j)$. Now consider the following diagram: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da9569123890238775] 
+\draw    (176,144) -- (326,144) ;
+\draw [shift={(328,144)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8983550294853244] 
+\draw    (176,152) -- (238.89,246.34) ;
+\draw [shift={(240,248)}, rotate = 236.31] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9806288407678148] 
+\draw    (328,152) -- (257.2,246.4) ;
+\draw [shift={(256,248)}, rotate = 306.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6344162334432626] 
+\draw    (240,184) -- (185.74,152.99) ;
+\draw [shift={(184,152)}, rotate = 29.74] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da784764619977564] 
+\draw    (256,184) -- (318.21,152.89) ;
+\draw [shift={(320,152)}, rotate = 153.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da1271306957260394] 
+\draw    (248,200) -- (248,246) ;
+\draw [shift={(248,248)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (153,135.4) node [anchor=north west][inner sep=0.75pt]    {$A_{f}$};
+% Text Node
+\draw (329,135.4) node [anchor=north west][inner sep=0.75pt]    {$A_{g}$};
+% Text Node
+\draw (238,250.4) node [anchor=north west][inner sep=0.75pt]    {$A_{\mathfrak{p}}$};
+% Text Node
+\draw (241,182.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (238,122.4) node [anchor=north west][inner sep=0.75pt]    {$\rho _{fg}$};
+% Text Node
+\draw (185,194.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi _{f}$};
+% Text Node
+\draw (297,196.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi _{g}$};
+% Text Node
+\draw (218,154.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{f}$};
+% Text Node
+\draw (227,204.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{\mathfrak{p}}$};
+% Text Node
+\draw (273,172.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{g}$};
+
+
+\end{tikzpicture}
+\end{center}
+whence we have $\varphi_f=\varphi_g\circ\rho_{fg}$ and hence by the universal property of direct limit we have a homomorphism $\varphi:\varinjlim A(U_i)\to A_\mathfrak{p}$, as shown in the following diagram: 
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Straight Lines [id:da09848593079462153] 
+\draw    (176,160) -- (176,230) ;
+\draw [shift={(176,232)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da2207608618263297] 
+\draw    (200,144) -- (294,144) ;
+\draw [shift={(296,144)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4274016983494544] 
+\draw    (192,232) -- (294.36,161.14) ;
+\draw [shift={(296,160)}, rotate = 145.3] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (155,136.4) node [anchor=north west][inner sep=0.75pt]    {$A( U_{i})$};
+% Text Node
+\draw (297,136.4) node [anchor=north west][inner sep=0.75pt]    {$A_{\mathfrak{p}}$};
+% Text Node
+\draw (143,234.4) node [anchor=north west][inner sep=0.75pt]    {$\varinjlim A( U_{i})$};
+% Text Node
+\draw (233,122.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi _{i}$};
+% Text Node
+\draw (249,194.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi $};
+% Text Node
+\draw (163,186.4) node [anchor=north west][inner sep=0.75pt]    {$\iota $};
+
+
+\end{tikzpicture}
+\end{center}
+now it suffices to show that $\varphi$ is an isomorphism. First we show that $\varphi$ is injective. To do this, suppose $b\in\mathrm{Ker}\varphi$, then $\varphi(b)=0$. Write $b=\rho_f(a/f^k)$, then 
+$$
+0=\varphi(b)=\varphi\circ\rho_f(a/f^k)=\varphi_f(a/f^k).
+$$
+Note that $\varphi_f(a/f^k)=a/f^k$, hence $a/f^k=0/1\in A_\mathfrak{p}$. Therefore there exists some $s\in S$ such that $sa=0$. Then 
+$$
+\rho _f\left( a/f^n \right) =\rho _{sf}\circ \rho _{sf,f}\left( a/f^n \right) =\rho _f\left( as^n/\left( sf \right) ^n \right) =\rho _f\left( 0/1 \right) =0.
+$$
+Therefore $b=0$ and hence $\varphi$ is injective. To show $\varphi$ is surjective, pick $a/s\in A_\mathfrak{p}$, then $a/s\in A_s$, hence $\rho_s(a/s)\in\varinjlim A(U_i)$, therefore $\varphi\circ\rho_s(a/s)=\varphi_s(a/s)=a/s$, which finished the proof.
+\end{proof}
+\begin{problem}\em
+Show that the presheaf of Exercise 8.23 has the following property. Let $(U_i)_{i\in I}$ be a covering of $X$ by basic open sets. For each $i\in I$ let $s_i\in A(U_i)$ be such that, for each pair of indices $i$, $j$, the images of $s_i$ and $s_j$ in $A(U_i\cap U_j)$ are equal. Then there exists a unique $s\in A$($=A(X)$) whose image in $A(U_i)$ is $s_i$, for all $i\in I$.\par
+This essentially implies that the presheaf is a \textbf{sheaf}.
+\end{problem}
