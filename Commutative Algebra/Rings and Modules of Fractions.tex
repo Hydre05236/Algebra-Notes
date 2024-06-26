@@ -1176,3 +1176,155 @@ Therefore $b=0$ and hence $\varphi$ is injective. To show $\varphi$ is surjectiv
 Show that the presheaf of Exercise 8.23 has the following property. Let $(U_i)_{i\in I}$ be a covering of $X$ by basic open sets. For each $i\in I$ let $s_i\in A(U_i)$ be such that, for each pair of indices $i$, $j$, the images of $s_i$ and $s_j$ in $A(U_i\cap U_j)$ are equal. Then there exists a unique $s\in A$($=A(X)$) whose image in $A(U_i)$ is $s_i$, for all $i\in I$.\par
 This essentially implies that the presheaf is a \textbf{sheaf}.
 \end{problem}
+\begin{proof}
+We first show that if such $s$ exists, then it must be unique. Suppose $s_1$ and $s_2$ both satisfy the preceding property, we show that $s_1=s_2$. Since $X$ is compact, there exists a finite subcover of $X$, say $\{U_i\}_{i=1}^n$. Note that 
+$$
+\emptyset =X-\bigcup_{i=1}^n{U_i}=X-\bigcup_{i=1}^n{X_{f_i}}=\bigcap_{i=1}^n{\left( X-X_{f_i} \right)}=\bigcap_{i=1}^n{V\left( f_i \right)}=V\left( \bigcup_{i=1}^n{f_i} \right) ,
+$$
+therefore 
+$$
+\left( \bigcup_{i=1}^n{f_i} \right) =\sum_{i=1}^n{\left( f_i \right)}=\left( 1 \right) .
+$$
+Now fix $m\ge 1$. We first claim that if $\mathfrak{a}+\mathfrak{b}=(1)$, then $\mathfrak{a}^m+\mathfrak{b}=(1)$. To see this, note that $\mathfrak{a}\subset r(\mathfrak{a}^m)$ and $r(\mathfrak{a}^m)+r(\mathfrak{b})\supset\mathfrak{a}+\mathfrak{b}=(1)$, we therefore have $r(\mathfrak{a}^m)+r(\mathfrak{b})=(1)$, which implies $\mathfrak{a}^m+\mathfrak{b}=(1)$. Now first suppose $\mathfrak{a}=(f_1)$, apply the statement, and let $\mathfrak{a}=(f_2)$, repeat the process we eventually obtain $\sum_{i=1}^n{\left( f_{i}^{m} \right)}=\left( 1 \right) $ and hence there exists $a_i\in A$ such that $\sum_{i=1}^na_if_i^{m}=1$. Now consider $\rho_{X,U_i}$, we note that if $\rho_{X,U_i}(s_1-s_2)=0$, which is $t=s_1-s_2\in\mathrm{Ker}\rho_{X,U_i}$, then there exists some $m_i$ such that $f_i^{m_i}t=0$. Let $m=\max\{m_1,\cdots,m_n\}$, then 
+$$
+t=1t=\sum_{i=1}^n{a_if_{i}^{m}t}=\sum_{i=1}^n{a_i\cdot 0}=0,
+$$
+which implies $s_1=s_2$.\par
+Now we show the existence. It suffices to consider the case $\{U_1,\cdots,U_n\}$, or otherwise fix $U_i\in\{U_j\}_{j\in I}$, define $V_j=U_j\cap U_i$, therefore for any $j\in I$ we have 
+$$
+\rho _{U_j,V_i}\left( s \right) =\rho _{U_i,V_i}\left( s \right) =\rho _{U_i,V_i}\left( s_i \right) =\left( \rho _{U_j,V_i}\circ \rho _{X,U_j} \right) \left( s \right) ,
+$$
+which gives $\rho _{U_j,V_i}\left( s-\rho _{X,U_j}\left( s \right) \right) =0$ and hence $s-\rho _{X,U_j}\left( s \right) \in \mathrm{Ker}\rho _{U_j,V_i}$. Since $U_j=\mathrm{Spec}(A_j)$ is compact, there exists a subcover of $U_j$ and by the preceding uniqueness argument, the proof is finished. Before constructing such $s$, we first do some calculations. Suppose $s_i=b_i^\prime/f_i^{m_i}$, take $m=\max_{1\le i\le n}m_i$, then we have 
+$$
+s_i=\left( b_{i}^{\prime}/f_{i}^{m_i} \right) \left( f_{i}^{m-m_i}/f_{i}^{m-m_i} \right) =b_{i}^{\prime}f_{i}^{m-m_i}/f_{i}^{m_i}=b_i/f_{i}^{m}=b_i/g_i,
+$$
+where $b_i=b_i^\prime f_i^{m-m_i}$, $g_i=f_i^m$. Since $s_i\mid_{U_i\cap U_j}=s_j\mid_{U_i\cap U_j}$, we have $b_i/g_i=b_j/g_j$, hence there exists some $m_{ij}$ such that 
+$$
+\left( g_ig_j \right) ^{m_{ij}}\left( b_ig_j-b_jg_i \right) =b_ig_{i}^{m_{ij}}g_{j}^{m_{ij}+1}-b_jg_{i}^{m_{ij}+1}g_{j}^{m_{ij}}=0.
+$$
+Take $p=\max_{1\le i,j\le n}m_{ij}$, then we have 
+$$
+b_ig_{i}^{p}g_{j}^{p+1}=b_jg_{i}^{p+1}g_{j}^{p}.
+$$
+We now investigate the property of $s$ which satisfy the condition. We need to show $s/1=b_j/g_j$ for all $1\le j\le n$, which is 
+$$
+g_{j}^{k}\left( sg_j-b_j \right) =sg_{j}^{k+1}-b_jg_{j}^{k}=0.
+$$
+To do this, first by the preceding discussion we know that there exists $a_i\in A$ such that $1=\sum_{i=1}^n{a_ig_{i}^{m}}$, where $m\ge 0$ is a positive integer taken sufficiently large. Therefore 
+$$
+\begin{aligned}
+b_jg_{j}^{k}&=\sum_{i=1}^n{a_ib_jg_{i}^{m}g_{j}^{k}}=\sum_{i=1}^n{a_ib_jg_{j}^{p}g_{i}^{p+1}g_{j}^{k-p}g_{i}^{m-p-1}}
+\\
+&=\sum_{i=1}^n{a_ib_jg_{j}^{p+1}g_{i}^{p}g_{j}^{k-p}g_{i}^{m-p-1}}=\sum_{i=1}^n{a_ib_jg_{j}^{k+1}g_{i}^{m-1}}=g_{j}^{k+1}\sum_{i=1}^n{a_ib_jg_{i}^{m-1}},
+\end{aligned}
+$$
+hence it suffices to take $s=\sum_{i=1}^n{a_ib_jg_{i}^{m-1}}$ and the proof is finished.
+\end{proof}
+\begin{problem}\em
+Let $f:A\to B$, $g:A\to C$ be ring homomorphisms and let $h:A\to B\otimes_AC$ be defined by $h(x)=f(x)\otimes g(x)$. Let $X$, $Y$, $Z$ and $T$ be the prime spectra of $A$, $B$, $C$ and $B\otimes_AC$ respectively. Show $h^*(T)=f^*(Y)\cap g^*(Z)$.
+\end{problem}
+\begin{proof}
+Let $\mathfrak{p}\in\mathrm{Spec}(A)$. Denote $\kappa(\mathfrak{p})$ the residue field at $\mathfrak{p}$, then we have the fiber of $h^*$ at $\mathfrak{p}$
+$$
+h^{*-1}\left( \mathfrak{p} \right) \cong \mathrm{Spec}\left( \left( B\otimes _AC \right) \otimes _A\kappa \left( \mathfrak{p} \right) \right) \cong \mathrm{Spec}\left( \left( B\otimes _A\kappa \left( \mathfrak{p} \right) \right) \otimes _{\kappa \left( \mathfrak{p} \right)}\left( C\otimes _A\kappa \left( \mathfrak{p} \right) \right) \right) .
+$$
+Therefore 
+$$
+\begin{aligned}
+\mathfrak{p} \in h^*\left( \mathrm{Spec}\left( B\otimes _AC \right) \right) & \iff \left( B\otimes _A\kappa \left( \mathfrak{p} \right) \right) \otimes _{\kappa \left( \mathfrak{p} \right)}\left( C\otimes _A\kappa \left( \mathfrak{p} \right) \right) \ne 0
+\\
+& \iff \left( B\otimes _A\kappa \left( \mathfrak{p} \right) \right) \ne 0\text{ and }\left( C\otimes _A\kappa \left( \mathfrak{p} \right) \right) \ne 0
+\\
+& \iff \mathfrak{p} \in f^*\left( \mathrm{Spec}\left( B \right) \right) \cap g^*\left( \mathrm{Spec}\left( C \right) \right) ,
+\end{aligned}
+$$
+which finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $(B_\alpha,g_{\alpha\beta})$ be a direct system of rings and $B$ the direct limit. For each $\alpha$, let $f_\alpha:A\to B_\alpha$ be a ring homomorphism such that $g_{\alpha\beta}\circ f_\alpha=f_\beta$ whenever $\alpha\le\beta$. The $f_\alpha$ induce $f:A\to B$. Show that 
+$$
+f^*\left( \mathrm{Spec}\left( B \right) \right) =\bigcap_{\alpha}{f_{\alpha}^{*}\left( \mathrm{Spec}\left( B_{\alpha} \right) \right)}.
+$$
+\end{problem}
+\begin{proof}
+Note that 
+$$
+f^{*-1}\left( \mathfrak{p} \right) =\mathrm{Spec}\left( B\otimes _A\kappa \left( \mathfrak{p} \right) \right) \cong \mathrm{Spec}\left( \varinjlim\left( B_{\alpha}\otimes _A\kappa \left( \mathfrak{p} \right) \right) \right) .
+$$
+Therefore $f^{*-1}(\mathfrak{p})=\emptyset$ if and only if $B_\alpha\otimes_A\kappa(\mathfrak{p})$ for some $\alpha$, which implies $f_\alpha^{*-1}(\mathfrak{p})=\emptyset$.
+\end{proof}
+\begin{problem}\em
+(i) Let $f_\alpha:A\to B_\alpha$ be any family of $A$-algebras and let $f:A\to B$ be their tensor product over $A$. Then 
+$$
+f^*\left( \mathrm{Spec}\left( B \right) \right) =\bigcap_{\alpha}{f_{\alpha}^{*}\left( \mathrm{Spec}\left( B_{\alpha} \right) \right)}.
+$$\par
+(ii) Let $f_\alpha:A\to B_\alpha$ be any finite family of $A$-algebras and let $B=\bigoplus_{\alpha}B_\alpha$. Define $f:A\to B$ by $f(x)=(f_\alpha(x))$. Then 
+$$
+f^*\left( \mathrm{Spec}\left( B \right) \right) =\bigcup_{\alpha}{f_{\alpha}^{*}\left( \mathrm{Spec}\left( B_{\alpha} \right) \right)}.
+$$\par
+(iii) By (i) and (ii) we note that the subsets of $\mathrm{Spec}(A)$ of the form $f^*(\mathrm{Spec}(B_\alpha))$, where $f:A\to B$ is a ring homomorphism, induces a topology over $\mathrm{Spec}(A)$. This is called the \textbf{constructible topology} on $\mathrm{Spec}(A)$. It is finer than the Zariski topology.\par
+(iv) Let $X_C$ denote the set $X=\mathrm{Spec}(A)$ endowed with the constructible topology. Show that $X_C$ is quasi-compact.
+\end{problem}
+\begin{proof}
+(i) We shall first show that the tensor product is well-defined under arbitrary index sets. We shall construct such tensor product via direct limits. Suppose $I$ is an index and $\{B_i\}_{i\in I}$ a collection of modules such that $|I|=\infty$. Let $J\subset I$ be a subindex of $I$, define $B_J=\bigotimes_{j\in J}B_j$, partially order such $B_J$'s with inclusion of subindexes, i.e. $B_J\prec B_{J^\prime}$ provided $J\subset J^\prime$. Let $\mu_{J,J^\prime}$ be canonical injection, then $(B_J,\mu_{J,J^\prime})$ forms a direct system. We define 
+$$
+\bigotimes_{i\in I}{B_i}=\varinjlim\bigotimes_{j\in J}{B_j}=\varinjlim B_J,
+$$
+which is routine to verify to be well-defined. Therefore by Exercise 8.25 and 8.26 we have 
+$$
+f^*\left( \mathrm{Spec}\left( B \right) \right) \cong \bigcap_J{f^*\left( \mathrm{Spec}\left( B_J \right) \right)}\cong \bigcap_J{\bigcap_{j\in J}{f_{j}^{*}\left( \mathrm{Spec}\left( B_j \right) \right)}}\cong \bigcap_{\alpha}{f_{\alpha}^{*}\left( \mathrm{Spec}\left( B_{\alpha} \right) \right)}.
+$$\par
+(ii) Recall that 
+$$
+\mathrm{Spec}\left( B \right) =\mathrm{Spec}\left( \bigoplus_{\alpha}{B_{\alpha}} \right) \simeq \bigsqcup_{\alpha}{\mathrm{Spec}\left( B_{\alpha} \right)},
+$$
+therefore we may identify each prime ideal $\mathfrak\in\mathrm{Spec}(B)$ in the following: 
+$$
+\mathfrak{p} =\left( \bigoplus_{\beta \ne \alpha}{B_{\alpha}} \right) \oplus \mathfrak{p} _{\beta},
+$$
+where $\mathfrak{p}_\beta\in\mathrm{Spec}(B_\beta)$. Therefore 
+$$
+f^*\left( \mathfrak{p} \right) =f^*\left( \left( \bigoplus_{\beta \ne \alpha}{B_{\alpha}} \right) \oplus \mathfrak{p} _{\beta} \right) =f^{-1}\left( \left( \bigoplus_{\beta \ne \alpha}{B_{\alpha}} \right) \oplus \mathfrak{p} _{\beta} \right) =\left\{ a\in A:f_{\beta}\left( a \right) \in \mathfrak{p} _{\beta} \right\} =f_{\alpha}^{*}\left( \mathfrak{p} _{\beta} \right) .
+$$
+Since $\beta$ is arbitrarily chosen, we have 
+$$
+f^*\left( \mathrm{Spec}\left( B \right) \right) =\bigcup_{\beta}{f^*\left( \left\{ \left( \bigoplus_{\beta \ne \alpha}{B_{\alpha}} \right) \oplus \mathfrak{p} _{\beta}:\mathfrak{p} _{\beta}\in \mathrm{Spec}\left( B_{\beta} \right) \right\} \right)}=\bigcup_{\beta}{f_{\beta}^{*}\left( B_{\beta} \right)},
+$$
+which gives us the desired result.\par
+(iii) We claim that the constructible topology is finer than the Zariski topology. Let $\mathfrak{a}$ be an ideal of $A$ and $V(\mathfrak{a})$ a closed set in $\mathrm{Spec}(A)$ under Zariski topology. Then consider $f^*(\mathrm{Spec}(A))$, where $f:A\to A/\mathfrak{a}$ be the canonical projection. Clearly $V(\mathfrak{a})\simeq f^*(\mathrm{Spec}(A))$, which implies the constructible is finer than the Zariski topology.\par
+(iv) Suppose $\{O_\alpha\}_{\alpha\in A}$ is an open cover of $\mathrm{Spec}(A)$, denote $f^*(\mathrm{Spec}(A_\alpha))=O_\alpha^c$, then 
+$$
+\emptyset =\left( \bigcup_{\alpha \in A}{O_{\alpha}^{c}} \right) ^c=\bigcap_{\alpha \in A}{f^*\left( \mathrm{Spec}\left( A_{\alpha} \right) \right)}=f^*\left( \mathrm{Spec}\left( \bigotimes_{\alpha \in A}{A_{\alpha}} \right) \right) ,
+$$
+which implies 
+$\mathrm{pec}\left( \bigotimes_{\alpha \in A}{A_{\alpha}} \right) =\emptyset $, hence $\bigotimes_{\alpha \in A}{B_{\alpha}}=\emptyset $. Therefore by the property of direct limit there exists some finite subindex $J$ of $A$ such that $\mathrm{Spec}\left( \bigotimes_{j\in J}{B_j} \right) =\emptyset $.
+\end{proof}
+\begin{problem}\em
+This is continuation of Exercise 8.27.\par
+(i) For each $g\in A$, the set $X_g$ is both open and closed in the constructible topology.\par
+(ii) Let $C^\prime$ denote the smallest topology such that the set $X_g$ are both open and closed, and let $X_{C^\prime}$ denote the set $X$ endowed with this topology. Show that $X_{C^\prime}$ is Hausdorff.\par
+(iii) Deduce that the identity mapping $X_C\to X_{C^\prime}$ is a homeomorphism. Hence a subset $E$ of $X$ of the form $f^*(\mathrm{Spec}(B))$ for some $f:A\to B$ if and only if it is closed in the topology $C^\prime$.\par
+(iv) The topology space $X_C$ is compact, Hausdorff and totally disconnected.
+\end{problem}
+\begin{proof}
+(i) We first show that $X_f$ is closed. Since $X_f=V(\mathfrak{p})^c$ for some $\mathfrak{p}\in\mathrm{Spec}(A)$, we have $X_f=f^*(\mathrm{Spec}(A/\mathfrak{p}))$, hence $X_f$ is closed in $X_C$. Now we show that $X_f$ is open. Note that $X_f=f^*(\mathrm{Spec}(A_\mathfrak{p}))$.\par
+(ii) Let $f,g\in X$ be two distinct point. If $X_f\cap X_g=\emptyset$, then we are done. Otherwise consider $X_f\cap X_f^c$, where $X_f^c$ is identified as an open neighborhood of $g$.\par
+(iii) Clearly $\mathrm{id}:X_C\to X_{C^\prime}$ is bijective and continuous. Now note that $X_C$ is quasi-compact and $X_{C^\prime}$ is Hausdorff, hence we have $\mathrm{id}$ is a homeomorphism.\par
+(iv) We have shown that $X_C$ is compact. Since $X_{C^\prime}$ is Hausdorff and $X_C\simeq X_{C^\prime}$, we have $X_C$ Hausdorff. Therefore it suffices to show that $X_C$ is totally disconnected. To see this, suppose $E$ is a subset of $X$, take $f\in E$. Then $X_f$ and $X_f^c$ are both open and closed, with there union the whole space. Therefore we may write $E=\left( E\cap X_f \right) \sqcup \left( E\cap X_{f}^{c} \right) $, which is a disjoint union of two open and closed set, hence disconnected.
+\end{proof}
+\begin{problem}\em
+Let $f:A\to B$ be a ring homomorphism. Show that $f^*:\mathrm{Spec}(B)\to\mathrm{Spec}(A)$ is a continuous closed mapping for the constructible topology.
+\end{problem}
+\begin{proof}
+Let $V$ be a closed map in $\mathrm{Spec}(B)$. Suppose $g:B\to C$ is a ring homomorphism such that $V=g^*(\mathrm{Spec}(C_\alpha))$, then we have 
+$$
+f^*\left( V \right) =f^*\left( g^*\left( \mathrm{Spec}\left( C_{\alpha} \right) \right) \right) =\left( g^*\circ f^* \right) \left( \mathrm{Spec}\left( C_{\alpha} \right) \right) 
+$$
+is by definition a closed set in $\mathrm{Spec}(A)$.
+\end{proof}
+\begin{problem}\em
+Show that the Zariski topology and the constructible topology on $\mathrm{Spec}(A)$ are the same if and only if $A/\mathfrak{N}$ is absolutely flat.
+\end{problem}
+\begin{proof}
+Suppose $A/\mathfrak{N}$ is absolutely flat. Then $\mathrm{Spec}(A)$ is Hausdorff endowed with Zariski topology. Since the constructible topology is finer than the Zariski topology, we have the map $X_C\to X$ a continuous bijective from a compact space to a Hausdorff space, whence a homeomorphism. Conversely, suppose the Zariski topology and the constructible topology on $\mathrm{Spec}(A)$ are the same, then $\mathrm{Spec}(A)$ is Hausdorff, hence $A/\mathfrak{N}$ is absolutely flat.
+\end{proof}

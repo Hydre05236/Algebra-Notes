@@ -1,7 +1,6 @@
-\section{Basic Homological Algebra}
-In this section we mention some basic results in Homological Algebra. Our main reference is Dummit and Foote \textit{Abstract Algebra}.
-\subsection{$\mathrm{Ext}$ and $\mathrm{Tor}$}
-In this section we describe some general terminology and results in homological algebra leading to the so called "Long Exact Sequences". We begin with a generalization of the concept of exact sequences.
+\section{Functor $\mathrm{Ext}$ and $\mathrm{Tor}$}
+In this section we mention some basic results in Homological Algebra, especially the properties of the functor $\mathrm{Ext}$ and $\mathrm{Tor}$. This section will be used in commutative algebra.\par
+Our main reference is Dummit and Foote \textit{Abstract Algebra}.
 \begin{definition}
 Let $\mathcal{C}$ be a sequence of abelian group homomorphisms: 
 $$
@@ -883,4 +882,46 @@ $$
 $$
 from which it follows from the definition of $\mathrm{Ext}$ that $\mathrm{Ext}_R^n(P,D)=0$ for any $R$-module $D$.
 \end{proof}
-We mention that there is  an analogous version of Theorem A.13 with projective modules replaced with injective modules and the position of $P$ and $D$ replaced. We skip the details of the analogous statement.
+We mention that there is  an analogous version of Theorem A.13 with projective modules replaced with injective modules and the position of $P$ and $D$ replaced. We skip the details of the analogous statement.\par
+We have seen that $\mathrm{Ext}$ is obtained by taking $\mathrm{Hom}(\cdot,D)$ or $\mathrm{Hom}(D,\cdot)$ to a projective resolution. Similarly we may define $\mathrm{Tor}$ by taking tensors.
+\begin{definition}
+Let 
+$$
+\cdots \longrightarrow P_n\overset{d_n}{\longrightarrow}P_{n-1}\longrightarrow \cdots \longrightarrow P_0\overset{\varepsilon}{\longrightarrow}B\longrightarrow 0
+$$
+be a projective resolution of $B$. Then we have 
+$$
+\cdots \longrightarrow D\otimes P_n\overset{1\otimes d_n}{\longrightarrow}D\otimes P_{n-1}\longrightarrow \cdots \longrightarrow D\otimes P_0\overset{1\otimes \varepsilon}{\longrightarrow}D\otimes B\longrightarrow 0
+$$
+a cochain complex. Define its $n$-th cohomology group as 
+$$
+\mathrm{Tor}_{n}^{R}\left( D,B \right) =\mathrm{Ker}\left( 1\otimes d_n \right) /\mathrm{Im}\left( 1\otimes d_{n+1} \right) .
+$$
+\end{definition}
+Trivially we have $\mathrm{Tor}_0^R(D,B)=D\otimes B$. Since the proof of the results of $\mathrm{Tor}$ here are parallel to that of $\mathrm{Ext}$, we shall only mention some main results and skip the details of the proof.\par
+We have the following long exact sequence of $\mathrm{Tor}$:
+\begin{theorem}
+Let 
+$$
+0\longrightarrow L\longrightarrow M\longrightarrow N\longrightarrow 0
+$$
+be a short exact sequence. Then there exists a long exact sequence 
+$$
+\cdots \longrightarrow \mathrm{Tor}_{1}^{R}\left( D,M \right) \longrightarrow D\otimes N\longrightarrow D\otimes M\longrightarrow D\otimes L\longrightarrow 0,
+$$
+where the homomorphisms are defined as in Theorem A.4.
+\end{theorem}
+We also have the following characterization of flat module, which will be used in commutative algebra:
+\begin{theorem}
+Let $D$ be an $R$-module. Then the following conditions are equivalent:\par
+(i) $D$ is a flat module;\par
+(ii) $\mathrm{Tor}_1^R(D,B)=0$ for all $R$-module $B$;\par
+(iii) $\mathrm{Tor}_n^R(D,B)=0$ for all $R$-module $B$.
+\end{theorem}
+To conclude this section, we mention a result which connect $\mathrm{Tor}$ with torsion.
+\begin{theorem}
+Suppose $A$ and $B$ are $\mathbb{Z}$-modules, then 
+$$\mathrm{Tor}_1(A,B)\cong\mathrm{Tor}_1(T(A),T(B)),$$
+where $T(A)$ denote the torsion subgroup of $A$.
+\end{theorem}
+By this theorem it follows that $A$ is a torsion-free $\mathbb{Z}$-module if and only if for any $\mathbb{Z}$-module $B$ we have $\mathrm{Tor}_1(A,B)=0$.

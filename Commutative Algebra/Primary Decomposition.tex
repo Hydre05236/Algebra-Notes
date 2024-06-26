@@ -1,0 +1,443 @@
+\section{Primary Decomposition}
+The decomposition of an ideal into primary ideals is a traditional pillar of ideal theory. It provides the algebraic foundation for decomposing an algebraic variety into its irreducible components-although it is only fair to point out that the algebraic picture is more complicated than naive geometry would suggest. From another point of view primary decomposition provides a generalization of the factorization of an integer as a product of prime-powers. In the modern treatment, with its emphasis on localization, primary decomposition is no longer such a central tool in the theory. It is still, however, of interest in itself and in this chapter we establish the classical uniqueness theorems.
+\subsection{Primary Ideals}
+The prototypes of commutative rings are $\mathbb{Z}$ and $k[x_1,\cdots,x_n]$ where $k$ is a field, both of which are unique factorization domains. This is not true for arbitrary commutative rings, even if they are integral domains. For instance, consider the ring $\mathbb{Z}[\sqrt{-5}]$, which is not a unique factorization domain for $6=2\cdot 3=(1+\sqrt{-5})(1-\sqrt{-5})$. However, there is a generalized form of "unique factorization" of ideals in a wide class of rings (the Noetherian rings).\par
+A prime ideal is a ring is in some sense a generalization of a prime number. The corresponding generalization of a power of a prime number is a primary ideal. An ideal $\mathfrak{q}$ in a ring $A$ is \textbf{primary} if $\mathfrak{q}\ne A$ and if $xy\in\mathfrak{q}$ implies either $x\in\mathfrak{q}$ or $y^n\in\mathfrak{q}$ for some $n>0$.
+\begin{proposition}
+An ideal $\mathfrak{q}$ of $A$ is primary if and only if $A/\mathfrak{q}\ne 0$ is and every zero-divisor in $A/\mathfrak{q}$ is nilpotent.
+\end{proposition}
+\begin{proof}
+Suppose $\mathfrak{q}$ is a primary ideal, then $\mathfrak{q}\ne A$ and hence $A/\mathfrak{q}\ne 0$. Now suppose $a+\mathfrak{q}$ is a zero-divisor in $A/\mathfrak{q}$, then there exists some $b+\mathfrak{q}$ such that $(a+\mathfrak{q})(b+\mathfrak{q})=ab+\mathfrak{q}=0$, hence $ab\in\mathfrak{q}$. Since $b\ne\mathfrak{q}$, we have $a^n\in\mathfrak{q}$ and hence $a^n\in\mathfrak{q}$, hence $a+\mathfrak{q}$ is nilpotent. Conversely, suppose $A/\mathfrak{q}$ satisfy the conditions. Then for each $ab\in\mathfrak{q}$ with $a\notin\mathfrak{q}$, we have $b+\mathfrak{q}$ a zero-divisor since $(a+\mathfrak{q})(b+\mathfrak{q})=0$, and hence $b+\mathfrak{q}$ is nilpotent. This implies $b^n\in\mathfrak{q}$ for some $n>0$ and hence $\mathfrak{q}$ is primary.
+\end{proof}
+Clearly every prime ideal is primary. Also the contraction of a primary ideal is also primary, for suppose $\mathfrak{q}$ is a primary ideal of $B$, then $A/\mathfrak{q}^c$ is isomorphic to a subring of $B/\mathfrak{q}$.
+\begin{proposition}
+Let $\mathfrak{q}$ be a primary ideal in a ring $A$. Then $r(\mathfrak{q})$ is the smallest prime ideal containing $\mathfrak{q}$.
+\end{proposition}
+\begin{proof}
+Note that $r(\mathfrak{q})$ is the nilradical of $A/\mathfrak{q}$, hence the intersection of all prime ideals containing $\mathfrak{q}$, therefore it suffices to show that $r(\mathfrak{q})$ is prime. To see this, let $xy\in r(\mathfrak{q})$, then $(xy)^m\in\mathfrak{q}$ for some $m>0$. Hence either $x^m\in\mathfrak{q}$ or $y^{mn}\in\mathfrak{q}$ for some $n>0$, which implies $x\in r(\mathfrak{q})$ or $y\in r(\mathfrak{q})$, hence $r(\mathfrak{q})$ is prime.
+\end{proof}
+If $\mathfrak{p}=r(\mathfrak{q})$, then $\mathfrak{q}$ is said to be $\mathfrak{p}$-primary. Now we give some examples of primary ideals.
+\begin{example}\em
+(i) The primary ideals in $\mathbb{Z}$ are $(0)$ and $(p^n)$, where $p$ is prime. For these are only ideals in $\mathbb{Z}$ with prime radical, and it is easy to verify to be primary.\par
+(ii) Let $A=k[x,y]$, $\mathfrak{q}=(x,y^2)$, then $A/\mathfrak{q}=K[x,y]/(x,y^2)=k[y]/(y^2)$, in which the zero-divisors are the multiples of $y$, hence are nilpotent. Hence $\mathfrak{q}$ is primary, and its radical is $(x,y)$. We have $\mathfrak{p}^2\subset\mathfrak{q}\subset\mathfrak{p}$, so that a primary ideal is not necessarily a prime power.
+\end{example}
+\begin{proposition}
+If $r(\mathfrak{a})$ is maximal, then $\mathfrak{a}$ is primary. In particular, the powers of a maximal ideal $\mathfrak{m}$ are $\mathfrak{m}$-primary.
+\end{proposition}
+\begin{proof}
+Let $r(\mathfrak{a})=\mathfrak{m}$. Then $\mathfrak{m}$ is the nilradical of $A/\mathfrak{a}$, hence $A/\mathfrak{a}$ has only one prime ideal, whence every element in $A/\mathfrak{a}$ is either a unit or nilpotent, which finished the proof.
+\end{proof}
+\subsection{Unique Theorems}
+A \textbf{primary decomposition} of an ideal $\mathfrak{a}$ in $A$ is an expression of $\mathfrak{a}$ as a finite intersection of primary ideals, say $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$. In general such decomposition need not exist; in this section we shall restrict our attention to ideals which have a primary decomposition. If the $r(\mathfrak{q}_i)$ are all distinct, and we have $\mathfrak{q}_i\not\supset\bigcap_{j\ne i}\mathfrak{q}_j$ for all $1\le j\le n$, then the primary decomposition is said to be \textbf{minimal} (or irredundant, reduced, normal, etc). We shall first claim that every primary decomposition can be reduced to a minimal one. To do this, we need the following lemmas.
+\begin{lemma}\em
+If $\{\mathfrak{q}_i\}_{i=1}^n$ is a collection of $\mathfrak{p}$-primary ideals, then their intersection $\mathfrak{q}=\bigcap_{i=1}^n\mathfrak{q}_i$ is also $\mathfrak{p}$-primary.
+\end{lemma}
+\begin{proof}
+We first show that $r(\mathfrak{q})=\mathfrak{p}$. To see this, note that 
+$$
+r\left( \mathfrak{q} \right) =r\left( \bigcap_{i=1}^n{\mathfrak{q} _i} \right) =\bigcap_{i=1}^n{r\left( \mathfrak{q} _i \right)}=\bigcap_{i=1}^n{\mathfrak{p}}=\mathfrak{p} .
+$$
+Now we claim $\mathfrak{q}$ is primary. Suppose $xy\in\mathfrak{q}$ and $y\notin\mathfrak{q}$, then $xy\in\mathfrak{q}_i$ for all $1\le i\le n$. Therefore for some $i$ we have $xy\in\mathfrak{q}_i$ with $y\notin\mathfrak{q}_i$, hence $x\in\mathfrak{p}$ and $x^n\in\mathfrak{q}$ for some $n>0$. This finished the proof.
+\end{proof}
+\begin{lemma}\em
+Let $\mathfrak{q}$ be a $\mathfrak{p}$-primary ideal, $x$ an element of $A$. Then \par
+(i) if $x\in\mathfrak{q}$ then $(\mathfrak{q}:x)=(1)$;\par
+(ii) if $x\notin\mathfrak{q}$ then $(\mathfrak{q}:x)$ is $\mathfrak{p}$-primary, and therefore $r(\mathfrak{q}:x)=\mathfrak{p}$;\par
+(iii) if $x\notin\mathfrak{p}$ then $(\mathfrak{q}:x)=\mathfrak{q}$.\par
+\end{lemma}
+\begin{proof}
+(i) Suppose $x\in\mathfrak{q}$, then for any $a\in A$ we have $ax\in\mathfrak{q}$, hence $(\mathfrak{q}:x)=(1)$.\par
+(ii) Suppose $x\notin\mathfrak{q}$, we first claim that $r(\mathfrak{q}:x)=\mathfrak{p}$. To see this, note first if $y\in(\mathfrak{q}:x)$ then $xy\in\mathfrak{q}$, and hence $y\in\mathfrak{p}$ for $x\notin\mathfrak{q}$. This implies $\mathfrak{q}\subset(\mathfrak{q}:x)\subset\mathfrak{p}$. By taking radicals we have 
+$$
+r\left( \mathfrak{q} \right) =\mathfrak{p} \subset r\left( \mathfrak{q} :x \right) \subset r\left( \mathfrak{p} \right) \subset \mathfrak{p} ,
+$$
+which implies $(\mathfrak{q}:x)=\mathfrak{p}$. Now we show $(\mathfrak{q}:x)$ is primary. Suppose $yz\in(\mathfrak{q}:x)$ with $y\notin\mathfrak{p}$, then $xyz\in\mathfrak{q}$ and hence $xz\in\mathfrak{q}$, which implies $z\in(\mathfrak{q}:x)$.\par
+(iii) Suppose $x\notin\mathfrak{p}$. Let $a\in\mathfrak{q}$, then $ax\in\mathfrak{q}$ and hence $a\in(\mathfrak{q}:x)$. Conversely, suppose $a\in(\mathfrak{q}:x)$, then $ax\in\mathfrak{q}$. Now if $a\notin\mathfrak{q}$, then there exists some $m$ such that $x^n\in\mathfrak{q}$, contradicting to $x\notin\mathfrak{p}$.
+\end{proof}
+Now we turn to the claim that every primary decomposition may be reduced to a minimal one, since we can make the radicals of intersection of primary ideals with respect to the same ideal by Lemma 9.1 and we may omit any superfluous terms and by Lemma 9.2.\par
+We now state and proof the following \textbf{1st uniqueness theorem}.
+\begin{theorem}
+Let $\mathfrak{a}$ be a decomposable ideal and let $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$ be a minimal primary decomposition of $\mathfrak{a}$. Let $\mathfrak{p}_i=r(\mathfrak{q}_i)$, then the $\mathfrak{p}_i$ are precisely the prime ideals which occur in the set of ideals $r(\mathfrak{a}:x)$, where $x\in A$, and hence are independent of the particular decomposition of $\mathfrak{a}$.
+\end{theorem}
+\begin{proof}
+Suppose $r(\mathfrak{a}:x)$ is prime. Note that 
+$$
+r\left( \mathfrak{a} :x \right) =r\left( \bigcap_{i=1}^n{\mathfrak{q} _i}:x \right) =\bigcap_{i=1}^n{r\left( \mathfrak{q} _i:x \right)}=\bigcap_{x\notin \mathfrak{q} _j}{\mathfrak{p} _j},
+$$
+therefore $r(\mathfrak{a}:x)=\mathfrak{p}_j$ for some $j$. Hence every prime ideal of the form $r(\mathfrak{a}:x)$ is one of the $\mathfrak{p}_j$. Conversely, for each $i$ there exists some $x_i\notin\mathfrak{q}_i$ but $x_i\in\bigcap_{j\ne i}\mathfrak{q}_j$, hence $r(\mathfrak{a}:x_i)=\mathfrak{p}_i$, which finished the proof.
+\end{proof}
+\begin{note}\em
+The 1st uniqueness theorem states that for each $i$ there exists some $x_i$ such that $(\mathfrak{a}:x_i)$ is $\mathfrak{p}_i$-primary. Also if we consider $A/\mathfrak{a}$ as an $A$-module, then the 1st uniqueness theorem is equivalent to say that $\mathfrak{p}_i$ are precisely the prime ideals which occur as radicals of annihilators of elements of $A/\mathfrak{a}$.
+\end{note}
+\begin{example}
+Let $\mathfrak{a}=(x^2,xy)$ in $A=k[x,y]$. Then $\mathfrak{a}=\mathfrak{p}_1\cap\mathfrak{p}_2^2$ where $\mathfrak{p}_1=(x)$ and $\mathfrak{p}_2=(x,y)$ is a primary decomposition of $\mathfrak{a}$. In this example we have $\mathfrak{p}_1\subset\mathfrak{p}_2$, $r(\mathfrak{a})=\mathfrak{p}_1\cap\mathfrak{p}_2=\mathfrak{p}_1$, but $\mathfrak{a}$ is not a primary ideal.
+\end{example}
+The prime ideals $\mathfrak{p}_i$ in Theorem 9.4 are said to \textbf{belong} to $\mathfrak{a}$ or to be \textbf{associated} with $\mathfrak{a}$. The ideal $\mathfrak{a}$ is primary if and only if it has only one associated prime ideal, since if $\mathfrak{a}$ is primary, then $\mathfrak{a}$ itself is a primary decomposition of $\mathfrak{a}$ and hence by the 1st uniqueness theorem we have its associated prime ideal $r(\mathfrak{a})$, which is unique. Conversely, suppose $\mathfrak{a}$ has only one associated prime ideal, then there is only one primary ideal in the minimal primary decomposition of $\mathfrak{a}$, whence is $\mathfrak{a}$ itself. This implies $\mathfrak{a}$ a primary ideal.\par
+The minimal elements of the set $\{\mathfrak{p}_1,\cdots,\mathfrak{p}_n\}$ are called the \textbf{minimal} or \textbf{isolated} prime ideals belonging to $\mathfrak{a}$, and the others are called \textbf{embedded} prime ideals. In example 9.2, the isolated prime ideal of $\mathfrak{a}$ is $\mathfrak{p}_1$ and the embedded prime ideal of $\mathfrak{a}$ is $\mathfrak{p}_2$.
+\begin{proposition}
+Let $\mathfrak{a}$ be a decomposable ideal. Then any prime ideal $\mathfrak{p}\supset\mathfrak{a}$ contains a minimal prime ideal belonging to $\mathfrak{a}$, and thus the minimal prime ideals of $\mathfrak{a}$ are precisely the minimal elements in the set of all prime ideals containing $\mathfrak{a}$.
+\end{proposition}
+\begin{proof}
+Suppose $\mathfrak{p}\supset\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$, then we have 
+$$
+\mathfrak{p} =r\left( \mathfrak{p} \right) \supset r\left( \mathfrak{a} \right) =r\left( \bigcap_{i=1}^n{\mathfrak{q} _i} \right) =\bigcap_{i=1}^n{r\left( \mathfrak{q} _i \right)}=\bigcap_{i=1}^n{\mathfrak{p} _i}.
+$$
+Therefore we have $\mathfrak{p}\supset\mathfrak{p}_i$ for some $i$, which finished the proof.
+\end{proof}
+We offer some geometric explanation of primary decomposition and the concept of embedded prime ideals, isolated prime ideals. Consider the ideal $(x^2,xy)$ in $k[x,y]$. We may suppose $k=\mathbb{C}$, which is algebraically closed and hence the maximal ideals in $\mathbb{C}[x,y]$ are of the form $(x-a,y-b)$. Now by the preceding example and definitions we have the embedded prime ideal belonging to $(x^2,xy)$ is the ideal $(x,y)$. Therefore if we consider the variety corresponding to the ideal $\mathfrak{a}$, which is the line $x=0$, we have the variety of its embedded ideal, which is the origin $(0,0)$, is a subvariety of that of $\mathfrak{a}$ and hence may be "embedded" in $\mathfrak{a}$. Also we may see that the isolated primes correspond to the irreducible components of the variety of $\mathfrak{a}$. Note that it is not true that all the primary components are independent of decomposition. For instance, we have 
+$$
+\left( x^2,xy \right) =\left( x \right) \cap \left( x,y \right) ^2=\left( x \right) \cap \left( x^2,y \right) .
+$$
+However, there are some uniqueness properties.
+\begin{proposition}
+Let $\mathfrak{a}$ be a decomposable ideal, let $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$ be a minimal primary decomposition, and let $r(\mathfrak{q}_i)=\mathfrak{p}_i$. Then 
+$$
+\bigcup_{i=1}^n{\mathfrak{p} _i}=\left\{ x\in A:\left( \mathfrak{a} :x \right) \ne \mathfrak{a} \right\} .
+$$
+In particular, if the zero ideal is decomposable, the set $D$ be zero-divisors of $A$ is the union of the prime ideals belonging to $0$.
+\end{proposition}
+\begin{proof}
+It suffices to prove the particular case, or otherwise consider $A/\mathfrak{a}$. Denote the set of all zero-divisors $D$, then we have 
+$$
+D=\bigcup_{x\ne 0}{\mathrm{Ann}\left( x \right)}=\bigcup_{x\ne 0}{r\left( 0:x \right)}=\bigcup_{x\ne 0}{\bigcap_{x\notin \mathfrak{q} _j}{\mathfrak{p} _j}}\subset \bigcup_{i=1}^n{\mathfrak{p} _i}.
+$$
+However each $\mathfrak{p}_i$ is of the form $r(0:x)$ for some $x$, which finished the proof.
+\end{proof}
+Therefore if the zero ideal is decomposable, we have the following characterization.
+$$
+\begin{aligned}
+D & = \text{set of zero-divisors}
+\\
+& = \bigcup\text{ of all prime ideals belonging to }0;
+\\
+\mathfrak{N} & = \text{set of nilpotent elements}
+\\
+& = \bigcap\text{ of all minimal primes belonging to }0.
+\end{aligned}
+$$
+Next we investigate the behavior of primary ideals under decomposition.
+\begin{proposition}
+Let $S$ be a multiplicatively closed set of $A$, and let $\mathfrak{q}$ be a $\mathfrak{p}$-primary ideal.\par
+(i) If $S\cap\mathfrak{p}\ne\emptyset$, then $S^{-1}\mathfrak{q}=S^{-1}A$.\par
+(ii) If $S\cap\mathfrak{p}=\emptyset$, then $S^{-1}\mathfrak{q}$ is $S^{-1}\mathfrak{p}$-primary and its contraction in $A$ is $\mathfrak{q}$. Hence primary ideals correspond to primary ideals in the correspondence between ideals in $S^{-1}A$ and and contracted ideals in $A$.
+\end{proposition}
+\begin{proof}
+(i) Suppose $s\in S\cap\mathfrak{q}$, then there exists some $n>0$ such that $s^n\in\mathfrak{p}$. Now for all $a/t\in S^{-1}A$ we have $a/t=a/s^n\cdot s^n/1\in S^{-1}\mathfrak{q}$, hence $S^{-1}A\subset S^{-1}\mathfrak{q}$. The converse inclusion is trivial.\par
+(ii) Since $S\cap\mathfrak{q}=\emptyset$, if $s\in S$ and $as\in\mathfrak{q}$ we have $a\in\mathfrak{q}$, whence $\mathfrak{q} ^{ec}=\bigcup_{s\in S}{\left( \mathfrak{q} :s \right)}=\mathfrak{q}$. Also note that 
+$$
+r\left( \mathfrak{q} ^e \right) =r\left( S^{-1}\mathfrak{q} \right) =S^{-1}r\left( \mathfrak{q} \right) =S^{-1}\mathfrak{p} ,
+$$
+hence it suffices to show that $S^{-1}\mathfrak{q}$ is primary. Suppose $a/s\cdot b/t\in S^{-1}\mathfrak{q}$, then $ab\in\mathfrak{q}$ and hence $a\in\mathfrak{q}$ or $b^n\in\mathfrak{q}$ for some $n>0$. Therefore $a/s\in S^{-1}\mathfrak{q}$ or $(b/t)^n\in S^{-1}\mathfrak{q}$, which finished the proof.
+\end{proof}
+For any ideal $\mathfrak{a}$ and any multiplicatively closed subset $S$ in $A$, the contraction in $A$ of the ideal $S^{-1}\mathfrak{a}$ is denoted by $S(\mathfrak{a})$.
+\begin{proposition}
+Let $S$ be a multiplicatively closed subset of $A$ and let $\mathfrak{a}$ be a decomposable ideal. Let $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$ be a minimal primary decomposition of $\mathfrak{a}$. Let $\mathfrak{p}_i=S(\mathfrak{q}_i)$ and suppose that $\mathfrak{q}_i$ numbered so that $S$ meets $\mathfrak{p}_{m+1},\cdots,\mathfrak{p}_n$ but not $\mathfrak{p}_1,\cdots,\mathfrak{p}_m$. Then 
+$$
+S^{-1}\mathfrak{a} =\bigcap_{i=1}^m{S^{-1}\mathfrak{q} _i},\hspace{0.5cm}S\left( \mathfrak{a} \right) =\bigcap_{i=1}^m{\mathfrak{q} _i}
+$$
+and these are minimal primary decomposition.
+\end{proposition}
+\begin{proof}
+It follows trivially that 
+$$
+S^{-1}\mathfrak{a} =S^{-1}\left( \bigcap_{i=1}^n{\mathfrak{q} _i} \right) =\bigcap_{i=1}^n{S^{-1}\mathfrak{q} _i}=\bigcap_{i=1}^m{S^{-1}\mathfrak{q} _i}.
+$$
+Now each $S^{-1}\mathfrak{q}_i$ is $\mathfrak{p}_i$-primary, hence distinct and therefore the decomposition is minimal. Contracting on both sides gives 
+$$
+S\left( \mathfrak{a} \right) =\left( S^{-1}\mathfrak{a} \right) ^c=\left( \bigcap_{i=1}^m{S^{-1}\mathfrak{q} _i} \right) ^c=\bigcap_{i=1}^m{\left( S^{-1}\mathfrak{q} _i \right) ^c}=\bigcap_{i=1}^m{\mathfrak{q} _i},
+$$
+which finished the proof.
+\end{proof}
+A set $\Sigma$ of prime ideals belonging to $\mathfrak{a}$ is said to be \textbf{isolated} if it satisfies the following condition: if $\mathfrak{p}^\prime$ is a prime ideal belonging to $\mathfrak{a}$ and if $\mathfrak{p}^\prime\subset\mathfrak{p}$ for some $\mathfrak{p}\in\Sigma$, then $\mathfrak{p}^\prime\in\Sigma$.\par
+Let $\sigma$ be an isolated set of prime ideals belonging to $\mathfrak{a}$, and let $S=A-\bigcup_{\mathfrak{p}\in\Sigma}\mathfrak{p}$, then $S$ is multiplicatively closed and for any prime ideal $\mathfrak{p}^\prime$ belonging to $\mathfrak{a}$ we have $\mathfrak{p} ^{\prime}\in \Sigma \Longrightarrow \mathfrak{p} ^{\prime}\cap S=\emptyset $ for 
+$$
+\mathfrak{p} ^{\prime}\cap \left( A-\bigcup_{\mathfrak{p} \in \Sigma}{\mathfrak{p}} \right) =\mathfrak{p} ^{\prime}\cap A-\mathfrak{p} ^{\prime}\cap \left( \bigcup_{\mathfrak{p} \in \Sigma}{\mathfrak{p}} \right) =\mathfrak{p} ^{\prime}-\mathfrak{p} ^{\prime}=\emptyset ,
+$$
+and 
+$$
+\mathfrak{p} ^{\prime}\notin \Sigma \Longrightarrow \mathfrak{p} ^{\prime}\nsubset \bigcup_{\mathfrak{p} \in \Sigma}{\mathfrak{p}}\Longrightarrow \mathfrak{p} ^{\prime}\cap S\ne \emptyset .
+$$
+With these preliminaries we deduce the following \textbf{2nd uniqueness theorem}:
+\begin{theorem}
+Let $\mathfrak{a}$ be a decomposable ideal, $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$ be a minimal primary decomposition of $\mathfrak{a}$, and let $\{\mathfrak{p}_{i_1},\cdots,\mathfrak{p}_{i_m}\}$ be an isolated set of prime ideals of $\mathfrak{a}$. Then $\mathfrak{q}_{i_1}\cap\cdots\cap\mathfrak{q}_{i_m}$ is independent of the decomposition.
+\end{theorem}
+\begin{proof}
+It suffices to note that $\mathfrak{p} _{i_1}\cap \cdots \cap \mathfrak{p} _{i_m}=S\left( \mathfrak{a} \right) $, where $S=A-\mathfrak{p} _{i_1}\cup \cdots \cup \mathfrak{p} _{i_m}$.
+\end{proof}
+In particular, the isolated primary components are uniquely determined by $\mathfrak{a}$. Note that however, the embedded primary components are in general not uniquely determined by $\mathfrak{a}$. If $A$ is a Noetherian ring, there are in fact infinitely many choices for each embedded component and we will discuss it in the sequel.
+\subsection{Exercises}
+\begin{problem}\em
+If an ideal $\mathfrak{a}$ has a primary decomposition, then $\mathrm{Spec}(A/\mathfrak{a})$ has only finitely many irreducible components.
+\end{problem}
+\begin{proof}
+Recall that the irreducible components of the space $\mathrm{Spec}(A/\mathfrak{a})$ are $V(\bar{\mathfrak{p}})$, where $\bar{\mathfrak{p}}=\mathfrak{p}/\mathfrak{a}$, $\mathfrak{p}\in\mathrm{Spec}(A)$ such that $\mathfrak{p}\supset\mathfrak{a}$ and $\bar{\mathfrak{p}}$ are minimal in $A/\mathfrak{a}$. Therefore if $\mathfrak{a}$ has a primary decomposition, it has only finitely many minimal prime ideals and hence $\mathrm{Spec}(A/\mathfrak{a})$ has only finitely many irreducible components.
+\end{proof}
+\begin{problem}\em
+If $\mathfrak{a}=r(\mathfrak{a})$, then $\mathfrak{a}$ has no embedded prime ideals.
+\end{problem}
+\begin{proof}
+Note that 
+$$
+\mathfrak{a} =r\left( \mathfrak{a} \right) =\bigcap{\left\{ \mathfrak{p} \in \mathrm{Spec}\left( A \right) :\mathfrak{p} \supset \mathfrak{a} \right\}}
+$$
+gives a "primary decomposition" of $\mathfrak{a}$, where the quote for there might be infinitely many such prime ideals. However if $\mathfrak{a}$ has a primary decomposition, then we can always omit all but a finite number of prime ideals to obtain a primary decomposition. Now consider the minimal prime ideals, we have 
+$$
+\mathfrak{a} =\bigcap{\left\{ \mathfrak{p} \in \mathrm{Spec}\left( A \right) :\mathfrak{p} \supset \mathfrak{a} \right\}}=\bigcap{\left\{ \mathfrak{p} \in \mathrm{Spec}\left( A \right) :\mathfrak{p} \supset \mathfrak{a} ,\mathfrak{p}\text{ minimal} \right\}}.
+$$
+Therefore by the 1st uniqueness theorem we have all prime ideals belonging to $\mathfrak{a}$ are isolated, hence $\mathfrak{a}$ has no embedded prime ideals.
+\end{proof}
+\begin{problem}\em
+If $A$ is absolutely flat, every primary ideal is maximal.
+\end{problem}
+\begin{proof}
+Suppose $\mathfrak{q}$ is a primary ideal of $A$, then $A/\mathfrak{q}$ is an absolutely flat ring such that every zero-divisor in it is nilpotent. Recall that every non-unit in an absolutely flat ring is a zero-divisor, we have every non-unit in $A/\mathfrak{q}$ is nilpotent, and hence local. However every local absolutely flat ring is a field, $\mathfrak{q}$ is maximal.
+\end{proof}
+\begin{problem}\em
+In the polynomial ring $\mathbb{Z}[t]$, the ideal $\mathfrak{m}=(2,t)$ is maximal and the ideal $\mathfrak{q}=(4,t)$ is $\mathfrak{m}$-primary, but is not a power of $\mathfrak{m}$.
+\end{problem}
+\begin{proof}
+We first show that $\mathfrak{m}$ is maximal. To see this, note $\mathbb{Z}[t]/\mathfrak{m}=\mathbb{Z}[t]/(2,t)\cong\mathbb{Z}/(2)$ is a field. Now we show that $\mathfrak{q}$ is $\mathfrak{m}$-primary. It follows from the property of $\mathbb{Z}/(4)$ that $\mathfrak{q}$ is primary, now we show that it is $\mathfrak{m}$-primary. Note that 
+$$
+r\left( 4,t \right) =\bigcap{\left\{ \mathfrak{p} \in \mathrm{Spec}\left( \mathbb{Z} \left[ t \right] \right) :\mathfrak{p} \supset \left( 4,t \right) \right\}}=\bigcap_{p\ge 2}{\left( p,t \right)}=\left( 2,t \right) ,
+$$
+therefore $\mathfrak{q}$ is $\mathfrak{m}$-primary. Now we claim that $\mathfrak{q}$ is not a power of $\mathfrak{m}$. It suffices to see that $\mathfrak{m} ^n\supset \mathfrak{m} ^2=\left( 4,t,t^2 \right) \supset \mathfrak{q} \supset \mathfrak{m} $.
+\end{proof}
+\begin{problem}\em
+In the polynomial ring $k[x,y,z]$ where $k$ is a field and $x$, $y$, $z$ are independent indeterminates, let $\mathfrak{p}_1=(x,y)$, $\mathfrak{p}_2=(x,z)$, $\mathfrak{m}=(x,y,z)$. Note $\mathfrak{p}_1$ and $\mathfrak{p}_2$ are prime and $\mathfrak{m}$ is maximal. Let $\mathfrak{a}=\mathfrak{p}_1\mathfrak{p}_2$. Show that $\mathfrak{a}=\mathfrak{p}_1\cap\mathfrak{p}_2\cap\mathfrak{m}^2$ is a primary decomposition of $\mathfrak{a}$. Which components are isolated and which are embedded?
+\end{problem}
+\begin{proof}
+By definition we have 
+$$
+\mathfrak{a} =\mathfrak{p} _1\mathfrak{p} _2=\left( x,y \right) \left( x,z \right) =\left( x^2,xy,yz,xz \right) .
+$$
+Note that 
+$$
+\begin{aligned}
+\mathfrak{p} _1\cap \left( \mathfrak{p} _2\cap \mathfrak{m} ^2 \right) &=\left( x,y \right) \cap \left( \left( x,z \right) \cap \left( x^2,y^2,z^2,xy,yz,zx \right) \right) 
+\\
+&=\left( x,y \right) \cap \left( x^2,z^2,xy,yz,zx \right) =\left( x^2,xy,yz,zx \right) ,
+\end{aligned}
+$$
+we therefore have $\mathfrak{a}=\mathfrak{p}_1\cap\mathfrak{p}_2\cap\mathfrak{m}^2$. Now we claim that such a decomposition is primary. It suffices to note that 
+$$
+r\left( \mathfrak{p} _1 \right) =\mathfrak{p} _1\ne r\left( \mathfrak{p} _2 \right) =\mathfrak{p} _2\ne r\left( \mathfrak{m} ^2 \right) =\mathfrak{m} .
+$$
+Now we determine the isolated and embedded ideals of such a primary decomposition of $\mathfrak{a}$. Note that $\mathfrak{p} _1\not\subset \mathfrak{p} _2\not\subset \mathfrak{p} _1$, we therefore have $\mathfrak{p}_1$ and $\mathfrak{p}_2$ are both isolated and $\mathfrak{m}$ is embedded.
+\end{proof}
+\begin{problem}\em
+Let $X$ be a compact Hausdorff space and $C(X)$ denote the ring of real-valued continuous functions on $X$. Is the zero ideal decomposable in this ring?
+\end{problem}
+\begin{proof}
+Suppose $0$ has a primary decomposition, say $0=\bigcap_{i\in I}\mathfrak{q}_i$. Then we have 
+$$
+0=r\left( 0 \right) =r\left( \bigcap_{i\in I}{\mathfrak{q} _i} \right) =\bigcap_{i\in I}{r\left( \mathfrak{q} _{\mathfrak{i}} \right)}\subset \bigcap_{i\in I}{\mathfrak{m} _{x_i}},
+$$
+where $\mathfrak{m} _{x_i}=\left\{ f\in C\left( X \right) :f\left( x_i \right) =0 \right\} $. However by Urysorn's lemma and the property of Hausdorff space there exists some $f\in C(X)$ such that $f\not\equiv 0$ and $f(x_i)=0$ for all $i\in I$, a contradiction!
+\end{proof}
+\begin{problem}\em
+Let $A$ be a ring and let $A[x]$ denote the ring of polynomials in one indeterminate over $A$. For each ideal $\mathfrak{a}$ of $A$, let $\mathfrak{a}[x]$ denote the set of all polynomials in $A[x]$ with coefficients in $\mathfrak{a}$.\par
+(i) $\mathfrak{a}[x]$ is the extension of $\mathfrak{a}$ of $A[x]$;\par
+(ii) If $\mathfrak{p}$ is a prime ideal of $A$, then $\mathfrak{p}[x]$ is a prime ideal in $A[x]$;\par
+(iii) If $\mathfrak{q}$ is a $\mathfrak{p}$-primary ideal in $A$, then $\mathfrak{q}[x]$ is a $\mathfrak{p}[x]$-primary ideal of $A[x]$;\par
+(iv) If $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$ is a minimal primary decomposition in $A$, then $\mathfrak{a}[x]=\bigcap_{i=1}^n\mathfrak{q}_i[x]$ is a minimal primary decomposition in $A[x]$;\par
+(v) If $\mathfrak{p}$ is a minimal prime ideal of $\mathfrak{a}$, then $\mathfrak{p}[x]$ is a minimal prime ideal of $\mathfrak{a}[x]$.
+\end{problem}
+\begin{proof}
+(i) follows trivially from definition.\par
+(ii) Suppose $fg\in\mathfrak{p}[x]$, where $f(x)=a_0+a_1x+\cdots+a_nx^n$ and $g(x)=b_0+b_1x+\cdots+b_mx^m$. Therefore 
+$$
+f\left( x \right) g\left( x \right) =\sum_{k=0}^{m+n}{\sum_{i+j=k}{a_ib_jx^k}}\in \mathfrak{p} \left[ x \right] ,
+$$
+whence $a_ib_j\in\mathfrak{p}$ for all $0\le i\le n$ and $0\le j\le m$. Suppose $f\notin\mathfrak{p}[x]$, then there exists some $i$ such that $a_i\notin\mathfrak{p}$ and hence $b_j\in\mathfrak{p}$ since $a_ib_j\in\mathfrak{p}$ for all $j$.\par
+(iii) Suppose analogously to the proof of (ii). Then $a_ib_j\in\mathfrak{q}$ with $a_i\notin\mathfrak{q}$, hence $b_j^{N_j}\in\mathfrak{p}$ for some $N_j>0$. Take $N=\max\{N_0,N_1,\cdots,N_n\}$, we have $g^N=0$, whence $\mathfrak{q}[x]$ is primary. Note that 
+$$
+\begin{aligned}
+r\left( \mathfrak{q} \left[ x \right] \right) &=r\left( \mathfrak{q} +\mathfrak{q} \left( x \right) \right) =r\left( r\left( \mathfrak{q} \right) +r\left( \mathfrak{q} \left( x \right) \right) \right) =r\left( \mathfrak{p} +r\left( \mathfrak{q} \right) \cap r\left( x \right) \right) 
+\\
+&=r\left( \mathfrak{p} +\mathfrak{p} \cap \left( x \right) \right) =r\left( \mathfrak{p} +\mathfrak{p} \left( x \right) \right) =r\left( \mathfrak{p} \left[ x \right] \right) =\mathfrak{p} \left[ x \right] ,
+\end{aligned}
+$$
+we finished the proof.\par
+(iv) Trivially we have 
+$$
+\mathfrak{a} \left[ x \right] =\left( \bigcap_{i=1}^n{\mathfrak{q} _i} \right) \left[ x \right] =\bigcap_{i=1}^n{\mathfrak{q} _i\left[ x \right]}.
+$$
+Now by the preceding results and the fact that $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$ is a minimal primary decomposition, we finished the proof.\par
+(v) Suppose $\mathfrak{p}$ is a minimal prime ideal of $\mathfrak{a}$, then for all $\mathfrak{p}^\prime\subset\mathfrak{p}$, we have $\mathfrak{p}^\prime=\mathfrak{p}$. Hence suppose $\mathfrak{p}^{\prime}[x]\subset\mathfrak{p}[x]$, we have $\mathfrak{p}^\prime\subset\mathfrak{p}$ and hence $\mathfrak{p}^\prime[x]=\mathfrak{p}[x]$, whence $\mathfrak{p}[x]$ is minimal.
+\end{proof}
+\begin{problem}\em
+Let $k$ be a field. Show that in the polynomial ring $k[x_1,\cdots,x_n]$ the ideals $\mathfrak{p}_i=(x_1,\cdots,x_i)$ are prime and all their powers are primary.
+\end{problem}
+\begin{proof}
+We first show that each $\mathfrak{p}_i$ are prime. It suffices to note that 
+$$
+k\left[ x_1,\cdots ,x_n \right] /\mathfrak{p} _i=k\left[ x_1,\cdots ,x_n \right] /\left( x_1,\cdots ,x_i \right) \cong k\left[ x_{i+1},\cdots ,x_n \right] 
+$$
+is an integral domain. Now we show that for each $m>0$ we have $\mathfrak{p}_i^m$ primary.\par
+Suppose $\mathfrak{q}_i^m=\mathfrak{p}_i^m\cap k[x_1,\cdots,x_i]$, then it suffices to show that $\mathfrak{q}_i$ are primary. Consider the ring $k[x_1,\cdots,x_i]/\mathfrak{q}_i^m$ and let $f$ be a zero-divisor in $k[x_1,\cdots,x_i]/\mathfrak{q}_i^m$. We claim that the constant of $f$ is zero. Suppose not, then let $fg=0$ with $g\ne 0$. Then the only possible annihilator of the constant of $f$ is zero, whence $g=0$, a contradiction! Hence $f^n=0$ for some large $n$.
+\end{proof}
+\begin{problem}\em
+In a ring $A$, let $D(A)$ denote the set of prime ideals $\mathfrak{p}$ which satisfy the following condition: there exists $a\in A$ such that $\mathfrak{p}$ is minimal in the set of prime ideals containing $(0:\mathfrak{a})$. Show that $x\in A$ is a zero-divisor if and only if $x\in\mathfrak{p}$ for some $\mathfrak{p}\in D(A)$.\par
+Let $S$ be a multiplicative subset of $A$, and identify $\mathrm{Spec}(S^{-1}A)$ with its image in $\mathrm{Spec}(A)$. Show that 
+$$
+D\left( S^{-1}A \right) =D\left( A \right) \cap \mathrm{Spec}\left( S^{-1}A \right) .
+$$
+If the zero ideal has a primary decomposition, show that $D(A)$ is the set of associated prime ideals of $0$.
+\end{problem}
+\begin{proof}
+Suppose $x\in A$ is a zero divisor. Then there exists some $a$ such that $ax=0$, hence if $\mathfrak{p}$ is a prime ideal such that $\mathfrak{p}\supset(0:a)$, we have $x\in\mathfrak{p}$. By Zorn's lemma we know that there exists a minimal prime ideal $\mathfrak{p}_0\in D(A)$. Conversely, suppose $\mathfrak{p}\in D(A)$ is a minimal prime ideal such that $\mathfrak{p}\supset (0:a)$. Let $\bar{\mathfrak{p}}=\mathfrak{p}/(0:a)$ and $\bar{A}=A/(0:a)$, then consider the multiplicatively closed subset $\bar{A}-\bar{\mathfrak{p}}$, which is maximal in the collection $\Sigma$ of multiplicative subsets of $\bar{A}$ by the minimality of $\mathfrak{p}$. Now let $S^\prime$ be the smallest monoid that contain $S\cup\{\bar{x}\}$, which is of the form $S^\prime=\{s\bar{x}^n:s\in S,n\ge 0\}$. Therefore $0\in S^\prime$ and hence $s\bar{x}^n=0$ for some $n$ and hence $\bar{x}$ is a zero-divisor of $\bar{A}$. Suppose $\bar{x}\cdot\bar{y}=0$, where $\bar{x}=x+(0:a)$ and $\bar{y}=y+(0:a)$, we have $xy\in (0:a)$ and hence $x(ay)=0$, whence $x$ is a zero-divisor in $A$.\par
+Now we show that $D\left( S^{-1}A \right) =D\left( A \right) \cap \mathrm{Spec}\left( S^{-1}A \right) $. First suppose that $S^{-1}\mathfrak{p}\in D(S^{-1}A)$, then there exists some $x$ such that $S^{-1}\mathfrak{p}$ is the minimal prime ideal such that containing $\mathrm{Ann}(x)^e$. Now note that 
+$$
+\mathrm{Ann}\left( x \right) ^e=S^{-1}\mathrm{Ann}\left( x \right) =S^{-1}\left( 0:x \right) =\left( S^{-1}0:S^{-1}\left( x \right) \right) =\mathrm{Ann}\left( x/s \right) ,
+$$
+we have $\mathfrak{p}^e\supset\mathrm{Ann}(x/s)$ for arbitrary $s\in S$. Note that $\mathfrak{p} =\mathfrak{p} ^{ec}\supset \mathrm{Ann}\left( x \right) ^{ec}\supset \mathrm{Ann}\left( x \right) $, we therefore have $\mathfrak{p}\supset\mathrm{Ann}(x)$. To show that $\mathfrak{p}$ is minimal, suppose there exists some $\mathfrak{q}\in\mathrm{Spec}(A)$ such that $\mathfrak{p}\supset\mathfrak{q}\supset\mathrm{Ann}(x)$, by taking extension we have $S^{-1}\mathfrak{p} \supset S^{-1}\mathfrak{q} \supset \mathrm{Ann}\left( x/s \right) $, which by the minimal property of $S^{-1}\mathfrak{p}$ forced $\mathfrak{p}=\mathfrak{q}$ and hence $\mathfrak{p}\in D(A)\cap\mathrm{Spec}(S^{-1}A)$. Conversely, suppose $\mathfrak{p}\in D(A)\cap\mathrm{Spec}(S^{-1}A)$, we have $S^{-1}\mathfrak{p}\supset\mathrm{Ann}(x)^e$ for some $x$. To show the minimal property, suppose $S^{-1}\mathfrak{q}$ is another prime ideal in $D(S^{-1}A)$ such that $S^{-1}\mathfrak{p} \supset S^{-1}\mathfrak{q} \supset \mathrm{Ann}\left( x/s \right) $, then by taking contractions we have $\mathfrak{p}\supset\mathfrak{q}\supset\mathrm{Ann}(x)$, again by the minimal property of $\mathfrak{p}$ we have $\mathfrak{p}=\mathfrak{q}$, and the proof is finished.\par
+Now suppose $0$ is the zero ideal in $A$ and $0=\bigcap_{i=1}^n\mathfrak{q}_i$ is a primary decomposition of $0$. Now by the first uniqueness theorem we have $r(\mathfrak{q}_i)=\mathfrak{p}_i=r(0:x)$. Note that $r(0:x)$ is precisely the minimal prime ideal that contain $(0:x)$, hence the associated prime ideals of $0$ are precisely $D(A)$ and the proof is finished.
+\end{proof}
+\begin{problem}\em
+For any prime ideal $\mathfrak{p}$ in a ring $A$, let $S_\mathfrak{p}(0)$ denote the kernel of the homomorphism $A\to A_\mathfrak{p}$. Prove that \par
+(i) $S_\mathfrak{p}(0)\subset\mathfrak{p}$;\par
+(ii) $r(S_\mathfrak{p}(0))=\mathfrak{p}$ if and only if $\mathfrak{p}$ is a minimal ideal of $A$;\par
+(iii) If $\mathfrak{p}\supset\mathfrak{p}^\prime$, then $S_\mathfrak{p}(0)\subset S_{\mathfrak{p}^\prime}(0)$;\par
+(iv) $\bigcap_{\mathfrak{p}\in D(A)}S_\mathfrak{p}(0)=0$.
+\end{problem}
+\begin{proof}
+(i) Suppose $x\in S_\mathfrak{p}(0)$, then there exists some $s\in S$ such that $sx=0$, hence $sx\in\mathfrak{p}$ with $s\notin\mathfrak{p}$, which gives $x\in\mathfrak{p}$.\par
+(ii) Note that 
+$$
+S_{\mathfrak{p}}\left( 0 \right) =\left\{ x\in A:sx=0\text{ for some }s\in S \right\} =\bigcup_{s\in S}{\mathrm{Ann}\left( s \right)},
+$$
+therefore we have 
+$$
+\begin{aligned}
+& \mathfrak{p} =r\left( S_{\mathfrak{p}}\left( 0 \right) \right) =r\left( \bigcup_{s\in S}{\mathrm{Ann}\left( s \right)} \right) =\bigcup_{s\in S}{r\left( \mathrm{Ann}\left( s \right) \right)} \\
+& \iff \text{for each }x\in\mathfrak{p}\text{ there exists some }s\in S\text{ and }n>0\text{ such that }sx^n=0 \\
+& \iff \text{for all }x\in\mathfrak{p}\text{ we have }0\text{ is contained in the minimal submonoid of }A\text{ that contain }S\cup\{x\} \\
+& \iff S\text{ is maximal in the collection of all multiplicatively closed subset of }A \\
+& \iff \mathfrak{p}\text{ is minimal},
+\end{aligned}
+$$
+which finished the proof.\par
+(iii) Suppose $\mathfrak{p}\supset\mathfrak{p}_0$, then for any $x\in S_\mathfrak{p}(0)$ we have $sx=0$ for some $s\in A-\mathfrak{p}$, and hence $s\in A-\mathfrak{p}^\prime$, which implies $x\in S_{\mathfrak{p}^\prime}(0)$.\par
+(iv) Trivially $0\in S_\mathfrak{p}(0)$. Conversely, suppose $0\ne x\in A$, then there exists some $\mathfrak{p}\in D(A)$ such that $\mathfrak{p}\supset(0:x)$ and hence $sx\ne 0$ for all $s\in A-\mathfrak{p}$, which implies $x\notin S_\mathfrak{p}(0)$ and the proof is finished.
+\end{proof}
+\begin{problem}\em
+(i) If $\mathfrak{p}$ is a minimal prime ideal of a ring $A$, show that $S_\mathfrak{p}(0)$ is the smallest $\mathfrak{p}$-primary ideal.\par
+(ii) Let $\mathfrak{a}$ be the intersection of the ideals $S_\mathfrak{p}(0)$ as $\mathfrak{p}$ runs through the minimal prime ideals of $A$. Show that $\mathfrak{a}$ is contained in the nilradical of $A$.\par
+(iii) Suppose that the zero ideal is decomposable. Prove that $\mathfrak{a}=0$ if and only if every prime ideal of $0$ is isolated.
+\end{problem}
+\begin{proof}
+(i) We first show that $S_\mathfrak{p}(0)$ is a $\mathfrak{p}$-primary ideal. Trivially we have $r(S_\mathfrak{p}(0))=\mathfrak{p}$. Now suppose $xy\in S_\mathfrak{p}(0)$, then there exists some $n>0$ such that $(xy)^n=x^ny^n\in\mathfrak{p}$. If $x\notin S_\mathfrak{p}(0)$, then $x^m\notin\mathfrak{p}$ for all $m>0$, hence $y^n\in\mathfrak{p}$, which implies $y^{kn}\in S_\mathfrak{p}(0)$ for some $k>0$. Now we show that such $S_\mathfrak{p}(0)$ are minimal. Let $\mathfrak{q}$ be another $\mathfrak{p}$-primary ideal. Let $x\in S_\mathfrak{p}(0)$ with $sx=0$ such that $x\notin\mathfrak{q}$, then $s^n\in\mathfrak{q}$ for some $n>0$, a contradiction!\par
+(ii) Denote $\mathrm{Min}(A)$ the set of all minimal prime ideals of $A$, then we have 
+$$
+\mathfrak{a} =\bigcap_{\mathfrak{p} \in \mathrm{Min}\left( A \right)}{S_{\mathfrak{p}}\left( 0 \right)}\subset \bigcap_{\mathfrak{p} \in \mathrm{Min}\left( A \right)}{\mathfrak{p}}=\bigcap_{\mathfrak{p} \in \mathrm{Spec}\left( A \right)}{\mathfrak{p}}=\mathfrak{N} .
+$$\par
+(iii) Suppose $\mathfrak{a}=0$, then $0=\bigcap_{\mathfrak{p}\in\mathrm{Min}(A)}S_\mathfrak{p}(0)$ is a primary decomposition of $0$ and by (i) we have each $S_\mathfrak{p}(0)$ is minimal, hence isolated. Conversely, suppose every prime ideal of $0$ is isolated, then we have the collection of all such prime ideals is $D(A)$, hence 
+$$
+\mathfrak{a} =\bigcap_{\mathfrak{p} \in \mathrm{Min}\left( A \right)}{S_{\mathfrak{p}}\left( 0 \right)}=\bigcap_{\mathfrak{p} \in D\left( A \right)}{S_{\mathfrak{p}}\left( 0 \right)}=0,
+$$
+which finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $A$ be a ring, $S$ a multiplicatively closed subset of $A$. For any ideal $\mathfrak{a}$, let $S(\mathfrak{a})$ denote the contraction of $S^{-1}\mathfrak{a}$ in $A$. The ideal $S(\mathfrak{a})$ is called the \textbf{saturation} of $\mathfrak{a}$ with respect to $S$. Prove that \par
+(i) $S(\mathfrak{a})\cap S(\mathfrak{b})=S(\mathfrak{a}\cap\mathfrak{b})$;\par
+(ii) $S(r(\mathfrak{a}))=r(S(\mathfrak{a}))$;\par
+(iii) $S(\mathfrak{a})=(1)$ if and only if $\mathfrak{a}$ meet $S$;\par
+(iv) $S_1(S_2(\mathfrak{a}))=(S_1S_2)(\mathfrak{a})$. \par
+(v) If $\mathfrak{a}$ has a primary decomposition, prove that the set of ideals $S(\mathfrak{a})$ is finite, where $S$ runs through all multiplicatively closed subset of $A$.
+\end{problem}
+\begin{proof}
+(i) to (iv) follows easily from a direct verification. We now prove (v). Suppose $\mathfrak{a}=\bigcap_{i=1}^m\mathfrak{q}_i$, then we have 
+$$
+S\left( \mathfrak{a} \right) =S^{-1}\left( \bigcap_{i=1}^m{\mathfrak{q} _i} \right) =\bigcap_{i=1}^m{S^{-1}\mathfrak{q} _i},
+$$
+where each $S^{-1}\mathfrak{q}_i$ is determined by whether $S\cap\mathfrak{p}_i=\emptyset$, hence there are only $2^m$ choices.
+\end{proof}
+\begin{problem}\em
+Let $A$ be a ring and $\mathfrak{p}$ a prime ideal of $A$. The \textbf{$n$-th symbolic power} of $\mathfrak{p}$ is defined to be the ideal $\mathfrak{p}^{(n)}=S_\mathfrak{p}(\mathfrak{p}^n)$, where $S_\mathfrak{p}=A-\mathfrak{p}$. Show that \par
+(i) $\mathfrak{p}^{(n)}$ is a $\mathfrak{p}$-primary ideal;\par
+(ii) If $\mathfrak{p}^n$ has a primary decomposition, then $\mathfrak{p}^{(n)}$ is its $\mathfrak{p}$-primary component;\par
+(iii) If $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}$ has a primary decomposition, then $\mathfrak{p}^{(m+n)}$ is its $\mathfrak{p}$-primary component;\par
+(iv) $\mathfrak{p}^{(n)}=\mathfrak{p}^n$ if and only if $\mathfrak{p}^n$ is $\mathfrak{p}$-primary.
+\end{problem}
+\begin{proof}
+(i) Note that 
+$$
+r\left( \mathfrak{p} ^{\left( n \right)} \right) =r\left( S_{\mathfrak{p}}\left( \mathfrak{p} ^n \right) \right) =r\left( \bigcup_{s\in S_{\mathfrak{p}}}{\left( \mathfrak{p} ^n:s \right)} \right) =r\left( \left( \mathfrak{p} ^n \right) ^{ec} \right) =r\left( \mathfrak{p} ^n \right) ^{ec}=\mathfrak{p} ^{ec}=\mathfrak{p} ,
+$$
+it suffices to show that $\mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary. To see this, suppose $xy\in\mathfrak{p}^{(n)}$, then there exists some $s\in S_\mathfrak{p}$ such that $sxy=0$. If $x\notin\mathfrak{p}^{(n)}$, then for all $s\in S_\mathfrak{p}$ we have $sx\ne 0$ and hence $y\in\mathfrak{p}$, which implies $y^m\in\mathfrak{p}^{(n)}$ for some $m>0$ and hence $\mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary.\par
+(ii) We first claim that $\mathfrak{p}^{(n)}$ is the smallest $\mathfrak{p}$-primary ideal containing $\mathfrak{p}^n$. Suppose $\mathfrak{q}$ is another $\mathfrak{p}$-primary ideal that contains $\mathfrak{p}^n$, we show that $\mathfrak{q}\supset\mathfrak{p}^{(n)}$. Let $x\in\mathfrak{p}^{(n)}$, then there exists some $s\in S_\mathfrak{p}$ such that $sx=0\in\mathfrak{q}$. Since $s\notin\mathfrak{p}$, we have $s^n\notin\mathfrak{q}$ for all $n>0$, which implies $x\in\mathfrak{q}$ and the proof is finished.\par
+Now suppose $\mathfrak{p}^n=\bigcap_{i=1}^m\mathfrak{q}_i$ is a minimal primary decomposition of $\mathfrak{p}^n$. Therefore 
+$$
+\mathfrak{p} =r\left( \mathfrak{p} ^n \right) =r\left( \bigcap_{i=1}^m{\mathfrak{q} _i} \right) =\bigcap_{i=1}^m{r\left( \mathfrak{q} _i \right)},
+$$
+hence there exists some $\mathfrak{q}_i$ such that $r(\mathfrak{q}_i)=\mathfrak{p}$. We claim such $r(\mathfrak{q}_i)$ is minimal. To see this, suppose there exists some $\mathfrak{q}_j$ such that $r(\mathfrak{q}_j)\subset r(\mathfrak{q}_i)$, then we have 
+$$
+\mathfrak{p} =\bigcap_{i=1}^m{r\left( \mathfrak{q} _i \right)}\subset r\left( \mathfrak{q} _j \right) \subset r\left( \mathfrak{q} _i \right) =\mathfrak{p} ,
+$$
+which gives $r(\mathfrak{q}_i)=r(\mathfrak{q}_j)$. However the decomposition is minimal, hence $i=j$. Therefore $\mathfrak{p}$ is an isolated prime ideal of $\mathfrak{p}^n$. Now note that $\mathfrak{p} ^n=\mathfrak{p} ^{\left( n \right)}\cap \left( \bigcap_{j\ne i}{\mathfrak{q} _j} \right) $ is also a primary decomposition of $\mathfrak{p}^{(n)}$ of $\mathfrak{p}^n$, therefore by the uniqueness of minimal ideals we have $\mathfrak{q}_i=\mathfrak{p}^{(n)}$, which finished the proof.\par
+(iii) We first show that $\mathfrak{p}^{(m+n)}$ is the smallest $\mathfrak{p}$-primary ideal containing $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}$. To see this, suppose $\mathfrak{q}$ is a $\mathfrak{p}$-primary ideal containing $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}$, then we have 
+$$
+sx\in \mathfrak{p} ^{m+n}=\mathfrak{p} ^m\mathfrak{p} ^n\subset \mathfrak{p} ^{\left( m \right)}\mathfrak{p} ^{\left( n \right)}\subset \mathfrak{q} 
+$$
+for some $s\in S_\mathfrak{p}$. However $s\notin r(\mathfrak{q})=\mathfrak{p}$, therefore $x\in\mathfrak{q}$. Now suppose $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}=\bigcap_{i=1}^k\mathfrak{q}_i$, then we have 
+$$
+\mathfrak{p} =r\left( \mathfrak{p} ^{\left( m \right)}\mathfrak{p} ^{\left( n \right)} \right) =r\left( \bigcap_{i=1}^k{\mathfrak{q} _i} \right) =\bigcap_{i=1}^k{r\left( \mathfrak{q} _i \right)},
+$$
+therefore by an analogous argument of (ii) we finished the proof.\par
+(iv) If $\mathfrak{p}^{(n)}=\mathfrak{p}^n$, then by (i) we have $\mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary, whence $\mathfrak{p}^n$ is also $\mathfrak{p}$-primary. Conversely, it suffices to note that $\mathfrak{p}^{(n)}$ is the smallest $\mathfrak{p}$-primary ideal containing $\mathfrak{p}^n$.
+\end{proof}
+\begin{problem}\em
+Let $\mathfrak{a}$ be a decomposable ideal in a ring $A$ and let $\mathfrak{p}$ be a maximal element of the set of ideals $(\mathfrak{a}:x)$, where $x\in A$ and $x\notin\mathfrak{a}$. Show that $\mathfrak{p}$ is a prime ideal belonging to $\mathfrak{a}$.
+\end{problem}
+\begin{proof}
+Let $\mathfrak{q}$ be a $\mathfrak{p}^\prime$-primary ideal, we claim that if $x\in A-\mathfrak{q}$ is an element such that $(\mathfrak{q}:x)$ is maximal among all ideals of such form, then $(\mathfrak{q}:x)=r(\mathfrak{q})$. To see this, suppose $y\in A-(\mathfrak{q}:x)$, then $\left( \mathfrak{q} :x \right) \subset \left( \left( \mathfrak{q} :x \right) :y \right) =\left( \mathfrak{q} :xy \right) \subset \left( \mathfrak{q} :x \right) $, which gives $(\mathfrak{q}:x)=(\mathfrak{q}:xy)$ and hence for all $z\in A$ we have $xyz\in\mathfrak{q}$ implies $xz\in\mathfrak{q}$. Take $z=y^n$, we have $xy^{n+1}\in\mathfrak{q}$ implies $xy^n\in\mathfrak{q}$. Repeating the preceding process, we have $x\in\mathfrak{q}$, a contradiction! Therefore no power of $y$ lie in $(\mathfrak{q}:x)$, hence $y\in A-(\mathfrak{q}:x)$ and $\mathfrak{p}^\prime\subset(\mathfrak{q}:x)$. However $(\mathfrak{q}:x)\subset\mathfrak{p}^\prime$, hence $(\mathfrak{q}:x)=\mathfrak{p}=r(\mathfrak{q})$ and the claim is proved.\par
+Now suppose $\mathfrak{a}=\bigcap_{i=1}^m\mathfrak{q}_i$ is a primary decomposition of $\mathfrak{a}$. Therefore 
+$$
+\left( \mathfrak{a} :x \right) =\left( \bigcap_{i=1}^m{\mathfrak{q} _i}:x \right) =\bigcap_{i=1}^m{\left( \mathfrak{q} _i:x \right)}.
+$$
+Now suppose $x\in A-\mathfrak{a}$ such that $(\mathfrak{a}:x)$ is maximal. Fix an index $i$. We may suppose $x\in\left( \bigcap_{j\ne i}{\mathfrak{q} _j} \right) -\mathfrak{a} $, for otherwise take 
+$$
+y\in \left( \bigcap_{j\ne i}{\mathfrak{q} _j} \right) -\mathfrak{q} _i=\left( \bigcap_{j\ne i}{\mathfrak{q} _j} \right) -\left( \bigcap_{i=1}^m{\mathfrak{q} _i} \right) =\left( \bigcap_{j\ne i}{\mathfrak{q} _j} \right) -\mathfrak{a} ,
+$$
+then $\left( \mathfrak{a} :x \right) \subset \left( \left( \mathfrak{a} :x \right) :y \right) =\left( \mathfrak{a} :xy \right) \subset \left( \mathfrak{a} :x \right) $ and hence we may replace $x$ with $xy$. Therefore by the preceding claim we have 
+$$
+\left( \mathfrak{a} :x \right) =\bigcap_{j=1}^m{\left( \mathfrak{q} _j:x \right)}=\left( \mathfrak{q} _i:x \right) =r\left( \mathfrak{q} _i \right) =\mathfrak{p} _i
+$$
+is a prime ideal belonging to $\mathfrak{a}$.
+\end{proof}
+\begin{problem}\em
+Let $\mathfrak{a}$ be a decomposable ideal in a ring $A$ and let $\Sigma$ be the set of isolated prime ideals of $\mathfrak{a}$. Let $\mathfrak{q}_\Sigma$ be the intersection of the corresponding primary components. Let $f$ be an element of $A$ such that $f\in\mathfrak{p}$ for some $\mathfrak{p}$ belonging to $A$ if and only if $\mathfrak{p}\notin\Sigma$, and let $S_f$ be the set of all powers of $f$. Show that $\mathfrak{q}_\Sigma=S_f(\mathfrak{a})=(\mathfrak{a}:f^n)$ for some large $n$.
+\end{problem}
+\begin{proof}
+Suppose $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$ and $\Sigma=\{\mathfrak{q}_1,\cdots,\mathfrak{q}_m\}$. Now if $\mathfrak{p}_i\cap S_f=\emptyset$, then there exists some $n$ such that $f^n\in\mathfrak{p}_i$ and hence $f\in\mathfrak{q}_i$, which implies $\mathfrak{q}_i\notin\Sigma$. Therefore $S_f\left( \mathfrak{a} \right) =\bigcap_{i=1}^m{\mathfrak{q} _i}=\mathfrak{q} _{\Sigma}$.\par
+Now we prove the second equality. Trivially we have $S_f(\mathfrak{a})\supset(\mathfrak{a}:f^n)$ for all $n>0$. Therefore it suffices to show that there exists some $k>0$ such that $(\mathfrak{a}:f^k)\supset S_f(\mathfrak{a})$. Note that 
+$$
+\left( \mathfrak{a} :f^k \right) =\left( \bigcap_{i=1}^n{\mathfrak{q} _i}:f^k \right) =\bigcap_{i=1}^n{\left( \mathfrak{q} _i:f^k \right)},
+$$
+it suffices to find some $n$ such that for each $i$ we have $f^{n_i}x\in\mathfrak{q}_i$ for any $x\in\mathfrak{q}_\Sigma$. If $1\le i\le m$, then simply take $n_i=0$. If $i>m$, then since $f\in\mathfrak{p}_i=r(\mathfrak{q}_i)$, such $n_i$ exists. Take $n=\max_{1\le i\le n}n_i$, we finished the proof.
+\end{proof}
+\begin{problem}\em
+If $A$ is a ring in which every ideal has a primary decomposition, show that every ring of fractions $S^{-1}A$ has the same property.
+\end{problem}
+\begin{proof}
+Note that every ideal of $S^{-1}A$ is of the form $S^{-1}\mathfrak{a}$ with $\mathfrak{a}$ an ideal of $A$ such that $S\cap\mathfrak{a}=\emptyset$. Therefore if $\mathfrak{a}=\bigcap_{i=1}^n\mathfrak{q}_i$ is a primary decomposition of $\mathfrak{a}$, then 
+$$
+S^{-1}\mathfrak{a} =S^{-1}\left( \bigcap_{i=1}^m{\mathfrak{q} _i} \right) =\bigcap_{i=1}^m{S^{-1}\mathfrak{q} _i},
+$$
+which is, possibly omitting some terms $S^{-1}\mathfrak{q}_j$, a primary decomposition of $S^{-1}\mathfrak{a}$.
+\end{proof}
+\begin{problem}\em
+Let $A$ be a ring with the following property: (L1) For every ideal $\mathfrak{a}\ne (1)$ in $A$ and every prime ideal $\mathfrak{p}$, there exists $x\notin\mathfrak{p}$ such that $S_\mathfrak{p}(\mathfrak{a})=(\mathfrak{a}:x)$, where $S_\mathfrak{p}=A-\mathfrak{p}$. Show that every ideal in $A$ is an intersection of primary ideals.
+\end{problem}
+\begin{proof}
+Let $\mathfrak{a}$ be an ideal of $A$ and $\mathfrak{p}\in\mathrm{Spec}(A)$. Denote $\mathfrak{p}_1$ the minimal prime ideal of $A$ such that containing $\mathfrak{a}$, then $\mathfrak{q}_1=S_{\mathfrak{p}_1}(\mathfrak{a})$ is a $\mathfrak{p}_1$-primary ideal of $A$, and hence by (L1) there exists some $x\in A-\mathfrak{p}_1$ such that $S_{\mathfrak{p}_1}(\mathfrak{a})=(\mathfrak{a}:x)$. Now we claim that $\mathfrak{a}=\mathfrak{q}_1\cap(\mathfrak{a}+(x))$. To see this, first note that $\mathfrak{a}\subset\mathfrak{q}_1$ and $\mathfrak{a}\subset\mathfrak{a}+(x)$. Conversely, suppose $a+bx\in\mathfrak{a}+(x)$, then if $a+bx\in(\mathfrak{a}:x)$, then we have $ax+bx^2\in\mathfrak{a}$, whence $bx^2\in\mathfrak{a}$. Since $\mathfrak{a}\subset\mathfrak{q}_1$, we have $bx^2\in\mathfrak{q}_1$. Since $x\notin\mathfrak{p}_1$, we have $x^{2n}\notin\mathfrak{q}_1$ and hence $b\in\mathfrak{q}_1$, which proved that $\mathfrak{a}=\mathfrak{q}_1\cap(\mathfrak{a}+(x))$.\par
+Now let $\mathfrak{a}_1$ be the maximal element of the set of ideals $\mathfrak{b}\supset\mathfrak{a}$ such that $\mathfrak{q}_1\cap\mathfrak{b}=\mathfrak{a}$, and choose $\mathfrak{a}_1$ such that $x\in\mathfrak{a}_1$ and therefore $\mathfrak{a}_1\not\subset\mathfrak{q}_1$. Such ideal exists by the preceding argument. Now repeat the preceding process with transfinite induction, the proof is finished.
+\end{proof}
+\begin{problem}\em
+Consider the following condition on a ring $A$: (L2) Given an ideal $\mathfrak{a}$ and a descending chain $S_1\supset S_2\supset\cdots\supset S_n\supset\cdots$ of multiplicatively closed subsets of $A$, there exists an integer $n$ such that $S_n(\mathfrak{a})=S_{n+1}(\mathfrak{a})=\cdots$. Prove that every ideal in $A$ has a primary decomposition if and only if both L1 and L2 are satisfied.
+\end{problem}
+\begin{proof}
+Suppose $A$ is a ring such that every ideal in $A$ has a primary decomposition. Let $\mathfrak{a}$ be an ideal of $A$ and $\mathfrak{a}=\bigcap\mathfrak{q}_i$ is a primary decomposition of $\mathfrak{a}$. We first show (L1). Let $\mathfrak{p}\in\mathrm{Spec}(A)$, denote $\mathfrak{p}_i=r(\mathfrak{q}_i)$ and $S_\mathfrak{p}=A-\mathfrak{p}$. Let $\Sigma$ be the set if indexes of $\mathfrak{q}_i$ such that $\mathfrak{q}_i\subset\mathfrak{p}_i\subset\mathfrak{p}$ and $\Sigma^\prime$ the set of the indexes of $\mathfrak{q}_i$ such that $\mathfrak{q}_i\notin\mathfrak{p}$. Therefore $S_{\mathfrak{p}}\left( \mathfrak{a} \right) =S_{\mathfrak{p}}\left( \bigcap{\mathfrak{q} _i} \right) =\bigcap_{i\in \Sigma}{\mathfrak{q} _i}$. Now note that $\left( \mathfrak{a} :x \right) =\left( \bigcap{\mathfrak{q} _i}:x \right) =\bigcap{\left( \mathfrak{q} _i:x \right)}$, therefore if $x\notin A-\mathfrak{p}$ such that $S_\mathfrak{p}(\mathfrak{a})=(\mathfrak{a}:x)$, we have $(\mathfrak{q}_i:x)=\mathfrak{q}_i$ for $i\in\Sigma$ and $(\mathfrak{q}_i:x)=(1)$ for $i\in\Sigma^\prime$. Therefore for each $i\in\Sigma^\prime$, take $x_i\in\mathfrak{q}_i-\mathfrak{p}$, then $x=\prod_{i\in\Sigma^\prime}x_i$ satisfies the condition.\par
+Now we show (L2). We adopt the preceding notations. Suppose $S_1\supset S_2\supset\cdots\supset S_n\supset$ is a descending chain of multiplicatively closed subsets of $A$. Denote $\Sigma^{(n)}$ the set of $i$ such that $S_n\cap r(\mathfrak{q}_i)=\emptyset$. Then since $S_n$ decreases, we have $\Sigma^{(n)}$ increases. However $\Sigma^{(n)}\subset\{1,2,\cdots,m\}$, whence the ascending chain must be stable for some large $n$, whence $S_n(\mathfrak{a})=S_{n+1}(\mathfrak{a})$ for all large $n$.\par
+Conversely, suppose (L1) and (L2) are both satisfied in a ring $A$. Then for each ideal $\mathfrak{a}$ of $A$, we have $\mathfrak{a}$ is an intersection of (possibly infinitely many) primary ideals of $A$. By the proof of Exercise 9.17 there exists an ascending chain of ideals $\mathfrak{a}_1\subset\mathfrak{a}_2\subset\cdots\subset\mathfrak{a}_n\subset\cdots$ such that $\mathfrak{a}=\mathfrak{q}_1\cap\cdots\cap\mathfrak{q}_{n-1}\cap\mathfrak{a}_n$. Now it suffices to show that the preceding ascending chain of ideals terminates. To see this, denote $S_n=\bigcap_{i=1}^nS_{\mathfrak{p}_n}$, then $S_n(\mathfrak{a})=\mathfrak{q}_1\cap\cdots\cap\mathfrak{q}_n$. By (L2) we have $S_n(\mathfrak{a})$ terminates for large $n$, which finished the proof.
+\end{proof}
